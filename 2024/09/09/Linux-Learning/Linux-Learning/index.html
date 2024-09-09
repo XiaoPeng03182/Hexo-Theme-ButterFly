@@ -1,0 +1,1284 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Linux-Learning | 小鹏的博客</title><meta name="author" content="小鹏"><meta name="copyright" content="小鹏"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="初步学习Linux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux-Learning">
+<meta property="og:url" content="http://example.com/2024/09/09/Linux-Learning/Linux-Learning/index.html">
+<meta property="og:site_name" content="小鹏的博客">
+<meta property="og:description" content="初步学习Linux">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png">
+<meta property="article:published_time" content="2024-09-09T03:12:08.726Z">
+<meta property="article:modified_time" content="2024-09-09T05:02:37.306Z">
+<meta property="article:author" content="小鹏">
+<meta property="article:tag" content="Linux-Learning">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/09/09/Linux-Learning/Linux-Learning/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: {"limitDay":90,"position":"top","messagePrev":"距离上次更新已有","messageNext":"文章可能某些部分也过时"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Linux-Learning',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-09-09 13:02:37'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 8 || hour >= 22
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image%20(1).png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">5</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background: linear-gradient(20deg, #0062be, #925696, #cc426e, #fb0347)"><nav id="nav"><span id="blog-info"><a href="/" title="小鹏的博客"><img class="site-icon" src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image%20(1).png"/><span class="site-name">小鹏的博客</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Linux-Learning</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-09-09T03:12:08.726Z" title="发表于 2024-09-09 11:12:08">2024-09-09</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-09-09T05:02:37.306Z" title="更新于 2024-09-09 13:02:37">2024-09-09</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Web%E5%AD%A6%E4%B9%A0/">Web学习</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Web%E5%AD%A6%E4%B9%A0/Linux-Learning/">Linux-Learning</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Linux-Learning"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Linux-Learning"><a href="#Linux-Learning" class="headerlink" title="Linux-Learning"></a>Linux-Learning</h1><h2 id="一、使用场景和简介"><a href="#一、使用场景和简介" class="headerlink" title="一、使用场景和简介"></a>一、使用场景和简介</h2><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902195701005.png" alt="image-20240902195701005" style="zoom:80%;" />
+
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902195805085.png" alt="image-20240902195805085" style="zoom:50%;" />
+
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902195840888.png" alt="image-20240902195840888" style="zoom:80%;" />
+
+<h3 id="（1）Linux系统版本"><a href="#（1）Linux系统版本" class="headerlink" title="（1）Linux系统版本"></a>（1）Linux系统版本</h3><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902195919759.png" alt="image-20240902195919759" style="zoom:80%;" />
+
+<h4 id="①发行版"><a href="#①发行版" class="headerlink" title="①发行版"></a>①发行版</h4><p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902200004889.png" alt="image-20240902200004889"></p>
+<h2 id="二、Linux安装"><a href="#二、Linux安装" class="headerlink" title="二、Linux安装"></a>二、Linux安装</h2><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902200123390.png" alt="image-20240902200123390" style="zoom:80%;" />
+
+
+
+<h3 id="（1）VMware安装"><a href="#（1）VMware安装" class="headerlink" title="（1）VMware安装"></a>（1）VMware安装</h3><p>Vmware-17（提取码: ak47）：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1ubUeSJIZKUcbbavYFcAoPA?pwd=ak47">VMware-workstation-full-17.5.0-22583795 (1).exe</a></p>
+<h3 id="（2）Centos镜像"><a href="#（2）Centos镜像" class="headerlink" title="（2）Centos镜像"></a>（2）Centos镜像</h3><p>阿里云镜像地址：<a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/centos/7/isos/x86_64/">centos-7-isos-x86_64安装包下载_开源镜像站-阿里云 (aliyun.com)</a></p>
+<h3 id="（3）Finalshell安装"><a href="#（3）Finalshell安装" class="headerlink" title="（3）Finalshell安装"></a>（3）Finalshell安装</h3><p>官网：<a target="_blank" rel="noopener" href="https://www.hostbuf.com/t/988.html">FinalShell SSH工具,服务器管理,远程桌面加速软件,支持Windows,macOS,Linux,版本4.5.6,更新日期2024.8.27 - FinalShell官网 (hostbuf.com)</a></p>
+<h3 id="（4）VMware-新建虚拟机"><a href="#（4）VMware-新建虚拟机" class="headerlink" title="（4）VMware-新建虚拟机"></a>（4）VMware-新建虚拟机</h3><h4 id="①新建虚拟机"><a href="#①新建虚拟机" class="headerlink" title="①新建虚拟机"></a>①新建虚拟机</h4><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902201503670.png" alt="image-20240902201503670" style="zoom:50%;" />
+
+
+
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902201519139.png" alt="image-20240902201519139" style="zoom: 50%;" />
+
+
+
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902201608453.png" alt="image-20240902201608453" style="zoom:50%;" />
+
+
+
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902201734214.png" alt="image-20240902201734214" style="zoom:50%;" />
+
+
+
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902201823556.png" alt="image-20240902201823556" style="zoom:50%;" />
+
+
+
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902201924523.png" alt="image-20240902201924523" style="zoom:50%;" />
+
+
+
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902202015174.png" alt="image-20240902202015174" style="zoom:50%;" />
+
+
+
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902202116109.png" alt="image-20240902202116109" style="zoom:50%;" />
+
+
+
+<h4 id="②Linux配置"><a href="#②Linux配置" class="headerlink" title="②Linux配置"></a>②Linux配置</h4><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902202333425.png" alt="image-20240902202333425" style="zoom:50%;" />
+
+
+
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902202515535.png" alt="image-20240902202515535" style="zoom:50%;" />
+
+
+
+<p><strong>安装过程中，发现不少问题。</strong>如下图</p>
+<h5 id="1）网络和主机名"><a href="#1）网络和主机名" class="headerlink" title="1）网络和主机名"></a>1）网络和主机名</h5><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902203017800.png" alt="image-20240902203017800" style="zoom: 50%;" />
+
+<p>首先，我们点击网络和主机名，进去打开网络。</p>
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902202819885.png" alt="image-20240902202819885" style="zoom:50%;" />
+
+<p>再点击左上角的完成，退出来可以看到，网络问题已经解决了。</p>
+<h5 id="2）安装目的地"><a href="#2）安装目的地" class="headerlink" title="2）安装目的地"></a>2）安装目的地</h5><p>然后点击 安装目的地，</p>
+<p>直接点击右上角完成，回到配置页面，可以看到，这个也解决了。</p>
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902203332833.png" alt="image-20240902203332833" style="zoom:50%;" />
+
+
+
+<h5 id="3）设置Root密码"><a href="#3）设置Root密码" class="headerlink" title="3）设置Root密码"></a>3）设置Root密码</h5><p><strong>点击 root 根密码</strong></p>
+<p>设置跟密， 然后点击两次 完成，解决了。</p>
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902203521671.png" alt="image-20240902203521671" style="zoom:50%;" />
+
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902203438126.png" alt="image-20240902203438126" style="zoom:50%;" />
+
+
+
+<h5 id="4）设置时区"><a href="#4）设置时区" class="headerlink" title="4）设置时区"></a>4）设置时区</h5><p>时区为 美洲，我们点开，设置为上海。</p>
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902203643057.png" alt="image-20240902203643057" style="zoom:50%;" />
+
+<p>时区也配置好了。</p>
+<h5 id="5）安装配置"><a href="#5）安装配置" class="headerlink" title="5）安装配置"></a>5）安装配置</h5><p>如果使用本地的ISO映像仍然报错，可以考虑切换不同版本的Centos映像，也可以通过输入阿里云镜像网址的方式，在线安装。</p>
+<p>阿里云Centos下载地址：<a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/centos/7/isos/x86_64/">阿里云Centos下载地址</a></p>
+<p>阿里云Centos镜像站：<a target="_blank" rel="noopener" href="https://mirrors.aliyun.com/centos/">阿里云Centos镜像站</a></p>
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902204038773.png" alt="image-20240902204038773" style="zoom:50%;" />
+
+<h4 id="③登录Linux"><a href="#③登录Linux" class="headerlink" title="③登录Linux"></a>③登录Linux</h4><p>默认用户名为root，密码为前面设置的root密码</p>
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902204551264.png" alt="image-20240902204551264" style="zoom:50%;" />
+
+
+
+<h4 id="④网卡配置"><a href="#④网卡配置" class="headerlink" title="④网卡配置"></a>④网卡配置</h4><p><strong>如果之前在Linux配置中已经开启了“网络和主机名”的网络开关，则可以&#x3D;&#x3D;直接使用命令：ip addr&#x3D;&#x3D;，查看IP地址</strong>。</p>
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902202819885.png" alt="image-20240902202819885" style="zoom:50%;" />
+
+
+
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902205058831.png" alt="image-20240902205058831" style="zoom:67%;" />
+
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902204921537.png" alt="image-20240902204921537" style="zoom: 80%;" />
+
+<p><strong>配置完成后：</strong></p>
+<p>​						<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902205209463.png" alt="image-20240902205209463" style="zoom:80%;" /></p>
+<h4 id="⑤配置完成"><a href="#⑤配置完成" class="headerlink" title="⑤配置完成"></a>⑤配置完成</h4><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902204645575.png" alt="image-20240902204645575" style="zoom: 33%;" />
+
+
+
+<h2 id="三、FinalShell远程连接Linux服务器"><a href="#三、FinalShell远程连接Linux服务器" class="headerlink" title="三、FinalShell远程连接Linux服务器"></a>三、FinalShell远程连接Linux服务器</h2><h3 id="（1）安装"><a href="#（1）安装" class="headerlink" title="（1）安装"></a>（1）安装</h3><p>官网：<a target="_blank" rel="noopener" href="https://www.hostbuf.com/t/988.html">FinalShell SSH工具,服务器管理,远程桌面加速软件,支持Windows,macOS,Linux,版本4.5.6,更新日期2024.8.27 - FinalShell官网 (hostbuf.com)</a></p>
+<h3 id="（2）远程连接Linux服务器"><a href="#（2）远程连接Linux服务器" class="headerlink" title="（2）远程连接Linux服务器"></a>（2）远程连接Linux服务器</h3><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902205532112.png" alt="image-20240902205532112" style="zoom: 67%;" />
+
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902205812273.png" alt="image-20240902205812273" style="zoom:50%;" />
+
+<h3 id="（3）操作Linux服务器"><a href="#（3）操作Linux服务器" class="headerlink" title="（3）操作Linux服务器"></a>（3）操作Linux服务器</h3><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902205929107.png" alt="image-20240902205929107" style="zoom:50%;" />
+
+<h2 id="四、Linux目录"><a href="#四、Linux目录" class="headerlink" title="四、Linux目录"></a>四、Linux目录</h2><h3 id="（1）Linux和Windows目录结构对比"><a href="#（1）Linux和Windows目录结构对比" class="headerlink" title="（1）Linux和Windows目录结构对比"></a>（1）Linux和Windows目录结构对比</h3><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902210438334.png" alt="image-20240902210438334" style="zoom: 67%;" />
+
+<h3 id="（2）目录介绍"><a href="#（2）目录介绍" class="headerlink" title="（2）目录介绍"></a>（2）目录介绍</h3><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902210531386.png" alt="image-20240902210531386" style="zoom: 67%;" />
+
+<ul>
+<li><strong>bin存放二进制可执行文件</strong></li>
+<li><strong>boot存放系统引导时使用的各种文件</strong></li>
+<li><strong>dev存放设备文件</strong></li>
+<li><strong>etc存放系统配置文件</strong></li>
+<li><strong>home存放系统用户的文件</strong></li>
+<li><strong>lib存放程序运行所需的共享库和内核模块</strong></li>
+<li><strong>opt额外安装的可选应用程序包所放置的位置</strong></li>
+<li><strong>root超级用户目录</strong></li>
+<li><strong>sbin存放二进制可执行文件，只有root用户才能访问</strong></li>
+<li><strong>tmp存放临时文件</strong></li>
+<li><strong>usr存放系统应用程序</strong></li>
+<li><strong>var存放运行时需要改变数据的文件，例如日志文件</strong></li>
+</ul>
+<h2 id="五、Linux-常用命令"><a href="#五、Linux-常用命令" class="headerlink" title="五、Linux&#x3D;&#x3D;常用命令&#x3D;&#x3D;"></a>五、Linux&#x3D;&#x3D;常用命令&#x3D;&#x3D;</h2><h3 id="1、Linux命令初体验"><a href="#1、Linux命令初体验" class="headerlink" title="1、Linux命令初体验"></a>1、Linux命令初体验</h3><p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902211041543.png" alt="image-20240902211041543"></p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902212158686.png" alt="image-20240902212158686"></p>
+<h4 id="（1）-ls-查看当前目录下的内容"><a href="#（1）-ls-查看当前目录下的内容" class="headerlink" title="（1）&#x3D;&#x3D;ls&#x3D;&#x3D;-查看当前目录下的内容"></a>（1）&#x3D;&#x3D;ls&#x3D;&#x3D;-查看当前目录下的内容</h4><h5 id="①ls-l-或者-ll-两个L"><a href="#①ls-l-或者-ll-两个L" class="headerlink" title="①ls -l 或者 ll(两个L)"></a>①ls -l 或者 ll(两个L)</h5><p><strong>表示查看当前目录下的详细内容</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ls -l</span><br><span class="line">ll</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="（2）-pwd-查看当前所在目录"><a href="#（2）-pwd-查看当前所在目录" class="headerlink" title="（2）&#x3D;&#x3D;pwd&#x3D;&#x3D;-查看当前所在目录"></a>（2）&#x3D;&#x3D;pwd&#x3D;&#x3D;-查看当前所在目录</h4><h4 id="（3）-cd-目录名-切换目录"><a href="#（3）-cd-目录名-切换目录" class="headerlink" title="（3）&#x3D;&#x3D;cd [目录名]&#x3D;&#x3D; -切换目录"></a>（3）&#x3D;&#x3D;cd [目录名]&#x3D;&#x3D; -切换目录</h4><h4 id="（4）-touch-文件名-如果文件不存在，新建文件"><a href="#（4）-touch-文件名-如果文件不存在，新建文件" class="headerlink" title="（4）&#x3D;&#x3D;touch [文件名]&#x3D;&#x3D; -如果文件不存在，新建文件"></a>（4）&#x3D;&#x3D;touch [文件名]&#x3D;&#x3D; -如果文件不存在，新建文件</h4><h4 id="（5）-mkdir-目录名-创建目录"><a href="#（5）-mkdir-目录名-创建目录" class="headerlink" title="（5）&#x3D;&#x3D;mkdir [目录名]&#x3D;&#x3D; -创建目录"></a>（5）&#x3D;&#x3D;mkdir [目录名]&#x3D;&#x3D; -创建目录</h4><h4 id="（6）-rm-文件名-目录名-删除指定文件或目录"><a href="#（6）-rm-文件名-目录名-删除指定文件或目录" class="headerlink" title="（6）&#x3D;&#x3D;rm [文件名|目录名]&#x3D;&#x3D; -删除指定文件或目录"></a>（6）&#x3D;&#x3D;rm [文件名|目录名]&#x3D;&#x3D; -删除指定文件或目录</h4><h5 id="①rm-f-文件名1-文件名2"><a href="#①rm-f-文件名1-文件名2" class="headerlink" title="①rm -f [文件名1] [文件名2]"></a>①rm -f [文件名1] [文件名2]</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">rm -f a.txt b.txt  #强制删除多个文件(-f，表示不提示，直接删除)</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="（5）-echo-内容-filename-追加内容"><a href="#（5）-echo-内容-filename-追加内容" class="headerlink" title="（5）&#x3D;&#x3D;echo 内容 &gt;&gt; filename&#x3D;&#x3D;-追加内容"></a>（5）&#x3D;&#x3D;echo 内容 &gt;&gt; filename&#x3D;&#x3D;-追加内容</h4><p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902220633127.png" alt="image-20240902220633127"></p>
+<h3 id="2、Linux命令使用技巧"><a href="#2、Linux命令使用技巧" class="headerlink" title="2、Linux命令使用技巧"></a>2、Linux命令使用技巧</h3><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902212324907.png" alt="image-20240902212324907" style="zoom:50%;" />
+
+
+
+<h3 id="3、Linux命令格式"><a href="#3、Linux命令格式" class="headerlink" title="3、Linux命令格式"></a>3、Linux命令格式</h3><p><strong>command [-options] [parameter]</strong></p>
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902212453826.png" alt="image-20240902212453826" style="zoom:67%;" />
+
+<ul>
+<li><strong>command：命令名</strong></li>
+<li><strong>[-options]：选项，可用来对命令进行控制，也可以省略</strong></li>
+<li><strong>[parameter]：传给命令的参数，可以是零个、一个或者多个</strong></li>
+</ul>
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902213117118.png" alt="image-20240902213117118" style="zoom:50%;" />
+
+
+
+<h3 id="4、-文件目录-操作命令"><a href="#4、-文件目录-操作命令" class="headerlink" title="4、&#x3D;&#x3D;文件目录&#x3D;&#x3D;操作命令"></a>4、&#x3D;&#x3D;文件目录&#x3D;&#x3D;操作命令</h3><h4 id="（1）-ls-显示指定目录下的内容"><a href="#（1）-ls-显示指定目录下的内容" class="headerlink" title="（1）&#x3D;&#x3D;ls&#x3D;&#x3D; -显示指定目录下的内容"></a>（1）&#x3D;&#x3D;ls&#x3D;&#x3D; -显示指定目录下的内容</h4><p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902213702171.png" alt="image-20240902213702171"><strong>作用：显示指定目录下的内容</strong><br><strong>语法：&#x3D;&#x3D;ls [-al] [dir]&#x3D;&#x3D;</strong><br><strong>说明：</strong></p>
+<ul>
+<li><strong>&#x3D;&#x3D;-a&#x3D;&#x3D;显示所有文件及目录(.开头的&#x3D;&#x3D;隐藏文件&#x3D;&#x3D;也会列出)</strong></li>
+<li><strong>&#x3D;&#x3D;-L&#x3D;&#x3D;除文件名称外，同时将文件型态(&#x3D;&#x3D;d表示目录，-表示文件&#x3D;&#x3D;)、权限、拥有者、文件大小等信息详细列出</strong></li>
+</ul>
+<p><strong>注意：</strong><br><strong>由于我们使用ls命令时经常需要加入-L选项，所以Linux为ls-l命令提供了一种简写方式，即ll</strong></p>
+<h4 id="（2）-cd-用于切换目录"><a href="#（2）-cd-用于切换目录" class="headerlink" title="（2）&#x3D;&#x3D;cd&#x3D;&#x3D; -用于切换目录"></a>（2）&#x3D;&#x3D;cd&#x3D;&#x3D; -用于切换目录</h4><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902214253369.png" alt="image-20240902214253369" style="zoom: 67%;" />
+
+<p><strong>作用：用于切换当前工作目录，即进入指定目录</strong><br>        <strong>语法：cd [dirName]</strong></p>
+<p><strong>特殊说明：</strong></p>
+<ul>
+<li><p><strong>~表示用户的home目录(一个用户可以有多个用户目录)</strong></p>
+</li>
+<li><p><strong>.表示目前所在的目录</strong></p>
+</li>
+<li><p><strong>..表示目前目录位置的上级目录</strong></p>
+</li>
+<li><p><strong>举例:</strong><br><strong>&#x3D;&#x3D;cd ..&#x3D;&#x3D;  切换到当前目录的上级目录</strong><br><strong>&#x3D;&#x3D;cd ~&#x3D;&#x3D;  切换到用户的home目录</strong><br><strong>cd &#x2F;usr &#x2F;local   切换到&#x2F;usr&#x2F;local目录</strong></p>
+</li>
+</ul>
+<h4 id="（3）-cat-用于显示文件内容"><a href="#（3）-cat-用于显示文件内容" class="headerlink" title="（3）&#x3D;&#x3D;cat&#x3D;&#x3D;-用于显示文件内容"></a>（3）&#x3D;&#x3D;cat&#x3D;&#x3D;-用于显示文件内容</h4><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902214725283.png" alt="image-20240902214725283" style="zoom:80%;" />
+
+<p><strong>作用：用于显示文件内容</strong><br>        <strong>语法：cat[-n] fileName</strong></p>
+<p><strong>说明：</strong></p>
+<ul>
+<li><strong>-n：由1开始对所有输出的行数编号</strong></li>
+</ul>
+<p><strong>举例:</strong></p>
+<ul>
+<li><strong>cat &#x2F;etc&#x2F;profile 查看&#x2F;etc目录下的profile文件内容</strong></li>
+</ul>
+<h4 id="（4）-more-已分页的形式显示文件内容"><a href="#（4）-more-已分页的形式显示文件内容" class="headerlink" title="（4）&#x3D;&#x3D;more&#x3D;&#x3D;-已分页的形式显示文件内容"></a>（4）&#x3D;&#x3D;more&#x3D;&#x3D;-已分页的形式显示文件内容</h4><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902215141507.png" alt="image-20240902215141507" style="zoom: 67%;" />
+
+<p><strong>作用：以分页的形式显示文件内容</strong><br>        <strong>语法：morefileName</strong></p>
+<p><strong>操作说明：</strong></p>
+<ul>
+<li><strong>回车键  向下滚动一行</strong></li>
+<li><strong>空格键  向下滚动一屏</strong></li>
+<li><strong>b  返回上一屏</strong></li>
+<li><strong>q或者Ctrl+c  退出more</strong></li>
+</ul>
+<p><strong>举例:</strong><br><strong>more&#x2F;etc&#x2F;profile 以分页方式显示&#x2F;etc目录下的profile文件内容</strong></p>
+<h4 id="（5）-tail-查看文件末尾的内容"><a href="#（5）-tail-查看文件末尾的内容" class="headerlink" title="（5）&#x3D;&#x3D;tail&#x3D;&#x3D;-查看文件末尾的内容"></a>（5）&#x3D;&#x3D;tail&#x3D;&#x3D;-查看文件末尾的内容</h4><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902220125682.png" alt="image-20240902220125682" style="zoom: 67%;" />
+
+<p><strong>作用：查看文件末尾的内容</strong></p>
+<p><strong>语法：tail[-f] fileName</strong></p>
+<p><strong>说明：</strong></p>
+<ul>
+<li><strong>-f：&#x3D;&#x3D;动态读取文件末尾内容并显示&#x3D;&#x3D;，通常用于&#x3D;&#x3D;日志文件的内容输出&#x3D;&#x3D;</strong></li>
+</ul>
+<p><strong>举例:</strong></p>
+<ul>
+<li><strong>tail &#x2F;etc&#x2F;profile  显示&#x2F;etc目录下的profile文件末尾10行的内容</strong></li>
+<li><strong>tail-20&#x2F;etc&#x2F;profile  显示&#x2F;etc目录下的profile文件末尾20行的内容</strong></li>
+<li><strong>tail -f &#x2F;itcast&#x2F;my.log  动态读取&#x2F;itcast目录下的my.log文件末尾内容并显示</strong></li>
+</ul>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902220633127.png" alt="image-20240902220633127"></p>
+<h4 id="（6）-mkdir-创建目录"><a href="#（6）-mkdir-创建目录" class="headerlink" title="（6）&#x3D;&#x3D;mkdir&#x3D;&#x3D;-创建目录"></a>（6）&#x3D;&#x3D;mkdir&#x3D;&#x3D;-创建目录</h4><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902221316935.png" alt="image-20240902221316935" style="zoom:67%;" />
+
+<p><strong>作用：创建目录</strong></p>
+<p><strong>语法： mkdir [-p] dirName</strong></p>
+<p><strong>说明：</strong></p>
+<p><strong>●&#x3D;&#x3D;-p&#x3D;&#x3D;：&#x3D;&#x3D;确保目录名称存在&#x3D;&#x3D;，&#x3D;&#x3D;不存在的就创建一个&#x3D;&#x3D;。通过此选项，可以实现&#x3D;&#x3D;多层目录同时创建&#x3D;&#x3D;</strong></p>
+<p><strong>举例：</strong></p>
+<ul>
+<li><strong>mkdiritcast在当前目录下，建立一个名为itcast的子目录</strong></li>
+<li><strong>mkdi r-p itcast&#x2F;test在工作目录下的itcast目录中建立一个名为test的&#x3D;&#x3D;子目录&#x3D;&#x3D;，若itcast目录不存在，则建立一个</strong></li>
+</ul>
+<h4 id="（7）-rmdir-删除空目录"><a href="#（7）-rmdir-删除空目录" class="headerlink" title="（7）&#x3D;&#x3D;rmdir&#x3D;&#x3D;-删除空目录"></a>（7）&#x3D;&#x3D;rmdir&#x3D;&#x3D;-删除空目录</h4><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902221703167.png" alt="image-20240902221703167" style="zoom: 67%;" />
+
+<p><strong>作用：删除&#x3D;&#x3D;空目录&#x3D;&#x3D;</strong></p>
+<p><strong>语法：rmdir [-p] dirName</strong></p>
+<p><strong>说明：</strong></p>
+<ul>
+<li><strong>-p：&#x3D;&#x3D;当子目录被删除后使父目录为空目录的话，则一并删除&#x3D;&#x3D;</strong></li>
+</ul>
+<p><strong>举例：</strong></p>
+<ul>
+<li><strong>rmdir itcast删除名为itcast的空目录</strong></li>
+<li><strong>rmdir -p itcast&#x2F;test删除itcast目录中名为test的子目录，若test目录删除后itcast目录变为&#x3D;&#x3D;空目录&#x3D;&#x3D;，则也被删除</strong></li>
+<li><em><em>rmdir &#x3D;&#x3D;itcast</em>&#x3D;&#x3D; &#x3D;&#x3D;删除名称以itcast开始的空目录&#x3D;&#x3D;</em>*</li>
+</ul>
+<h4 id="（8）-rm-删除文件或者目录"><a href="#（8）-rm-删除文件或者目录" class="headerlink" title="（8）&#x3D;&#x3D;rm&#x3D;&#x3D;-删除文件或者目录"></a>（8）&#x3D;&#x3D;rm&#x3D;&#x3D;-删除文件或者目录</h4><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902222907472.png" alt="image-20240902222907472" style="zoom:67%;" />
+
+<p><strong>作用：删除文件或者目录</strong></p>
+<p><strong>语法：rm [-rf] name</strong></p>
+<p><strong>说明：</strong></p>
+<ul>
+<li><strong>-r：将目录及目录中所有文件（目录）逐一删除，即&#x3D;&#x3D;递归删除&#x3D;&#x3D;</strong></li>
+<li><strong>-f：&#x3D;&#x3D;无需确认，直接删除&#x3D;&#x3D;</strong></li>
+</ul>
+<p><strong>举例:</strong></p>
+<ul>
+<li><strong>rm -r itcast&#x2F;删除名为itcast的目录和&#x3D;&#x3D;目录中所有文件&#x3D;&#x3D;，删除前需确认</strong></li>
+<li><strong>rm &#x3D;&#x3D;-rf&#x3D;&#x3D; itcast&#x2F;无需确认，直接删除名为itcast的目录和&#x3D;&#x3D;目录中所有文件&#x3D;&#x3D;</strong></li>
+<li><strong>rm -f hello.txt无需确认，直接删除hello.txt文件</strong></li>
+</ul>
+<h3 id="5、-拷贝移动-命令"><a href="#5、-拷贝移动-命令" class="headerlink" title="5、&#x3D;&#x3D;拷贝移动&#x3D;&#x3D;命令"></a>5、&#x3D;&#x3D;拷贝移动&#x3D;&#x3D;命令</h3><h4 id="（1）-cp-用于复制文件或目录"><a href="#（1）-cp-用于复制文件或目录" class="headerlink" title="（1）&#x3D;&#x3D;cp&#x3D;&#x3D;-用于复制文件或目录"></a>（1）&#x3D;&#x3D;cp&#x3D;&#x3D;-用于复制文件或目录</h4><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902223403607.png" alt="image-20240902223403607" style="zoom:80%;" />
+
+<p><strong>作用：用于复制文件或目录</strong></p>
+<p><strong>语法：cp [-r] source dest</strong></p>
+<p><strong>说明：</strong></p>
+<ul>
+<li><strong>&#x3D;&#x3D;-r&#x3D;&#x3D;：如果复制的是&#x3D;&#x3D;目录&#x3D;&#x3D;需要使用此选项，此时将&#x3D;&#x3D;复制该目录下所有的子目录和文件&#x3D;&#x3D;</strong></li>
+</ul>
+<p><strong>举例：</strong></p>
+<ul>
+<li><strong>cp hello.txt itcast&#x2F;  将hello.txt复制到itcast目录中</strong></li>
+<li><strong>cp hello.txt &#x3D;&#x3D;.&#x2F;&#x3D;&#x3D;hi.txt  将hello.txt复制到&#x3D;&#x3D;当前目录&#x3D;&#x3D;，并&#x3D;&#x3D;改名&#x3D;&#x3D;为hi.txt(&#x3D;&#x3D;.&#x2F;&#x3D;&#x3D;表示当前目录)</strong></li>
+<li><strong>cp -r itcast&#x2F; .&#x2F;itheima&#x2F;  将&#x3D;&#x3D;itcast目录&#x3D;&#x3D;和目录下&#x3D;&#x3D;所有文件&#x3D;&#x3D;复制到itheima目录下</strong></li>
+<li><strong>cp -r &#x3D;&#x3D;itcast&#x2F;*&#x3D;&#x3D; .&#x2F;itheima&#x2F;  将itcast目录下&#x3D;&#x3D;所有文件&#x3D;&#x3D;复制到itheima目录下（&#x3D;&#x3D;只复制所有文件&#x3D;&#x3D;）</strong></li>
+</ul>
+<h4 id="（2）-mv-为文件或目录改名、或将文件或目录移动到其他位置"><a href="#（2）-mv-为文件或目录改名、或将文件或目录移动到其他位置" class="headerlink" title="（2）&#x3D;&#x3D;mv&#x3D;&#x3D;-为文件或目录改名、或将文件或目录移动到其他位置"></a>（2）&#x3D;&#x3D;mv&#x3D;&#x3D;-为文件或目录改名、或将文件或目录移动到其他位置</h4><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240902224412506.png" alt="image-20240902224412506" style="zoom: 80%;" />
+
+<p><strong>作用：为文件或目录改名、或将文件或目录移动到其它位置</strong></p>
+<p><strong>语法：&#x3D;&#x3D;mv source dest&#x3D;&#x3D;</strong></p>
+<p><strong>举例：</strong></p>
+<ul>
+<li><strong>mv hello.txt hi.txt  将hello.txt&#x3D;&#x3D;改名&#x3D;&#x3D;为hi.txt</strong></li>
+<li><strong>mv hi.txt itheima&#x3D;&#x3D;&#x2F;&#x3D;&#x3D; 将文件hi.txt&#x3D;&#x3D;移动&#x3D;&#x3D;到itheima&#x3D;&#x3D;目录&#x3D;&#x3D;中</strong></li>
+<li><strong>mv hi.txt itheima&#x2F;hello.txt   将hi.txt&#x3D;&#x3D;移动&#x3D;&#x3D;到itheima目录中，&#x3D;&#x3D;并改名&#x3D;&#x3D;为hello.txt</strong></li>
+<li><strong>mv itcast&#x2F; itheima&#x2F;  如果itheima目录&#x3D;&#x3D;不存在&#x3D;&#x3D;，将itcast目录&#x3D;&#x3D;改名&#x3D;&#x3D;为itheima</strong></li>
+<li><strong>mv itcast&#x2F; itheima&#x2F;  如果itheima目录&#x3D;&#x3D;存在&#x3D;&#x3D;，将itcast目录&#x3D;&#x3D;移动&#x3D;&#x3D;到itheima目录中</strong></li>
+</ul>
+<h3 id="6、-打包压缩-命令-tar"><a href="#6、-打包压缩-命令-tar" class="headerlink" title="6、&#x3D;&#x3D;打包压缩&#x3D;&#x3D;命令 tar"></a>6、&#x3D;&#x3D;打包压缩&#x3D;&#x3D;命令 tar</h3><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903154954958.png" alt="image-20240903154954958" style="zoom: 80%;" />
+
+<h4 id="（1）tar基础命令"><a href="#（1）tar基础命令" class="headerlink" title="（1）tar基础命令"></a>（1）tar基础命令</h4><p><strong>作用：对文件进行&#x3D;&#x3D;打包、解包、压缩、解压&#x3D;&#x3D;</strong></p>
+<p><strong>语法：tar [-zcxvf] fileName [files]</strong></p>
+<p>​	<strong>tar [-zcxvf] &#x3D;&#x3D;fileName(打&#x2F;解包后的文件名带上后缀)&#x3D;&#x3D; [&#x3D;&#x3D;files(目标文件或目录)&#x3D;&#x3D;]</strong></p>
+<ul>
+<li><strong>包文件后缀为&#x3D;&#x3D;.tar&#x3D;&#x3D;表示只是完成了&#x3D;&#x3D;打包&#x3D;&#x3D;，并没有压缩</strong></li>
+<li><strong>包文件后缀为&#x3D;&#x3D;.tar.gz&#x3D;&#x3D;表示&#x3D;&#x3D;打包&#x3D;&#x3D;的同时还进行了&#x3D;&#x3D;压缩&#x3D;&#x3D;</strong></li>
+</ul>
+<p><strong>说明：</strong></p>
+<ul>
+<li><strong>&#x3D;&#x3D;-z&#x3D;&#x3D;：z代表的是gzip，通过gzip命令处理文件，gzip可以对文件&#x3D;&#x3D;压缩&#x3D;&#x3D;或者&#x3D;&#x3D;解压&#x3D;&#x3D;</strong></li>
+<li><strong>&#x3D;&#x3D;-c&#x3D;&#x3D;：c代表的是create，即创建&#x3D;&#x3D;新的包文件&#x3D;&#x3D;   (&#x3D;&#x3D;打包&#x3D;&#x3D;)</strong></li>
+<li><strong>&#x3D;&#x3D;-x&#x3D;&#x3D;：x代表的是extract，实现&#x3D;&#x3D;从包文件中还原文件&#x3D;&#x3D;   （&#x3D;&#x3D;解包&#x3D;&#x3D;）</strong></li>
+<li><strong>&#x3D;&#x3D;-v&#x3D;&#x3D;: v代表的是verbose，显示&#x3D;&#x3D;命令的执行过程&#x3D;&#x3D;</strong></li>
+<li><strong>&#x3D;&#x3D;-f&#x3D;&#x3D;：f代表的是file，用于指定&#x3D;&#x3D;包文件的名称&#x3D;&#x3D;</strong></li>
+</ul>
+<h4 id="（2）案例"><a href="#（2）案例" class="headerlink" title="（2）案例"></a>（2）案例</h4><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903163658595.png" alt="image-20240903163658595" style="zoom: 80%;" />
+
+<p><strong>举例：</strong></p>
+<ul>
+<li><strong>&#x3D;&#x3D;-czvf&#x3D;&#x3D;：表示对文件&#x3D;&#x3D;打包并压缩&#x3D;&#x3D;（并展示命令执行过程、指定打包后的包文件名称），tar -czvf test&#x2F;newFile.tar.gz itcast，将itcast文件(目录)打包到test目录下，并为打包后的包文件指定名称(后缀为.tar.gz)</strong></li>
+<li><strong>&#x3D;&#x3D;-cvf&#x3D;&#x3D;: 表示对文件&#x3D;&#x3D;打包&#x3D;&#x3D;（并展示命令执行过程、指定打包后的包文件名称），tar -cvf newName.tar itcast</strong></li>
+<li><strong>&#x3D;&#x3D;-xvf&#x3D;&#x3D;:  表示对包文件进行&#x3D;&#x3D;解包&#x3D;&#x3D;， tar -xvf test.tar</strong></li>
+<li><strong>&#x3D;&#x3D;-xzvf&#x3D;&#x3D;:  表示对包文件进行&#x3D;&#x3D;解包并解压&#x3D;&#x3D;，tar -xzvf example.tar.gz</strong></li>
+<li><strong>&#x3D;&#x3D;-C&#x3D;&#x3D;：表示&#x3D;&#x3D;指定&#x3D;&#x3D;解压后的文件所在&#x3D;&#x3D;目录&#x3D;&#x3D;,tar -zxvf hello.tar.gz &#x3D;&#x3D;-C&#x3D;&#x3D; &#x2F;usr&#x2F;local</strong></li>
+</ul>
+<h4 id="（3）解压缩到-指定目录"><a href="#（3）解压缩到-指定目录" class="headerlink" title="（3）解压缩到&#x3D;&#x3D;指定目录&#x3D;&#x3D;"></a>（3）解压缩到&#x3D;&#x3D;指定目录&#x3D;&#x3D;</h4><p><strong>解包并解压文件(目录)到&#x3D;&#x3D;指定目录&#x3D;&#x3D;，并&#x3D;&#x3D;更改解压后的名字&#x3D;&#x3D;</strong></p>
+<h5 id="①法一：-C"><a href="#①法一：-C" class="headerlink" title="①法一：&#x3D;&#x3D;-C&#x3D;&#x3D;,"></a>①法一：&#x3D;&#x3D;-C&#x3D;&#x3D;,</h5><ul>
+<li><p><strong>&#x3D;&#x3D;-C&#x3D;&#x3D;：表示&#x3D;&#x3D;指定&#x3D;&#x3D;解压后的文件所在&#x3D;&#x3D;目录&#x3D;&#x3D;,tar -zxvf hello.tar.gz &#x3D;&#x3D;-C&#x3D;&#x3D; &#x2F;usr&#x2F;local</strong></p>
+<ul>
+<li><strong>tar -xzvf newFile.tar.gz &#x3D;&#x3D;-C .&#x2F;004&#x3D;&#x3D; –transform ‘s&#x2F;itcast&#x2F;黑马目录&#x2F;‘</strong></li>
+</ul>
+</li>
+</ul>
+<h5 id="②法二：-–directory"><a href="#②法二：-–directory" class="headerlink" title="②法二：&#x3D;&#x3D;–directory&#x3D;&#x3D;"></a>②法二：&#x3D;&#x3D;–directory&#x3D;&#x3D;</h5><hr>
+<ul>
+<li><strong>tar &#x3D;&#x3D;-xzvf&#x3D;&#x3D; newFile.tar.gz &#x3D;&#x3D;–directory&#x3D;&#x3D; &#x2F;指定目录 &#x3D;&#x3D;–transform&#x3D;&#x3D; ‘&#x3D;&#x3D;s&#x2F;&#x3D;&#x3D;旧文件名&#x2F;新文件名&#x2F;‘</strong></li>
+</ul>
+<p><strong>假设你有一个压缩文件 <code>example.tar.gz</code>，其中包含一个文件 <code>file1.txt</code>，你希望将 <code>file1.txt</code> 解压缩到 <code>/home/user/target_directory/</code> 目录，并且将解压缩后的文件重命名为 <code>newfile.txt</code>。你可以使用以下步骤：</strong></p>
+<ol>
+<li><p><strong>解压缩到指定目录，并重命名文件：</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -xzvf example.tar.gz --directory /home/user/target_directory/ --transform <span class="string">&#x27;s/file1.txt/newfile.txt/&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>解释</strong>：</p>
+<ul>
+<li><code>-x</code>：表示解压缩。</li>
+<li><code>-z</code>：表示解压缩 <code>.gz</code> 格式的文件。</li>
+<li><code>-v</code>：表示在解压缩过程中显示详细信息。</li>
+<li><code>-f</code>：表示指定要操作的文件。</li>
+<li><code>--directory /home/user/target_directory/</code>：&#x3D;&#x3D;指定解压缩的目标目录&#x3D;&#x3D;。</li>
+<li><code>--transform &#39;s/file1.txt/newfile.txt/&#39;</code>：&#x3D;&#x3D;用来修改解压缩后的文件名&#x3D;&#x3D;，其中 <code>file1.txt</code> 是压缩包中的原文件名，<code>newfile.txt</code> 是解压缩后的新文件名。</li>
+</ul>
+<p><strong>结果：</strong></p>
+<p>经过上述命令后，<code>file1.txt</code> 将被解压缩到 <code>/home/user/target_directory/</code> 目录，并且文件名会被修改为 <code>newfile.txt</code>。</p>
+</li>
+</ol>
+<p>如果压缩包中有多个文件或目录，你可以使用正则表达式来处理更多文件的重命名。根据需要调整 <code>--transform</code> 参数中的规则。</p>
+<h3 id="7、文本编辑命令-vi-vim"><a href="#7、文本编辑命令-vi-vim" class="headerlink" title="7、文本编辑命令 vi&#x2F;&#x3D;&#x3D;vim&#x3D;&#x3D;"></a>7、文本编辑命令 vi&#x2F;&#x3D;&#x3D;vim&#x3D;&#x3D;</h3><h4 id="（1）Vim的安装"><a href="#（1）Vim的安装" class="headerlink" title="（1）Vim的安装"></a>（1）Vim的安装</h4><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903164943505.png" alt="image-20240903164943505" style="zoom:80%;" />
+
+<p><strong>作用：vi命令是Linux系统提供的一个文本编辑工具，可以对文件内容进行编辑，类似于Windows中的记事本</strong></p>
+<p><strong>语法：vi fileName</strong></p>
+<p><strong>说明：</strong></p>
+<ul>
+<li><strong>1、vim是从vi发展来的一个功能更加强大的文本编辑工具，在编辑文件时可以对文本内容进行着色，方便我们对文件进行编辑处理，所以实际工作中vim更加常用。</strong></li>
+<li><strong>2、要使用vim命令，需要我们自己完成安装。可以使用下面的命令来完成安装：&#x3D;&#x3D;yum install vim&#x3D;&#x3D;</strong></li>
+</ul>
+<h4 id="（1）yum命令错误"><a href="#（1）yum命令错误" class="headerlink" title="（1）yum命令错误"></a>（1）yum命令错误</h4><h5 id="CentOS7执行yum命令遇到“Could-not-resolve-host-mirrorlist-centos-org；-未知的错误”如何解决"><a href="#CentOS7执行yum命令遇到“Could-not-resolve-host-mirrorlist-centos-org；-未知的错误”如何解决" class="headerlink" title="CentOS7执行yum命令遇到“Could not resolve host: mirrorlist.centos.org； 未知的错误”如何解决"></a><strong>CentOS7执行yum命令遇到“Could not resolve host: mirrorlist.centos.org； 未知的错误”如何解决</strong></h5><p><strong>原因是国内网络不能访问外网。所以需要将mirrorlist.centos.org替换为国内可以访问的镜像源。</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">curl -o /etc/yum.repos.d/CentOS-Base.repo http://mirrors.aliyun.com/repo/Centos-7.repo</span><br></pre></td></tr></table></figure>
+
+<p><strong>然后再清除yum缓存</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum clean all</span><br></pre></td></tr></table></figure>
+
+<p><strong>然后重新生成缓存</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum makecache</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="（2）Vim的编辑模式"><a href="#（2）Vim的编辑模式" class="headerlink" title="（2）Vim的编辑模式"></a>（2）Vim的编辑模式</h4><p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903165246777.png" alt="image-20240903165246777"></p>
+<p><strong>说明：</strong></p>
+<ul>
+<li><strong>1、在使用vim命令编辑文件时，如果指定的文件&#x3D;&#x3D;存在&#x3D;&#x3D;则&#x3D;&#x3D;直接打开此文件&#x3D;&#x3D;。如果指定的文件&#x3D;&#x3D;不存在则新建文件&#x3D;&#x3D;。</strong></li>
+<li><strong>2、vim在进行文本编辑时共分为三种模式，分别是&#x3D;&#x3D;命令模式（Command mode）&#x3D;&#x3D;，&#x3D;&#x3D;插入模式（Insert mode）&#x3D;&#x3D;和&#x3D;&#x3D;底行模式（Lastlinemode）&#x3D;&#x3D;。这三种模式之间可以相互切换。我们在使用vim时一定要注意我们当前所处的是哪种模式。</strong></li>
+</ul>
+<h5 id="①命令模式"><a href="#①命令模式" class="headerlink" title="①命令模式"></a>①命令模式</h5><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903165706113.png" alt="image-20240903165706113" style="zoom: 80%;" />
+
+<ul>
+<li><strong>命令模式下可以查看文件内容、移动光标（&#x3D;&#x3D;上下左右箭头、gg、G&#x3D;&#x3D;）</strong><ul>
+<li><strong>gg，快速回到文件开头</strong></li>
+<li><strong>G，快速回到文件末尾</strong></li>
+</ul>
+</li>
+<li><strong>通过vim命令打开文件后，&#x3D;&#x3D;默认进入命令模式&#x3D;&#x3D;</strong></li>
+<li><strong>另外两种模式需要首先进入命令模式，才能进入彼此，即必须&#x3D;&#x3D;通过命令模式进行转换&#x3D;&#x3D;其他两种模式</strong></li>
+</ul>
+<h5 id="②插入模式-使用-i"><a href="#②插入模式-使用-i" class="headerlink" title="②插入模式-使用&#x3D;&#x3D;i&#x3D;&#x3D;"></a>②插入模式-使用&#x3D;&#x3D;i&#x3D;&#x3D;</h5><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903170042837.png" alt="image-20240903170042837" style="zoom: 80%;" />
+
+<ul>
+<li><strong>插入模式下可以对文件内容进行&#x3D;&#x3D;编辑&#x3D;&#x3D;</strong></li>
+<li><strong>在命令模式下按下&#x3D;&#x3D;[i,a,o]&#x3D;&#x3D;任意一个，可以进入插入模式。进入插入模式后，下方会出现&#x3D;&#x3D;【insert】&#x3D;&#x3D;字样</strong></li>
+<li><strong>在插入模式下按下&#x3D;&#x3D;ESC键&#x3D;&#x3D;，回到&#x3D;&#x3D;命令模式&#x3D;&#x3D;，</strong><ul>
+<li><strong>&#x3D;&#x3D;通过命令模式在进入底行模式&#x3D;&#x3D;，在&#x3D;&#x3D;底行模式中进行保存或退出&#x3D;&#x3D;</strong></li>
+</ul>
+</li>
+</ul>
+<h5 id="③底行模式-使用"><a href="#③底行模式-使用" class="headerlink" title="③底行模式-使用&#x3D;&#x3D;:&#x3D;&#x3D;"></a>③底行模式-使用&#x3D;&#x3D;:&#x3D;&#x3D;</h5><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903170256703.png" alt="image-20240903170256703" style="zoom:80%;" />
+
+<ul>
+<li><strong>底行模式下可以通过命令对文件内容进行&#x3D;&#x3D;查找、显示行号、退出&#x3D;&#x3D;等操作</strong></li>
+<li><strong>在命令模式下按下[&#x3D;&#x3D;:&#x3D;&#x3D;  和  &#x3D;&#x3D;&#x2F;&#x3D;&#x3D;]任意一个，可以进入底行模式</strong></li>
+<li><strong>通过&#x3D;&#x3D;&#x2F;方式&#x3D;&#x3D;进入底行模式后，可以对文件内容进行&#x3D;&#x3D;查找&#x3D;&#x3D;</strong></li>
+<li><strong>通过&#x3D;&#x3D;:方式&#x3D;&#x3D;进入底行模式后，可以输入&#x3D;&#x3D;wq（保存并退出）&#x3D;&#x3D;、&#x3D;&#x3D;q！（不保存退出）&#x3D;&#x3D;、&#x3D;&#x3D;Set nu（显示行号）&#x3D;&#x3D;</strong></li>
+</ul>
+<h3 id="8、-查找-命令-find、grep"><a href="#8、-查找-命令-find、grep" class="headerlink" title="8、&#x3D;&#x3D;查找&#x3D;&#x3D;命令 find、grep"></a>8、&#x3D;&#x3D;查找&#x3D;&#x3D;命令 find、grep</h3><h4 id="（1）find-查找文件"><a href="#（1）find-查找文件" class="headerlink" title="（1）find-查找文件"></a>（1）find-查找文件</h4><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903194033911.png" alt="image-20240903194033911" style="zoom:80%;" />
+
+<p><strong>作用：在指定目录下&#x3D;&#x3D;查找文件&#x3D;&#x3D;</strong></p>
+<p><strong>语法：find dirName -option fileName</strong></p>
+<p><strong>举例:</strong></p>
+<ul>
+<li><strong>find &#x3D;&#x3D;.&#x3D;&#x3D; &#x3D;&#x3D;-name&#x3D;&#x3D; “*.java”  (其中 &#x3D;&#x3D;.&#x3D;&#x3D; 表示在当前目录下寻找 ) ,在当前目录及其子目录下查找.java结尾文件</strong></li>
+<li><strong>find &#x2F;itcast -name “*.java”  在&#x2F;itcast目录及其子目录下查找.java结尾的文件</strong></li>
+</ul>
+<h4 id="（2）grep-查找指定文件中的内容"><a href="#（2）grep-查找指定文件中的内容" class="headerlink" title="（2）grep-查找指定文件中的内容"></a>（2）grep-查找指定文件中的内容</h4><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903194825578.png" alt="image-20240903194825578" style="zoom:80%;" />
+
+<p><strong>作用：从指定文件中查找指定的文本内容</strong></p>
+<p><strong>语法：grep word fileName</strong></p>
+<p><strong>举例：</strong></p>
+<ul>
+<li><strong>grep Hello HelloWorld.java  查找HelloWorld.java文件中出现的Hello字符串的位置</strong></li>
+<li>*<em>grep hello <em>.java  查找当前目录中所有&#x3D;&#x3D;.java结尾&#x3D;&#x3D;的文件中包含hello字符串的位置</em></em></li>
+</ul>
+<h3 id="9、Linux-进程"><a href="#9、Linux-进程" class="headerlink" title="9、Linux-&#x3D;&#x3D;进程&#x3D;&#x3D;"></a>9、Linux-&#x3D;&#x3D;进程&#x3D;&#x3D;</h3><h4 id="（1）-查看进程-命令-ps"><a href="#（1）-查看进程-命令-ps" class="headerlink" title="（1）&#x3D;&#x3D;查看进程&#x3D;&#x3D;命令-ps"></a>（1）&#x3D;&#x3D;查看进程&#x3D;&#x3D;命令-ps</h4><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903203523949.png" alt="image-20240903203523949" style="zoom:80%;" />
+
+<p><strong>查看进程  ps -ef | grep [进程名称]</strong></p>
+<p><strong>注意：</strong></p>
+<ul>
+<li><strong>ps命令是linux下非常强大的进程查看命令，通过&#x3D;&#x3D;ps -ef&#x3D;&#x3D;可以查看&#x3D;&#x3D;当前运行的所有进程的详细信息&#x3D;&#x3D;</strong></li>
+<li><strong>“&#x3D;&#x3D;|&#x3D;&#x3D;”在Linux中称为&#x3D;&#x3D;管道符&#x3D;&#x3D;，可以将&#x3D;&#x3D;前一个命令的结果&#x3D;&#x3D;输出给&#x3D;&#x3D;后一个命令&#x3D;&#x3D;作为&#x3D;&#x3D;输入&#x3D;&#x3D;</strong></li>
+<li><strong>使用ps命令查看进程时，经常配合管道符和查找命令&#x3D;&#x3D;grep&#x3D;&#x3D;一起使用，来查看&#x3D;&#x3D;特定进程&#x3D;&#x3D;</strong></li>
+</ul>
+<p><strong>举例：</strong></p>
+<ul>
+<li><strong>查看Tomcat的进程：ps-ef| grep tomcat</strong></li>
+</ul>
+<h4 id="（2）停止进程-kill"><a href="#（2）停止进程-kill" class="headerlink" title="（2）停止进程-kill"></a>（2）停止进程-kill</h4><p><strong>结束Tomcat进程</strong></p>
+<ul>
+<li><strong>查看Tomcat进程，获得进程id</strong></li>
+</ul>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903205517146.png" alt="image-20240903205517146"></p>
+<ul>
+<li>执行命令结束进程<strong>kill -9 进程号</strong></li>
+</ul>
+<h5 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h5><p><strong>kill命令是Linux提供的用于&#x3D;&#x3D;结束进程&#x3D;&#x3D;的命令，&#x3D;&#x3D;-9表示强制结束&#x3D;&#x3D;</strong></p>
+<h5 id="案例-停止Tomcat服务"><a href="#案例-停止Tomcat服务" class="headerlink" title="案例-停止Tomcat服务"></a>案例-停止Tomcat服务</h5><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903205110258.png" alt="image-20240903205110258" style="zoom:80%;" />
+
+
+
+<p>停止Tomcat服务的方式：</p>
+<h5 id="①法一："><a href="#①法一：" class="headerlink" title="①法一："></a>①法一：</h5><p>运行Tomcat的<strong>bin目录</strong>中提供的<strong>停止服务的脚本文件</strong> <strong>shutdown.sh</strong></p>
+<ul>
+<li><p>执行命令：</p>
+<ul>
+<li><p>&#x3D;&#x3D;sh&#x3D;&#x3D; shutdown.sh</p>
+</li>
+<li><p>.&#x2F;shutdown.sh</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="②法二："><a href="#②法二：" class="headerlink" title="②法二："></a>②法二：</h5><p><strong>结束Tomcat进程</strong></p>
+<ul>
+<li><strong>查看Tomcat进程，获得进程id</strong></li>
+</ul>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903205517146.png" alt="image-20240903205517146"></p>
+<ul>
+<li>执行命令结束进程<strong>kill -9 进程号</strong></li>
+</ul>
+<h5 id="注意：-1"><a href="#注意：-1" class="headerlink" title="注意："></a>注意：</h5><p><strong>kill命令是Linux提供的用于&#x3D;&#x3D;结束进程&#x3D;&#x3D;的命令，&#x3D;&#x3D;-9表示强制结束&#x3D;&#x3D;</strong></p>
+<h3 id="10、Linux-防火墙-操作"><a href="#10、Linux-防火墙-操作" class="headerlink" title="10、Linux&#x3D;&#x3D;防火墙&#x3D;&#x3D;操作"></a>10、Linux&#x3D;&#x3D;防火墙&#x3D;&#x3D;操作</h3><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903204133750.png" alt="image-20240903204133750" style="zoom:80%;" />
+
+<ul>
+<li><p><strong>查看防火墙状态(systemctl status firewalld 或  firewall-cmd –state)</strong></p>
+</li>
+<li><p><strong>暂时关闭防火墙(systemctl stop firewalld)</strong></p>
+</li>
+<li><p><strong>永久关闭防火墙(systemctl disable firewalld)</strong></p>
+</li>
+<li><p><strong>开启防火墙(systemctl start firewalld)</strong></p>
+</li>
+<li><p><strong>&#x3D;&#x3D;开放指定&#x3D;&#x3D;端口(firewall-cmd –zone&#x3D;public –add-port&#x3D;8080&#x2F;tcp –permanent)</strong></p>
+</li>
+<li><p><strong>关闭指定端口(firewall-cmd –zone&#x3D;public –remove-port&#x3D;8080&#x2F;tcp –permanent)</strong></p>
+</li>
+<li><p><strong>&#x3D;&#x3D;立即生效&#x3D;&#x3D;(firewall-cmd –reload)，&#x3D;&#x3D;开放或者关闭端口后&#x3D;&#x3D;需要执行立即生效命令</strong></p>
+</li>
+<li><p><strong>查看开放的端口(firewall-cmd –zone&#x3D;public –list-ports)</strong></p>
+</li>
+</ul>
+<p><strong>注意：</strong></p>
+<ul>
+<li><strong>1、&#x3D;&#x3D;Systemct&#x3D;&#x3D;l是管理Linux中&#x3D;&#x3D;服务&#x3D;&#x3D;的命令，可以对服务进行启动、停止、重启、查看状态等操作</strong></li>
+<li><strong>2、firewall-cmd是Linux中专门用于&#x3D;&#x3D;控制防火墙&#x3D;&#x3D;的命令</strong></li>
+<li><strong>3、为了保证系统安全，服务器的防火墙&#x3D;&#x3D;不建议关闭&#x3D;&#x3D;，只需开放指定的端口就行，例如Tomcat就可以开发8080端口，Mysql数据库开放3306端口</strong></li>
+</ul>
+<h3 id="11、Linux-服务"><a href="#11、Linux-服务" class="headerlink" title="11、Linux-&#x3D;&#x3D;服务&#x3D;&#x3D;"></a>11、Linux-&#x3D;&#x3D;服务&#x3D;&#x3D;</h3><ul>
+<li><strong>systemctl status [服务名]</strong></li>
+<li><strong>systemctl start [服务名]</strong></li>
+<li><strong>systemctl enable mysqld 开机启动mysql服务</strong></li>
+<li><strong>&#x3D;&#x3D;netstat-tunlp&#x3D;&#x3D;  查看已经启动的服务（使用netstat命令，需要提前导入yum install net-tools）</strong></li>
+</ul>
+<h4 id="（1）案例-启动mysql服务mysqld"><a href="#（1）案例-启动mysql服务mysqld" class="headerlink" title="（1）案例-启动mysql服务mysqld"></a>（1）案例-启动mysql服务mysqld</h4><p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903222056415.png" alt="image-20240903222056415"></p>
+<ul>
+<li><strong>systemctl status mysqld  查看mysql服务状态</strong></li>
+<li><strong>systemctl start mysqld  启动mysql服务</strong></li>
+</ul>
+<p><strong>说明：</strong></p>
+<p><strong>可以设置开机时启动mysql服务，避免每次开机启动mysql</strong></p>
+<ul>
+<li><strong>systemctl enable mysqld 开机启动mysql服务</strong></li>
+</ul>
+<p><strong>前提：使用netstat命令，需要提前导入yum install net-tools</strong></p>
+<ul>
+<li><strong>&#x3D;&#x3D;netstat-tunlp&#x3D;&#x3D;  查看已经启动的服务</strong></li>
+<li><strong>netstat-tunlp|grep mysql</strong></li>
+<li><strong>ps -ef|grep mysql  查看mysql进程</strong></li>
+</ul>
+<h3 id="12、Yum-软件包管理器"><a href="#12、Yum-软件包管理器" class="headerlink" title="12、Yum-软件包管理器"></a>12、Yum-软件包管理器</h3><p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903231118165.png" alt="image-20240903231118165"></p>
+<h3 id="13、-nohup-挂起进程"><a href="#13、-nohup-挂起进程" class="headerlink" title="13、&#x3D;&#x3D;nohup&#x3D;&#x3D;-挂起进程"></a>13、&#x3D;&#x3D;nohup&#x3D;&#x3D;-挂起进程</h3><p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903232154494.png" alt="image-20240903232154494"></p>
+<p><strong>改为后台运行SpringBoot程序，并将日志输出到日志文件</strong></p>
+<p><strong>目前程序运行的问题</strong></p>
+<ul>
+<li><strong>线上程序不会采用控制台霸屏的形式运行程序，而是将程序在后台运行</strong></li>
+<li><strong>线上程序不会将日志输出到控制台，而是输出到日志文件，方便运维查阅信息</strong></li>
+</ul>
+<p><strong>nohup命令：英文全称nohangup（不挂起），用于不挂断地运行指定命令，退出终端不会影响程序的运行</strong></p>
+<p><strong>语法格式：nohup Command [Arg…] [&amp;]</strong></p>
+<p><strong>参数说明：</strong></p>
+<ul>
+<li><strong>Command：要执行的命令</strong></li>
+<li><strong>Arg：一些参数，可以指定输出文件</strong></li>
+<li><strong>&amp;：让命令在后台运行</strong></li>
+</ul>
+<p><strong>举例：hello.log为日志文件</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nohup java -jar springboot工程.jar &amp;&gt; hello.log &amp;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>nohup java -jar boot工程.jar &amp;&gt;hello.log&amp; 后台运行java-jar命令，并将日志输出到hello.log文件</strong>  </p>
+<h2 id="六、软件安装"><a href="#六、软件安装" class="headerlink" title="六、软件安装"></a>六、软件安装</h2><h3 id="1、软件安装方式"><a href="#1、软件安装方式" class="headerlink" title="1、软件安装方式"></a>1、软件安装方式</h3><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903195459504.png" alt="image-20240903195459504" style="zoom:80%;" />
+
+<ul>
+<li><strong>二进制发布包安装</strong><ul>
+<li><strong>软件已经针对具体平台编译打包发布，只要解压，修改配置即可</strong></li>
+</ul>
+</li>
+<li><strong>rpm安装</strong><ul>
+<li><strong>软件已经按照redhat(红帽)的包管理规范进行打包，使用rpm命令进行安装，不能自行解决库依赖问题(无法实现依赖传递)</strong></li>
+</ul>
+</li>
+<li><strong>yum安装</strong><ul>
+<li><strong>一种在线软件安装方式(需要联网)，本质上还是rpm安装，自动下载安装包并安装，安装过程中自动解决库依赖问题</strong></li>
+</ul>
+</li>
+<li><strong>源码编译安装</strong><ul>
+<li><strong>软件以源码工程的形式发布，需要自己编译打包</strong></li>
+</ul>
+</li>
+</ul>
+<h3 id="2、使用finalshell快捷上传文件"><a href="#2、使用finalshell快捷上传文件" class="headerlink" title="2、使用finalshell快捷上传文件"></a>2、使用finalshell快捷上传文件</h3><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903203350331.png" alt="image-20240903203350331" style="zoom:80%;" />
+
+
+
+<h3 id="3、JDK安装"><a href="#3、JDK安装" class="headerlink" title="3、JDK安装"></a>3、JDK安装</h3><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903200007788.png" alt="image-20240903200007788" style="zoom: 80%;" />
+
+
+
+<h3 id="4、Tomcat安装"><a href="#4、Tomcat安装" class="headerlink" title="4、Tomcat安装"></a>4、Tomcat安装</h3><h4 id="（1）安装Tomcat"><a href="#（1）安装Tomcat" class="headerlink" title="（1）安装Tomcat"></a>（1）安装Tomcat</h4><p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903203230683.png" alt="image-20240903203230683"></p>
+<h4 id="（2）验证Tomcat是否启动成功"><a href="#（2）验证Tomcat是否启动成功" class="headerlink" title="（2）验证Tomcat是否启动成功"></a>（2）验证Tomcat是否启动成功</h4><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903203523949.png" alt="image-20240903203523949" style="zoom:80%;" />
+
+
+
+<h4 id="（3）防火墙操作"><a href="#（3）防火墙操作" class="headerlink" title="（3）防火墙操作"></a>（3）防火墙操作</h4><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903205020340.png" alt="image-20240903205020340" style="zoom:67%;" />
+
+
+
+<h4 id="（4）停止Tomcat服务"><a href="#（4）停止Tomcat服务" class="headerlink" title="（4）停止Tomcat服务"></a>（4）停止Tomcat服务</h4><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903205110258.png" alt="image-20240903205110258" style="zoom:80%;" />
+
+
+
+<p>停止Tomcat服务的方式：</p>
+<h5 id="①法一-脚本文件"><a href="#①法一-脚本文件" class="headerlink" title="①法一-脚本文件"></a>①法一-脚本文件</h5><p>运行Tomcat的<strong>bin目录</strong>中提供的<strong>停止服务的脚本文件</strong> <strong>shutdown.sh</strong></p>
+<ul>
+<li><p>执行命令：</p>
+<ul>
+<li><p>&#x3D;&#x3D;sh&#x3D;&#x3D; shutdown.sh</p>
+</li>
+<li><p>.&#x2F;shutdown.sh</p>
+</li>
+</ul>
+</li>
+</ul>
+<h5 id="②法二：结束进程"><a href="#②法二：结束进程" class="headerlink" title="②法二：结束进程"></a>②法二：结束进程</h5><p><strong>结束Tomcat进程</strong></p>
+<ul>
+<li><strong>查看Tomcat进程，获得进程id</strong></li>
+</ul>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903205517146.png" alt="image-20240903205517146"></p>
+<ul>
+<li>执行命令结束进程<strong>kill -9 进程号</strong></li>
+</ul>
+<p><strong>注意</strong></p>
+<ul>
+<li><strong>kill命令是Linux提供的用于&#x3D;&#x3D;结束进程&#x3D;&#x3D;的命令，&#x3D;&#x3D;-9表示强制结束&#x3D;&#x3D;</strong></li>
+</ul>
+<h3 id="5、MySQL安装"><a href="#5、MySQL安装" class="headerlink" title="5、MySQL安装"></a>5、MySQL安装</h3><h4 id="（1）安装MySQL"><a href="#（1）安装MySQL" class="headerlink" title="（1）安装MySQL"></a>（1）安装MySQL</h4><h5 id="①检测当前系统中是否安装MySQL数据库"><a href="#①检测当前系统中是否安装MySQL数据库" class="headerlink" title="①检测当前系统中是否安装MySQL数据库"></a>①检测当前系统中是否安装MySQL数据库</h5><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903211304120.png" alt="image-20240903211304120" style="zoom: 67%;" />
+
+<ul>
+<li><p><strong>rpm -qa  查询当前系统中安装的所有软件</strong></p>
+</li>
+<li><p><strong>rpm -qa| grep mysql  查询当前系统中安装的名称带mysql的软件</strong></p>
+</li>
+<li><p><strong>rpm -qa| grep mariadb  查询当前系统中安装的名称带mariadb的软件</strong></p>
+</li>
+</ul>
+<p>RPM（Red-HatPackageManager）<strong>RPM软件包管理器</strong>，是红帽Linux用于管理和安装软件的工具</p>
+<p>注意事项</p>
+<ul>
+<li>如果当前系统中已经安装有MySQL数据库，安装将失败。CentOS7<strong>自带mariadb</strong>，与MySQL数据库冲突，需要删除mariadb，才能安装Mysql</li>
+</ul>
+<h5 id="②卸载已经安装的冲突软件"><a href="#②卸载已经安装的冲突软件" class="headerlink" title="②卸载已经安装的冲突软件"></a>②卸载已经安装的冲突软件</h5><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903212159427.png" alt="image-20240903212159427" style="zoom: 80%;" />
+
+<p><strong>卸载软件</strong></p>
+<ul>
+<li><strong>rpm -e –nodeps 软件名称</strong></li>
+<li><strong>rpm -e –nodeps mariadb-libs-5.5.60-1.el7_5.x86_64</strong></li>
+</ul>
+<h5 id="③将资料中提供的MySQL安装包上传到Linux并解压"><a href="#③将资料中提供的MySQL安装包上传到Linux并解压" class="headerlink" title="③将资料中提供的MySQL安装包上传到Linux并解压"></a>③将资料中提供的MySQL安装包上传到Linux并解压</h5><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903212318417.png" alt="image-20240903212318417" style="zoom:80%;" />
+
+<ul>
+<li><strong>mkdir</strong> &#x2F;usr&#x2F;local&#x2F;mysql</li>
+<li>tar <strong>-zxvf</strong> mysql-5.7.25-1.el7.x86_64.rpm-bundle.tar.gz <strong>-C</strong> &#x2F;usr&#x2F;local&#x2F;mysql</li>
+</ul>
+<h5 id="④按照顺序安装rpm软件包"><a href="#④按照顺序安装rpm软件包" class="headerlink" title="④按照顺序安装rpm软件包"></a>④按照顺序安装rpm软件包</h5><p>*<em>root用户用 &#x3D;&#x3D;yum localinstall <em>.rpm&#x3D;&#x3D; ，一次性安装&#x3D;&#x3D;所有软件包&#x3D;&#x3D;，不需要考虑顺序问题</em></em></p>
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903212429479.png" alt="image-20240903212429479" style="zoom:80%;" />
+
+<ul>
+<li><p><strong>rpm-ivhmysql-community-common-5.7.25-1.el7.x86_64.rpm</strong></p>
+</li>
+<li><p><strong>rpm -ivh mysql-community-libs-5.7.25-1.el7.x86_64.rpm</strong></p>
+</li>
+<li><p><strong>rpm -ivh mysql-community-devel-5.7.25-1.el7.x86_64.rpm</strong></p>
+</li>
+<li><p><strong>rpm-ivh mysql-community-libs-compat-5.7.25-1.el7.x86_64.rpm</strong></p>
+</li>
+<li><p><strong>rpm -ivh mysql-community-client-5.7.25-1.el7.x86_64.rpm</strong></p>
+</li>
+<li><p><strong>yum install net-tools</strong></p>
+</li>
+<li><p><strong>rpm -ivh mysql-community-server-5.7.25-1.el7.x86_64.rpm</strong></p>
+</li>
+<li><p><strong>说明1：安装过程中提示缺少net-tools依赖，使用yum安装</strong></p>
+</li>
+<li><p><strong>说明2：可以通过指令升级现有软件及系统内核</strong></p>
+<ul>
+<li><strong>yum update</strong></li>
+</ul>
+</li>
+</ul>
+<h4 id="（2）启动MySQL服务"><a href="#（2）启动MySQL服务" class="headerlink" title="（2）启动MySQL服务"></a>（2）启动MySQL服务</h4><p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903222056415.png" alt="image-20240903222056415"></p>
+<ul>
+<li><strong>systemctl status mysqld  查看mysql服务状态</strong></li>
+<li><strong>systemctl &#x3D;&#x3D;start mysqld&#x3D;&#x3D;  启动mysql服务</strong></li>
+</ul>
+<p><strong>说明：</strong></p>
+<p><strong>可以设置开机时启动mysql服务，避免每次开机启动mysql</strong></p>
+<ul>
+<li><strong>systemctl &#x3D;&#x3D;enable&#x3D;&#x3D; mysqld 开机启动mysql服务</strong></li>
+</ul>
+<p><strong>前提：使用netstat命令，需要提前导入&#x3D;&#x3D;yum install net-tools&#x3D;&#x3D;</strong></p>
+<hr>
+<ul>
+<li><strong>netstat-tunlp  查看已经启动的服务</strong></li>
+<li><strong>netstat-tunlp|grepmysql</strong></li>
+<li><strong>ps -ef|grep mysql  查看mysql进程</strong></li>
+</ul>
+<h4 id="（3）查阅临时密码"><a href="#（3）查阅临时密码" class="headerlink" title="（3）查阅临时密码"></a>（3）查阅临时密码</h4><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903222746403.png" alt="image-20240903222746403" style="zoom: 67%;" />
+
+
+
+<h4 id="（4）修改密码，开放访问权限"><a href="#（4）修改密码，开放访问权限" class="headerlink" title="（4）修改密码，开放访问权限"></a>（4）修改密码，开放访问权限</h4><p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903222835076.png" alt="image-20240903222835076"></p>
+<p><strong>登录MySQL，修改密码，开放访问权限</strong></p>
+<ul>
+<li><strong>mysql -uroot -p  登录mysql（使用临时密码登录）</strong></li>
+</ul>
+<p><strong>修改密码</strong></p>
+<ul>
+<li><strong>set global validate_password_length&#x3D;4;  设置密码长度最低位数</strong></li>
+<li><strong>set global validate_password_policy&#x3D;LOW;  设置密码安全等级低，便于密码可以修改成root</strong></li>
+<li><strong>set password &#x3D; password(‘root’);  设置密码为root</strong></li>
+</ul>
+<p><strong>&#x3D;&#x3D;开启访问权限&#x3D;&#x3D;</strong></p>
+<ul>
+<li><pre><code class="shell">grant all on *.* to &#39;root&#39;@&#39;%&#39; identified by&#39;root&#39;; #允许外部访问mysql
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">- **flush privileges; (刷新权限)** </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#### （5）测试</span><br><span class="line"></span><br><span class="line">**记得==开放防火墙的3306端口==**</span><br><span class="line"></span><br><span class="line">```shell</span><br><span class="line">firewall-cmd --zone=public --add-port=3306/tcp --permanent #开发3306端口</span><br><span class="line">firewall-cmd --reload #刷新</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903223218629.png" alt="image-20240903223218629"></p>
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903230020929.png" alt="image-20240903230020929" style="zoom:50%;" />
+
+
+
+<h3 id="6、安装Git"><a href="#6、安装Git" class="headerlink" title="6、安装Git"></a>6、安装Git</h3><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240904145219238.png" alt="image-20240904145219238" style="zoom:80%;" />
+
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240904145252060.png" alt="image-20240904145252060" style="zoom:67%;" />
+
+<h3 id="7、安装Maven"><a href="#7、安装Maven" class="headerlink" title="7、安装Maven"></a>7、安装Maven</h3><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240904145324328.png" alt="image-20240904145324328" style="zoom: 80%;" />
+
+<p><strong>tar-zxvfapache-maven-3.5.4-bin.tar.gz-C&#x2F;usr&#x2F;local</strong></p>
+<p><strong>vim&#x2F;etc&#x2F;profile  修改配置文件，加入如下内容</strong></p>
+<ul>
+<li><strong>export MAVEN_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;apache-maven-3.5.4</strong></li>
+<li><strong>export PATH&#x3D;$JAVA_HOME&#x2F;bin:$MAVEN_HOME&#x2F;bin:$PATH</strong></li>
+<li><strong>source&#x2F;etc&#x2F;profile</strong></li>
+</ul>
+<p><strong>mvn -version  查看maven版本</strong>  </p>
+<p><strong>&#x3D;&#x3D;修改配置文件&#x3D;&#x3D;内容如下</strong></p>
+<p>**vim &#x2F;usr&#x2F;local&#x2F;apache-maven-3.5.4&#x2F;conf&#x2F;settings.xml  **</p>
+<p><strong>&#x3D;&#x3D;指定Maven以后依赖保存的本地仓库&#x3D;&#x3D;</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;localRepository&gt;/usr/local/repo&lt;/localRepository&gt; #指定Maven以后依赖保存的本地仓库</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="8、安装Nginx"><a href="#8、安装Nginx" class="headerlink" title="8、安装Nginx"></a>8、安装Nginx</h3><h4 id="（1）前言"><a href="#（1）前言" class="headerlink" title="（1）前言"></a>（1）前言</h4><p>Nginx是一款卓越的高性能Web服务器，被广泛用于托管网站和应用程序。本文旨在为您提供详细的指南，帮助您在Linux系统上成功安装、配置和启动Nginx服务器。通过这一过程，您将了解如何将Nginx集成到您的系统中，以便轻松地托管您的网站和应用程序。</p>
+<h4 id="（2）安装依赖项"><a href="#（2）安装依赖项" class="headerlink" title="（2）安装依赖项"></a><strong>（2）安装依赖项</strong></h4><p>在开始安装Nginx之前，首先需要安装一些依赖项，以确保Nginx编译和运行正常。打开终端并执行以下命令：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install -y wget gcc-c++ pcre-devel zlib-devel openssl-devel</span><br></pre></td></tr></table></figure>
+
+<p>这将安装必要的工具和库，以支持Nginx的编译和运行。</p>
+<h4 id="（3）下载Nginx"><a href="#（3）下载Nginx" class="headerlink" title="（3）下载Nginx"></a><strong>（3）下载Nginx</strong></h4><p>从Nginx官网下载最新的稳定版本。您可以在<a target="_blank" rel="noopener" href="https://nginx.org/en/download.html">https://nginx.org/en/download.html</a>上找到最新版本的下载链接。</p>
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905165019611.png" alt="image-20240905165019611" style="zoom:67%;" />
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">例如，下载Nginx 1.24.0版本</span></span><br><span class="line">wget https://nginx.org/download/nginx-1.24.0.tar.gz</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>创建一个文件夹</strong> </p>
+<ul>
+<li><p>cd &#x2F;usr&#x2F;local</p>
+</li>
+<li><p>mkdir nginx</p>
+</li>
+<li><p>cd nginx</p>
+</li>
+</ul>
+<p><strong>解压Nginx</strong></p>
+<p>解压下载的Nginx源代码包：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tar -zxvf nginx-1.24.0.tar.gz -C /usr/local/nginx</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>编译和安装</strong></p>
+<p>进入解压后的Nginx目录并进行编译和安装：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">切换到 Nginx 解压目录</span></span><br><span class="line">cd /usr/local/nginx/nginx-1.24.0</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编译前的配置和依赖检查,考虑到后续安装ssl证书(https)、http 添加两个模块</span></span><br><span class="line">./configure --with-http_stub_status_module --with-http_ssl_module</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编译安装</span></span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+
+<p>Nginx安装完成后，默认自动创建 <code>/usr/local/nginx</code> 目录，并创建必要的文件和目录，包括配置文件、日志文件、HTML文件等。</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905165148247.png" alt="image-20240905165148247"></p>
+<h4 id="（4）-配置nginx环境变量"><a href="#（4）-配置nginx环境变量" class="headerlink" title="（4） 配置nginx环境变量"></a>（4） 配置nginx环境变量</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export NGINX_HOME=/usr/local/nginx</span><br><span class="line">export PATH=$PATH:$NGINX_HOME/sbin </span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="（5）重新加载配置文件"><a href="#（5）重新加载配置文件" class="headerlink" title="（5）重新加载配置文件"></a>（5）重新加载配置文件</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="（6）-启动Nginx"><a href="#（6）-启动Nginx" class="headerlink" title="（6） 启动Nginx"></a>（6） 启动Nginx</h4><p>进入Nginx的安装目录：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /usr/local/nginx/sbin</span><br></pre></td></tr></table></figure>
+
+<p>然后，启动Nginx服务器：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./nginx</span><br></pre></td></tr></table></figure>
+
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905201004088.png" alt="image-20240905201004088" style="zoom: 50%;" />
+
+<p>您现在可以通过浏览器访问您的服务器的IP地址或域名来验证Nginx是否正常工作。</p>
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905165429147.png" alt="image-20240905165429147" style="zoom:67%;" />
+
+
+
+<h3 id="9、lrzsz-图形化上传文件-工具-finallshell已自带"><a href="#9、lrzsz-图形化上传文件-工具-finallshell已自带" class="headerlink" title="9、lrzsz &#x3D;&#x3D;图形化上传文件&#x3D;&#x3D;工具(finallshell已自带)"></a>9、lrzsz &#x3D;&#x3D;图形化上传文件&#x3D;&#x3D;工具(finallshell已自带)</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用 rz命令进行图形化的文件上传</span></span><br></pre></td></tr></table></figure>
+
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903230629411.png" alt="image-20240903230629411" style="zoom:80%;" />
+
+<h4 id="（1）使用-rz-命令进行-图形化-的文件上传"><a href="#（1）使用-rz-命令进行-图形化-的文件上传" class="headerlink" title="（1）使用&#x3D;&#x3D;rz&#x3D;&#x3D;命令进行&#x3D;&#x3D;图形化&#x3D;&#x3D;的文件上传"></a>（1）使用&#x3D;&#x3D;rz&#x3D;&#x3D;命令进行&#x3D;&#x3D;图形化&#x3D;&#x3D;的文件上传</h4><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903230848047.png" alt="image-20240903230848047" style="zoom:50%;" />
+
+
+
+<h2 id="七、项目部署"><a href="#七、项目部署" class="headerlink" title="七、项目部署"></a>七、项目部署</h2><h3 id="1、手工部署-后端"><a href="#1、手工部署-后端" class="headerlink" title="1、手工部署-后端"></a>1、手工部署-后端</h3><h4 id="（1）在IDEA中开发SpringBoot项目并打成jar包"><a href="#（1）在IDEA中开发SpringBoot项目并打成jar包" class="headerlink" title="（1）在IDEA中开发SpringBoot项目并打成jar包"></a>（1）在IDEA中开发SpringBoot项目并打成jar包</h4><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903232027851.png" alt="image-20240903232027851" style="zoom: 67%;" />
+
+<h4 id="（2）将jar包上传到Linux服务器"><a href="#（2）将jar包上传到Linux服务器" class="headerlink" title="（2）将jar包上传到Linux服务器"></a>（2）将jar包上传到Linux服务器</h4><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903232057598.png" alt="image-20240903232057598" style="zoom:67%;" />
+
+<h4 id="（3）启动SpringBoot程序"><a href="#（3）启动SpringBoot程序" class="headerlink" title="（3）启动SpringBoot程序"></a>（3）启动SpringBoot程序</h4><p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903232115960.png" alt="image-20240903232115960"></p>
+<h4 id="（4）检查防火墙，确保8080端口对外开放，访问SpringBoot项目"><a href="#（4）检查防火墙，确保8080端口对外开放，访问SpringBoot项目" class="headerlink" title="（4）检查防火墙，确保8080端口对外开放，访问SpringBoot项目"></a>（4）检查防火墙，确保8080端口对外开放，访问SpringBoot项目</h4><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903232135174.png" alt="image-20240903232135174" style="zoom:80%;" />
+
+<h4 id="（5）改为后台运行SpringBoot程序，并将日志输出到日志文件"><a href="#（5）改为后台运行SpringBoot程序，并将日志输出到日志文件" class="headerlink" title="（5）改为后台运行SpringBoot程序，并将日志输出到日志文件"></a>（5）改为后台运行SpringBoot程序，并将日志输出到日志文件</h4><p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903232154494.png" alt="image-20240903232154494"></p>
+<p><strong>改为后台运行SpringBoot程序，并将日志输出到日志文件</strong></p>
+<p><strong>目前程序运行的问题</strong></p>
+<ul>
+<li><strong>线上程序不会采用控制台霸屏的形式运行程序，而是将程序在后台运行</strong></li>
+<li><strong>线上程序不会将日志输出到控制台，而是输出到日志文件，方便运维查阅信息</strong></li>
+</ul>
+<p><strong>nohup命令：英文全称nohangup（不挂起），用于不挂断地运行指定命令，退出终端不会影响程序的运行</strong></p>
+<p><strong>语法格式：nohup Command [Arg…] [&amp;]</strong></p>
+<p><strong>参数说明：</strong></p>
+<ul>
+<li><strong>Command：要执行的命令</strong></li>
+<li><strong>Arg：一些参数，可以指定输出文件</strong></li>
+<li><strong>&amp;：让命令在后台运行</strong></li>
+</ul>
+<p><strong>举例：hello.log为日志文件</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nohupjava -jar springboot工程.jar &amp;&gt; hello.log &amp;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>nohupjava -jar boot工程.jar &amp;&gt;hello.log&amp; 后台运行java-jar命令，并将日志输出到hello.log文件</strong>  </p>
+<h4 id="（6）停止SpringBoot程序"><a href="#（6）停止SpringBoot程序" class="headerlink" title="（6）停止SpringBoot程序"></a>（6）停止SpringBoot程序</h4><p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240903232638267.png" alt="image-20240903232638267"></p>
+<h3 id="2、Shell脚本自动部署-后端"><a href="#2、Shell脚本自动部署-后端" class="headerlink" title="2、Shell脚本自动部署-后端"></a>2、Shell脚本自动部署-后端</h3><p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240904143357477.png" alt="image-20240904143357477"></p>
+<h4 id="（1）安装Git"><a href="#（1）安装Git" class="headerlink" title="（1）安装Git"></a>（1）安装Git</h4><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240904145219238.png" alt="image-20240904145219238" style="zoom:80%;" />
+
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240904145252060.png" alt="image-20240904145252060" style="zoom:67%;" />
+
+<h4 id="（2）安装Maven"><a href="#（2）安装Maven" class="headerlink" title="（2）安装Maven"></a>（2）安装Maven</h4><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240904145324328.png" alt="image-20240904145324328" style="zoom: 80%;" />
+
+<p><strong>tar-zxvfapache-maven-3.5.4-bin.tar.gz-C&#x2F;usr&#x2F;local</strong></p>
+<p><strong>vim&#x2F;etc&#x2F;profile  修改配置文件，加入如下内容</strong></p>
+<ul>
+<li><strong>export MAVEN_HOME&#x3D;&#x2F;usr&#x2F;local&#x2F;apache-maven-3.5.4</strong></li>
+<li><strong>export PATH&#x3D;$JAVA_HOME&#x2F;bin:$MAVEN_HOME&#x2F;bin:$PATH</strong></li>
+<li><strong>source&#x2F;etc&#x2F;profile</strong></li>
+</ul>
+<p><strong>mvn -version  查看maven版本</strong>  </p>
+<p><strong>&#x3D;&#x3D;修改配置文件&#x3D;&#x3D;内容如下</strong></p>
+<p>**vim &#x2F;usr&#x2F;local&#x2F;apache-maven-3.5.4&#x2F;conf&#x2F;settings.xml  **</p>
+<p><strong>&#x3D;&#x3D;指定Maven以后依赖保存的本地仓库&#x3D;&#x3D;</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">&lt;localRepository&gt;/usr/local/repo&lt;/localRepository&gt; #指定Maven以后依赖保存的本地仓库</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="（3）编写Shell脚本-拉取代码、编译、打包、启动"><a href="#（3）编写Shell脚本-拉取代码、编译、打包、启动" class="headerlink" title="（3）编写Shell脚本(拉取代码、编译、打包、启动)"></a>（3）编写Shell脚本(拉取代码、编译、打包、启动)</h4><p><strong>在&#x2F;usr&#x2F;local&#x2F;sh目录下, 将shell脚本文件加入到该目录中</strong></p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240904150018801.png" alt="image-20240904150018801"></p>
+<p><strong>shell脚本（需要根据自己的项目，&#x3D;&#x3D;自定义配置&#x3D;&#x3D;）</strong></p>
+<ul>
+<li><strong>&#x3D;&#x3D;APP_NAME&#x3D;&#x3D;</strong></li>
+<li><strong>存放Git拉取后的&#x3D;&#x3D;项目位置&#x3D;&#x3D;，cd &#x2F;usr&#x2F;local&#x2F;helloworld</strong></li>
+<li><strong>启动项目的&#x3D;&#x3D;jar包&#x3D;&#x3D;和存放&#x3D;&#x3D;实时日志文件&#x3D;&#x3D;的位置即文件名，nohup java -jar helloworld-1.0-SNAPSHOT.jar &amp;&gt; helloworld.log &amp;</strong></li>
+</ul>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"><span class="built_in">echo</span> =================================</span><br><span class="line"><span class="built_in">echo</span>  自动化部署脚本启动</span><br><span class="line"><span class="built_in">echo</span> =================================</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> 停止原来运行中的工程</span><br><span class="line">APP_NAME=helloworld</span><br><span class="line"></span><br><span class="line">tpid=`ps -ef|grep <span class="variable">$APP_NAME</span>|grep -v grep|grep -v <span class="built_in">kill</span>|awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>`</span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$&#123;tpid&#125;</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;Stop Process...&#x27;</span></span><br><span class="line">    <span class="built_in">kill</span> -15 <span class="variable">$tpid</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="built_in">sleep</span> 2</span><br><span class="line">tpid=`ps -ef|grep <span class="variable">$APP_NAME</span>|grep -v grep|grep -v <span class="built_in">kill</span>|awk <span class="string">&#x27;&#123;print $2&#125;&#x27;</span>`</span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$&#123;tpid&#125;</span> ]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;Kill Process!&#x27;</span></span><br><span class="line">    <span class="built_in">kill</span> -9 <span class="variable">$tpid</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&#x27;Stop Success!&#x27;</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> 准备从Git仓库拉取最新代码</span><br><span class="line"><span class="built_in">cd</span> /usr/local/helloworld</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> 开始从Git仓库拉取最新代码</span><br><span class="line">git pull</span><br><span class="line"><span class="built_in">echo</span> 代码拉取完成</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> 开始打包</span><br><span class="line">output=`mvn clean package -Dmaven.test.skip=<span class="literal">true</span>`</span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> target</span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> 启动项目</span><br><span class="line"><span class="built_in">nohup</span> java -jar helloworld-1.0-SNAPSHOT.jar &amp;&gt; helloworld.log &amp;</span><br><span class="line"><span class="built_in">echo</span> 项目启动完成</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>&#x3D;&#x3D;可以遇到的问题：&#x3D;&#x3D;</strong></p>
+<ul>
+<li><p>**<code>$&#39;\r&#39;: 未找到命令</code>**：这通常是因为脚本文件中包含了 Windows 风格的换行符（<code>CRLF</code>）而不是 Unix 风格的换行符（<code>LF</code>）。Unix 系统要求换行符为 LF，而 Windows 使用 CRLF。如果脚本是从 Windows 环境中复制或编辑的，可能会出现这个问题。</p>
+<ul>
+<li>如果你的系统没有安装 <code>dos2unix</code>，你可以用 &#x3D;&#x3D;<code>sed</code> 命令&#x3D;&#x3D;来修复：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sed -i &#x27;s/\r$//&#x27; sky-take-out.sh</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>**<code>语法错误: 未预期的文件结尾</code>**：这可能是因为文件末尾的换行符问题，或者脚本文件中有其他格式问题导致的。也有可能是因为有一些未闭合的结构，比如 <code>if</code> 语句没有正确结束。</p>
+<ul>
+<li>确保脚本中的每个 <code>if</code>、<code>for</code>、<code>while</code> 语句都有正确的结束标记。例如，确保 <code>if</code> 语句后面有 <code>fi</code>。</li>
+</ul>
+</li>
+</ul>
+<h4 id="（4）为用户授予执行Shell脚本的权限"><a href="#（4）为用户授予执行Shell脚本的权限" class="headerlink" title="（4）为用户授予执行Shell脚本的权限"></a>（4）为用户授予执行Shell脚本的权限</h4><h5 id="①文件权限"><a href="#①文件权限" class="headerlink" title="①文件权限"></a>①文件权限</h5><p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240904150444220.png" alt="image-20240904150444220"></p>
+<p><strong>&#x3D;&#x3D;chmod&#x3D;&#x3D;（英文全拼：changemode）命令是控制用户对文件的权限的命令</strong></p>
+<ul>
+<li><strong>Linux中的权限分为：读(r)、写(w)、执行(x)三种权限</strong></li>
+<li><strong>Linux的文件调用权限分为三级：&#x3D;&#x3D;文件所有者&#x3D;&#x3D;（Owner）、&#x3D;&#x3D;用户组&#x3D;&#x3D;（Group）、&#x3D;&#x3D;其它用户&#x3D;&#x3D;（OtherUsers）</strong></li>
+<li><strong>只有文件的&#x3D;&#x3D;所有者和超级用户(root)&#x3D;&#x3D;可以修改文件或目录的权限</strong></li>
+<li><strong>要执行ShelL脚本需要有对此脚本文件的&#x3D;&#x3D;执行权限&#x3D;&#x3D;，如果没有则不能执行</strong></li>
+</ul>
+<h5 id="①为用户授权"><a href="#①为用户授权" class="headerlink" title="①为用户授权"></a>①为用户授权</h5><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240904151304576.png" alt="image-20240904151304576" style="zoom: 80%;" />
+
+<ul>
+<li><p><strong>除了第一位使用&#x3D;&#x3D;-或者d&#x3D;&#x3D;来区分该文件时&#x3D;&#x3D;目录还是文件&#x3D;&#x3D;</strong></p>
+</li>
+<li><p><strong>将之后的九位数，划分为三组，通过0<del>7(000</del>111)的八进制数来代表授予每组的权限</strong></p>
+</li>
+<li><p><strong>注意：三位数字分别代表不同用户的权限</strong></p>
+<ul>
+<li><strong>第1位表示&#x3D;&#x3D;文件拥有者&#x3D;&#x3D;的权限</strong></li>
+<li><strong>第2位表示&#x3D;&#x3D;同组用户&#x3D;&#x3D;的权限</strong></li>
+<li><strong>第3位表示&#x3D;&#x3D;其他用户&#x3D;&#x3D;的权限</strong></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240904150725763.png" alt="image-20240904150725763"></p>
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240904151600417.png" alt="image-20240904151600417" style="zoom:80%;" />
+
+<h4 id="（5）执行Shell脚本"><a href="#（5）执行Shell脚本" class="headerlink" title="（5）执行Shell脚本"></a>（5）执行Shell脚本</h4><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240904151754547.png" alt="image-20240904151754547" style="zoom:80%;" />
+
+
+
+<h4 id="（6）设置静态ip"><a href="#（6）设置静态ip" class="headerlink" title="（6）设置静态ip"></a>（6）设置静态ip</h4><p><strong>为了防止&#x3D;&#x3D;每次重新启动虚拟机&#x3D;&#x3D;，让ip地址发生变化，导致网站的ip地址不确定，需要设置虚拟机的ip为&#x3D;&#x3D;静态ip&#x3D;&#x3D;</strong></p>
+<h5 id="①设置静态ip"><a href="#①设置静态ip" class="headerlink" title="①设置静态ip"></a>①设置静态ip</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /etc/sysconfig/network-scripts/ifcfg-ens33</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240904151507650.png" alt="image-20240904151507650"></p>
+<p><strong>&#x3D;&#x3D;注意：修改后的静态ip、网关、DNS服务器的网段需要和此处保持一致，即192.168.138.xx&#x3D;&#x3D;</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">BOOTPROTO=&quot;static&quot;  #使用静态IP地址，默认为dhcp</span><br><span class="line">IPADDR=&quot;192.168.138.100&quot; #设置的静态IP地址</span><br><span class="line">NETMASK=&quot;255.255.255.0&quot;  #子网掩码</span><br><span class="line">GATEWAY=&quot;192.168.138.2&quot;  #网关地址</span><br><span class="line">DNS1=&quot;192.168.138.2&quot;  #DNS服务器</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="②重启网络服务"><a href="#②重启网络服务" class="headerlink" title="②重启网络服务"></a>②重启网络服务</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl restart network</span><br></pre></td></tr></table></figure>
+
+<p><strong>&#x3D;&#x3D;注意：重启完网络服务后ip地址已经发生了改变，此时FinalShell已经连接不上Linux系统，需要创建一个新连接才能连接到Linux。&#x3D;&#x3D;</strong></p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240904152400011.png" alt="image-20240904152400011"></p>
+<h3 id="3、部署架构-前后端，客户端、主从数据库、Redis"><a href="#3、部署架构-前后端，客户端、主从数据库、Redis" class="headerlink" title="3、部署架构-前后端，客户端、主从数据库、Redis"></a>3、部署架构-前后端，客户端、主从数据库、Redis</h3><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905202404025.png" alt="image-20240905202404025" style="zoom:80%;" />
+
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905202420884.png" alt="image-20240905202420884" style="zoom:50%;" />
+
+
+
+<h4 id="（1）安装-配置-启停-Nginx"><a href="#（1）安装-配置-启停-Nginx" class="headerlink" title="（1）安装&#x2F;配置&#x2F;启停 Nginx"></a>（1）安装&#x2F;配置&#x2F;启停 Nginx</h4><h5 id="①-前言"><a href="#①-前言" class="headerlink" title="① 前言"></a><strong>① 前言</strong></h5><p>Nginx是一款卓越的高性能Web服务器，被广泛用于托管网站和应用程序。本文旨在为您提供详细的指南，帮助您在Linux系统上成功安装、配置和启动Nginx服务器。通过这一过程，您将了解如何将Nginx集成到您的系统中，以便轻松地托管您的网站和应用程序。</p>
+<h5 id="②-安装依赖项"><a href="#②-安装依赖项" class="headerlink" title="② 安装依赖项"></a><strong>② 安装依赖项</strong></h5><p>在开始安装Nginx之前，首先需要安装一些依赖项，以确保Nginx编译和运行正常。打开终端并执行以下命令：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">yum install -y wget gcc-c++ pcre-devel zlib-devel openssl-devel</span><br></pre></td></tr></table></figure>
+
+<p>这将安装必要的工具和库，以支持Nginx的编译和运行。</p>
+<h5 id="③下载Nginx"><a href="#③下载Nginx" class="headerlink" title="③下载Nginx"></a><strong>③下载Nginx</strong></h5><p>从Nginx官网下载最新的稳定版本。您可以在<a target="_blank" rel="noopener" href="https://nginx.org/en/download.html">https://nginx.org/en/download.html</a>上找到最新版本的下载链接。</p>
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905165019611.png" alt="image-20240905165019611" style="zoom:67%;" />
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">例如，下载Nginx 1.24.0版本</span></span><br><span class="line">wget https://nginx.org/download/nginx-1.24.0.tar.gz</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>创建一个文件夹</strong> </p>
+<ul>
+<li><p>cd &#x2F;usr&#x2F;local</p>
+</li>
+<li><p>mkdir nginx</p>
+</li>
+<li><p>cd nginx</p>
+</li>
+</ul>
+<p><strong>解压Nginx</strong></p>
+<p>解压下载的Nginx源代码包：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">tar -zxvf nginx-1.24.0.tar.gz -C /usr/local/nginx</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>编译和安装</strong></p>
+<p>进入解压后的Nginx目录并进行编译和安装：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">切换到 Nginx 解压目录</span></span><br><span class="line">cd /usr/local/nginx/nginx-1.24.0</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编译前的配置和依赖检查,考虑到后续安装ssl证书(https)、http 添加两个模块</span></span><br><span class="line">./configure --with-http_stub_status_module --with-http_ssl_module</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">编译安装</span></span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+
+<p>Nginx安装完成后，默认自动创建 <code>/usr/local/nginx</code> 目录，并创建必要的文件和目录，包括配置文件、日志文件、HTML文件等。</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905165148247.png" alt="image-20240905165148247"></p>
+<h5 id="④-配置nginx环境变量"><a href="#④-配置nginx环境变量" class="headerlink" title="④ 配置nginx环境变量"></a>④ 配置nginx环境变量</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export NGINX_HOME=/usr/local/nginx</span><br><span class="line">export PATH=$PATH:$NGINX_HOME/sbin </span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="⑤-重新加载配置文件"><a href="#⑤-重新加载配置文件" class="headerlink" title="⑤ 重新加载配置文件"></a>⑤ 重新加载配置文件</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="⑥-启动Nginx"><a href="#⑥-启动Nginx" class="headerlink" title="⑥ 启动Nginx"></a>⑥ 启动Nginx</h5><p>进入Nginx的安装目录：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd /usr/local/nginx/sbin</span><br></pre></td></tr></table></figure>
+
+<p>然后，启动Nginx服务器：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">./nginx</span><br></pre></td></tr></table></figure>
+
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905201004088.png" alt="image-20240905201004088" style="zoom: 50%;" />
+
+<p>您现在可以通过浏览器访问您的服务器的IP地址或域名来验证Nginx是否正常工作。</p>
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905165429147.png" alt="image-20240905165429147" style="zoom:67%;" />
+
+
+<h5 id="配置nginx-conf-打开配置文件"><a href="#配置nginx-conf-打开配置文件" class="headerlink" title="&#x3D;&#x3D;配置nginx.conf&#x3D;&gt;打开配置文件&#x3D;&#x3D;"></a>&#x3D;&#x3D;配置nginx.conf&#x3D;&gt;打开配置文件&#x3D;&#x3D;</h5><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905200715948.png" alt="image-20240905200715948" style="zoom:50%;" />
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi /usr/local/nginx/conf/nginx.conf</span><br></pre></td></tr></table></figure>
+
+<p>将端口号改成8089(随便挑个端口)，因为可能apeache占用80端口，apeache端口尽量不要修改，我们选择修改nginx端口。</p>
+<p>将localhost修改为你服务器的公网ip地址。</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905175330977.png" alt="image-20240905175330977"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">user  nobody;  <span class="comment">#指定 Nginx 进程以哪个用户的身份运行，通常会设置为非特权用户以增强安全性。被注释掉了，默认运行用户可能是 nginx 或 www-data。</span></span></span><br><span class="line">worker_processes  1;  #指定 Nginx 使用的工作进程数量。一般根据 CPU 核心数设置，1 是最基本的配置。</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">error_log  logs/error.log;   <span class="comment">#指定错误日志文件的位置和日志级别。被注释掉了，默认的错误日志级别和位置会被使用。</span></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">error_log  logs/error.log  notice;</span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">error_log  logs/error.log  info;</span></span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">pid        logs/nginx.pid;  <span class="comment">#指定 Nginx 进程 ID 文件的位置。被注释掉了，默认位置可能是 /var/run/nginx.pid。</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">events &#123;</span><br><span class="line">    worker_connections  1024;  #每个工作进程最大可以打开的连接数。设置为 1024，这意味着 Nginx 可以同时处理最多 1024 个连接。</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">http &#123;</span><br><span class="line">    include       mime.types;  #包含 MIME 类型配置文件，以便为响应设置适当的 Content-Type。</span><br><span class="line">    default_type  application/octet-stream;  #设置默认 MIME 类型为 application/octet-stream，通常用于未指定类型的文件。</span><br><span class="line"></span><br><span class="line">    #log_format  main  &#x27;$remote_addr - $remote_user [$time_local] &quot;$request&quot; &#x27;</span><br><span class="line">    #                  &#x27;$status $body_bytes_sent &quot;$http_referer&quot; &#x27;</span><br><span class="line">    #                  &#x27;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#x27;;</span><br><span class="line"></span><br><span class="line">    #access_log  logs/access.log  main;</span><br><span class="line"></span><br><span class="line">    sendfile        on;  #启用高效的文件传输。</span><br><span class="line">    #tcp_nopush     on;</span><br><span class="line"></span><br><span class="line">    #keepalive_timeout  0;</span><br><span class="line">    keepalive_timeout  65;  #设置客户端与服务器之间的持久连接超时时间为 65 秒。</span><br><span class="line"></span><br><span class="line">    #gzip  on;</span><br><span class="line">	</span><br><span class="line">	map $http_upgrade $connection_upgrade&#123;  #配置 WebSocket 连接的升级机制。</span><br><span class="line">		default upgrade;</span><br><span class="line">		&#x27;&#x27; close;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">使用upstream指令配置后端服务器组</span></span><br><span class="line">	upstream webservers&#123;  #定义了一个名为 webservers 的负载均衡后端服务器组</span><br><span class="line"><span class="meta prompt_">	#</span><span class="language-bash">负载均衡</span></span><br><span class="line"></span><br><span class="line">      #本地后端，8080端口</span><br><span class="line"><span class="meta prompt_">	  #</span><span class="language-bash">server 127.0.0.1:8080 weight=90 ;</span></span><br><span class="line"></span><br><span class="line">      #Linux部署后端</span><br><span class="line">      server 192.168.88.129:9090 weight=90 ;</span><br><span class="line"></span><br><span class="line">      #本地后端，9090端口</span><br><span class="line">      #server 127.0.0.1:9090 weight=90 ;  </span><br><span class="line"></span><br><span class="line"><span class="meta prompt_">	  #</span><span class="language-bash">server 127.0.0.1:8088 weight=10 ;</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    server &#123;</span><br><span class="line">        listen    80;  #监听 80 端口的 HTTP 请求</span><br><span class="line">        server_name  localhost;  #指定外部访问的服务器名称为 localhost。</span><br><span class="line"></span><br><span class="line">        #charset koi8-r;</span><br><span class="line"></span><br><span class="line">        #access_log  logs/host.access.log  main;</span><br><span class="line"></span><br><span class="line">        location / &#123;  #根路径配置，将请求的根路径指向 html/dist 目录，默认首页是 index.html 和 index.htm。</span><br><span class="line">            root   html/dist;</span><br><span class="line">            index  index.html index.htm;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        #error_page  404              /404.html;</span><br><span class="line"></span><br><span class="line">        # redirect server error pages to the static page /50x.html</span><br><span class="line">        #</span><br><span class="line">        error_page   500 502 503 504  /50x.html;</span><br><span class="line">        location = /50x.html &#123;</span><br><span class="line">            root   html;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        # 反向代理,处理管理端发送的请求</span><br><span class="line">        location /api/ &#123;  #反向代理到 http://webservers/admin/</span><br><span class="line">        		#rewrite ^/api/(.*)$ /$1 break;  #请求 /api/data 会被前端代理重写为 /data，然后在 Nginx 层直接转发到 http://webservers/admin/data。</span><br><span class="line">			proxy_pass   http://webservers/admin/;</span><br><span class="line">            #proxy_pass   http://webservers/admin/;</span><br><span class="line">        &#125;</span><br><span class="line">		</span><br><span class="line"><span class="meta prompt_">		# </span><span class="language-bash">反向代理,处理用户端发送的请求</span></span><br><span class="line">        location /user/ &#123; #反向代理到 http://webservers/user/</span><br><span class="line">            proxy_pass   http://webservers/user/;</span><br><span class="line">        &#125;</span><br><span class="line">		</span><br><span class="line"><span class="meta prompt_">		# </span><span class="language-bash">WebSocket</span></span><br><span class="line">		location /ws/ &#123;  #处理 WebSocket 连接，设置 proxy_http_version 1.1 和其他 WebSocket 特定的头部。</span><br><span class="line">            proxy_pass   http://webservers/ws/;</span><br><span class="line">			proxy_http_version 1.1;</span><br><span class="line">			proxy_read_timeout 3600s;</span><br><span class="line">			proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">			proxy_set_header Connection &quot;$connection_upgrade&quot;;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span><br><span class="line">        #</span><br><span class="line">        #location ~ \.php$ &#123;</span><br><span class="line">        #    root           html;</span><br><span class="line">        #    fastcgi_pass   127.0.0.1:9000;</span><br><span class="line">        #    fastcgi_index  index.php;</span><br><span class="line">        #    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name;</span><br><span class="line">        #    include        fastcgi_params;</span><br><span class="line">        #&#125;</span><br><span class="line"></span><br><span class="line">        # deny access to .htaccess files, if Apache&#x27;s document root</span><br><span class="line">        # concurs with nginx&#x27;s one</span><br><span class="line">        #</span><br><span class="line">        #location ~ /\.ht &#123;</span><br><span class="line">        #    deny  all;</span><br><span class="line">        #&#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    # another virtual host using mix of IP-, name-, and port-based configuration</span><br><span class="line">    #</span><br><span class="line">    #server &#123;</span><br><span class="line">    #    listen       8000;</span><br><span class="line">    #    listen       somename:8080;</span><br><span class="line">    #    server_name  somename  alias  another.alias;</span><br><span class="line"></span><br><span class="line">    #    location / &#123;</span><br><span class="line">    #        root   html;</span><br><span class="line">    #        index  index.html index.htm;</span><br><span class="line">    #    &#125;</span><br><span class="line">    #&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    # HTTPS server</span><br><span class="line">    #</span><br><span class="line">    #server &#123;</span><br><span class="line">    #    listen       443 ssl;</span><br><span class="line">    #    server_name  localhost;</span><br><span class="line"></span><br><span class="line">    #    ssl_certificate      cert.pem;</span><br><span class="line">    #    ssl_certificate_key  cert.key;</span><br><span class="line"></span><br><span class="line">    #    ssl_session_cache    shared:SSL:1m;</span><br><span class="line">    #    ssl_session_timeout  5m;</span><br><span class="line"></span><br><span class="line">    #    ssl_ciphers  HIGH:!aNULL:!MD5;</span><br><span class="line">    #    ssl_prefer_server_ciphers  on;</span><br><span class="line"></span><br><span class="line">    #    location / &#123;</span><br><span class="line">    #        root   html;</span><br><span class="line">    #        index  index.html index.htm;</span><br><span class="line">    #    &#125;</span><br><span class="line">    #&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h5 id="⑦-停止Nginx"><a href="#⑦-停止Nginx" class="headerlink" title="⑦ 停止Nginx"></a>⑦ 停止Nginx</h5><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">寻找Nginx进程</span></span><br><span class="line">ps -ef | grep nginx</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">杀死Nginx进程</span></span><br><span class="line">kill -9 78879</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="⑧-防火墙设置"><a href="#⑧-防火墙设置" class="headerlink" title="⑧ 防火墙设置"></a>⑧ 防火墙设置</h5><p>如果您的系统启用了防火墙，需要<strong>关闭防火墙</strong>或者**&#x3D;&#x3D;开发相应的端口&#x3D;&#x3D;**</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看防火墙状态</span></span><br><span class="line">systemctl status firewalld</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">关闭防火墙</span></span><br><span class="line">systemctl stop firewalld</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">开机禁用防火墙</span></span><br><span class="line">systemctl disable firewalld</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">开放Nginx的80端口</span></span><br><span class="line">firewall-cmd --zone=public --add-port=80/tcp --permanent</span><br><span class="line">firewall-cmd --reload  #开放或者关闭端口后==需要执行立即生效命令</span><br><span class="line">firewall-cmd --zone=public --list-ports  #查看开放的端口</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h4 id="（2）前端-Nginx部署"><a href="#（2）前端-Nginx部署" class="headerlink" title="（2）前端-Nginx部署"></a>（2）前端-Nginx部署</h4><h5 id="①前端打包成dist"><a href="#①前端打包成dist" class="headerlink" title="①前端打包成dist"></a>①前端打包成dist</h5><p><strong>终端输入，打包获得dist目录文件</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></table></figure>
+
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905201142120.png" alt="image-20240905201142120" style="zoom:50%;" />
+
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905201241901.png" alt="image-20240905201241901" style="zoom:50%;" />
+
+
+
+<h5 id="上传到服务端"><a href="#上传到服务端" class="headerlink" title="上传到服务端"></a>上传到服务端</h5><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905201449911.png" alt="image-20240905201449911" style="zoom:50%;" />
+
+
+
+<h5 id="②WebSocket请求路径错误"><a href="#②WebSocket请求路径错误" class="headerlink" title="②WebSocket请求路径错误"></a>②WebSocket请求路径错误</h5><p><strong>VUE_APP_SOCKET_URL &#x3D; ‘ws:&#x2F;&#x2F;192.168.88.130:80’</strong> </p>
+<p><strong>这里是WebSocket的地址,Nginx会反向代理到后端,</strong><br>        <strong>需要注意的是,这里的url&#x3D;&#x3D;不能写为ws:&#x2F;&#x2F;192.168.88.129:9090&#x2F;ws&#x2F;&#x3D;&#x3D;，否则会导致WebSocket连接失败，需要在使用的时候再去&#x3D;&#x3D;拼接’&#x2F;ws&#x2F;‘&#x3D;&#x3D;，</strong></p>
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905223422534.png" alt="image-20240905223422534" style="zoom:67%;" />
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">Base api</span></span><br><span class="line">VUE_APP_BASE_API = &#x27;/api&#x27;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">统一前缀,<span class="string">&#x27;/api&#x27;</span> http://localhost:8080/api</span></span><br><span class="line"></span><br><span class="line">NODE_ENV = &#x27;development&#x27;</span><br><span class="line">VUE_APP_NODE_ENV = &#x27;dev&#x27;</span><br><span class="line"></span><br><span class="line">//后端服务的地址</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">VUE_APP_URL = <span class="string">&#x27;http://localhost:8080/admin&#x27;</span></span></span><br><span class="line">VUE_APP_URL = &#x27;http://192.168.88.129:9090/admin&#x27;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">VUE_APP_SOCKET_URL = <span class="string">&#x27;ws://localhost:8080/ws/&#x27;</span></span></span><br><span class="line"></span><br><span class="line">VUE_APP_SOCKET_URL = &#x27;ws://192.168.88.130:80&#x27; #这里是WebSocket的地址,Nginx会反向代理到后端,</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">需要注意的是,这里的url不能写为ws://192.168.88.129:9090/ws/，否则会导致WebSocket连接失败，需要在使用的时候再去拼接<span class="string">&#x27;/ws/&#x27;</span>，</span></span><br><span class="line"></span><br><span class="line">//VUE_APP_SOCKET_URL = &#x27;ws://http://23ce4dbd.cpolar.cn/ws/&#x27;</span><br><span class="line"></span><br><span class="line">VUE_CLI_BABEL_TRANSPILE_MODULES = true</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">删除权限 <span class="literal">true</span>/有</span></span><br><span class="line">VUE_APP_DELETE_PERMISSIONS = true</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="八、-MySQL的-主从复制-数据库的读写分离"><a href="#八、-MySQL的-主从复制-数据库的读写分离" class="headerlink" title="八、(MySQL的&#x3D;&#x3D;主从复制&#x3D;&#x3D;)数据库的读写分离"></a>八、(MySQL的&#x3D;&#x3D;主从复制&#x3D;&#x3D;)数据库的读写分离</h2><h3 id="1、介绍"><a href="#1、介绍" class="headerlink" title="1、介绍"></a>1、介绍</h3><p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905103716596.png" alt="image-20240905103716596"></p>
+<p><strong>MySQL主从复制是一个异步的复制过程，底层是基于Mysql数据库自带的&#x3D;&#x3D;二进制日志功能&#x3D;&#x3D;。就是一台或多台MySQL数据</strong><br><strong>库（&#x3D;&#x3D;slave&#x3D;&#x3D;，即从库）从另一台MySQL数据库（&#x3D;&#x3D;master&#x3D;&#x3D;，即主库）进行日志的&#x3D;&#x3D;复制&#x3D;&#x3D;然后再&#x3D;&#x3D;解析日志并应用到自身&#x3D;&#x3D;，最</strong><br><strong>终实现从库的数据和主库的数据保持一致。MySQL主从复制是MySQL数据库自带功能，无需借助第三方工具。</strong></p>
+<p><strong>MySQL复制过程分成三步：</strong></p>
+<ul>
+<li><strong>master将改变记录到&#x3D;&#x3D;二进制日志（binarylog)&#x3D;&#x3D;</strong></li>
+<li><strong>slave将master的binarylog拷贝到它的&#x3D;&#x3D;中继日志（relaylog）&#x3D;&#x3D;</strong><ol>
+<li><strong>通过开启I&#x2F;O thread 线程从master主库中读取binlog，在写入slave从库的中继日志relaylog。</strong></li>
+<li><strong>在从库中在通过SQL thread线程解析日志，执行和主库一样的sql操作</strong></li>
+</ol>
+</li>
+<li><strong>slave重做中继日志中的事件，将改变应用到自己的数据库中</strong></li>
+</ul>
+<h3 id="2、配置"><a href="#2、配置" class="headerlink" title="2、配置"></a>2、配置</h3><h4 id="（1）前置条件"><a href="#（1）前置条件" class="headerlink" title="（1）前置条件"></a>（1）前置条件</h4><p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905104412444.png" alt="image-20240905104412444"></p>
+<h5 id="①解决-VMware-克隆linux-网卡UUID重复问题"><a href="#①解决-VMware-克隆linux-网卡UUID重复问题" class="headerlink" title="①解决 VMware 克隆linux 网卡UUID重复问题"></a>①解决 VMware 克隆linux 网卡UUID重复问题</h5><blockquote>
+<p>2019年04月06日<br>系统版本：CentOS Linux release 7.6.1810</p>
+</blockquote>
+<p><strong>参考文档</strong></p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/wayneliu007/p/10388417.html">https://www.cnblogs.com/wayneliu007/p/10388417.html</a></p>
+<hr>
+<p>当我们使用 VMware 克隆 linux 主机时会发生克隆主机和原主机网卡 UUID 重复的问题，这样会对网络通信产生影响。<br>只要保证每台主机的 UUID 独一无二即可，即为新的主机绑定新的 UUID。</p>
+<ol>
+<li><strong>生成随机uuid号</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># uuidgen	</span></span><br><span class="line">46269697-0bd5-4088-af92-337325daea9e</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>替换UUID值</strong></li>
+</ol>
+<figure class="highlight ini"><table><tr><td class="code"><pre><span class="line"><span class="comment"># vi /etc/sysconfig/network-scripts/ifcfg-ens33</span></span><br><span class="line"></span><br><span class="line"><span class="attr">TYPE</span>=Ethernet</span><br><span class="line"><span class="attr">PROXY_METHOD</span>=none</span><br><span class="line"><span class="attr">BROWSER_ONLY</span>=<span class="literal">no</span></span><br><span class="line"><span class="attr">BOOTPROTO</span>=none</span><br><span class="line"><span class="attr">DEFROUTE</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">IPV4_FAILURE_FATAL</span>=<span class="literal">no</span></span><br><span class="line"><span class="attr">IPV6INIT</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">IPV6_AUTOCONF</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">IPV6_DEFROUTE</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">IPV6_FAILURE_FATAL</span>=<span class="literal">no</span></span><br><span class="line"><span class="attr">IPV6_ADDR_GEN_MODE</span>=stable-privacy</span><br><span class="line"><span class="attr">NAME</span>=ens33</span><br><span class="line"><span class="attr">DEVICE</span>=ens33</span><br><span class="line"><span class="attr">ONBOOT</span>=<span class="literal">yes</span></span><br><span class="line"><span class="attr">IPV6_PRIVACY</span>=<span class="literal">no</span></span><br><span class="line"><span class="attr">IPADDR</span>=<span class="number">192.168</span>.<span class="number">0.11</span></span><br><span class="line"><span class="attr">PREFIX</span>=<span class="number">24</span></span><br><span class="line"><span class="attr">GATEWAY</span>=<span class="number">192.168</span>.<span class="number">0.1</span></span><br><span class="line"><span class="attr">DNS1</span>=<span class="number">192.168</span>.<span class="number">0.1</span></span><br><span class="line"><span class="attr">DNS2</span>=<span class="number">114.114</span>.<span class="number">114.114</span></span><br><span class="line"><span class="attr">UUID</span>=<span class="number">46269697</span>-<span class="number">0</span>bd5-<span class="number">4088</span>-af92-<span class="number">337325</span>daea9e</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><strong>重启网络服务</strong></li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># systemctl restart network</span></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li><strong>验证查看</strong></li>
+</ol>
+<p>此时新主机的网卡UUID值设置完毕，可以通过 nmcli 命令查看<br>查看网卡 UUID值</p>
+<figure class="highlight delphi"><table><tr><td class="code"><pre><span class="line"># nmcli connection show</span><br><span class="line"><span class="keyword">NAME</span>   UUID                                  <span class="keyword">TYPE</span>      DEVICE </span><br><span class="line">ens33  <span class="number">46269697</span>-<span class="number">0</span>bd5-<span class="number">4088</span>-af92-<span class="number">337325</span>daea9e  ethernet  ens33  </span><br></pre></td></tr></table></figure>
+
+<p>查看网卡 MAC</p>
+<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="comment"># nmcli device show ens33</span></span><br><span class="line"><span class="section">GENERAL.DEVICE:                         ens33</span></span><br><span class="line"><span class="section">GENERAL.TYPE:                           ethernet</span></span><br><span class="line"><span class="section">GENERAL.HWADDR:                         00:0C:29:BD:FC:FA</span></span><br><span class="line"><span class="section">GENERAL.MTU:                            1500</span></span><br><span class="line"><span class="section">GENERAL.STATE:                          100 (连接的)</span></span><br><span class="line"><span class="section">GENERAL.CONNECTION:                     ens33</span></span><br><span class="line"><span class="section">GENERAL.CON-PATH:                       /org/freedesktop/NetworkManager/ActiveConnection/3</span></span><br><span class="line"><span class="section">WIRED-PROPERTIES.CARRIER:               开</span></span><br><span class="line"><span class="section">IP4.ADDRESS[1]:                         192.168.0.11/24</span></span><br><span class="line"><span class="section">IP4.GATEWAY:                            192.168.0.1</span></span><br><span class="line"><span class="section">IP4.ROUTE[1]:                           dst = 192.168.0.0/24, nh = 0.0.0.0, mt = 100</span></span><br><span class="line"><span class="section">IP4.ROUTE[2]:                           dst = 0.0.0.0/0, nh = 192.168.0.1, mt = 100</span></span><br><span class="line"><span class="section">IP4.DNS[1]:                             192.168.0.1</span></span><br><span class="line"><span class="section">IP4.DNS[2]:                             114.114.114.114</span></span><br><span class="line"><span class="section">IP6.ADDRESS[1]:                         fe80::f5fc:c628:ab36:49a1/64</span></span><br><span class="line"><span class="section">IP6.GATEWAY:                            --</span></span><br><span class="line"><span class="section">IP6.ROUTE[1]:                           dst = fe80::/64, nh = ::, mt = 100</span></span><br><span class="line"><span class="section">IP6.ROUTE[2]:                           dst = ff00::/8, nh = ::, mt = 256, table=255</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="（2）主库-Master"><a href="#（2）主库-Master" class="headerlink" title="（2）主库-Master"></a>（2）主库-Master</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">find / -name &quot;my.cnf&quot;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">log-bin=mysql-bin  #[必须]启用二进制日志</span><br><span class="line">server-id=100  #[必须]服务器唯一ID</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl restart mysqld</span><br></pre></td></tr></table></figure>
+
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905104635992.png" alt="image-20240905104635992" style="zoom: 67%;" />
+
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905104811911.png" alt="image-20240905104811911" style="zoom:80%;" />
+
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905105014235.png" alt="image-20240905105014235" style="zoom:80%;" />
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">GRANT REPLICATION SLAVE ON *.* to&#x27;xiaopeng&#x27;@&#x27;%&#x27;identified by&#x27;123456&#x27;;</span><br></pre></td></tr></table></figure>
+
+<p>注：上面SQL的作用是创建一个<strong>用户</strong>xiaoming，密码为Root@123456，并且给xia0ming用户授予**&#x3D;&#x3D;REPLICATION SLAVE权限&#x3D;&#x3D;<strong>。常用于建立复制时所需要用到的用户权限，也就是</strong>&#x3D;&#x3D;slave必须被master授权，成为具有该权限的用户，才能通过该用户复制&#x3D;&#x3D;**。</p>
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905105346000.png" alt="image-20240905105346000" style="zoom: 80%;" />
+
+<p><strong>&#x3D;&#x3D;由于主库的二进制日志文件和位置，会因为操作数据库发生变化，后续在从库中需要使用；&#x3D;&#x3D;</strong></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">show master status; #由于主库的二进制日志文件和位置，会因为操作数据库发生变化，后续在从库中需要使用；</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="（3）从库-Slave"><a href="#（3）从库-Slave" class="headerlink" title="（3）从库-Slave"></a>（3）从库-Slave</h4><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905105700199.png" alt="image-20240905105700199" style="zoom: 67%;" />
+
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905105753248.png" alt="image-20240905105753248" style="zoom:80%;" />
+
+
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">find / -name &quot;my.cnf&quot;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">server-id=101  #[必须]服务器唯一ID</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">systemctl restart mysqld</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905105812458.png" alt="image-20240905105812458"></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">change master to master_host=&#x27;192.168.138.100&#x27;,master_user=&#x27;xiaopeng&#x27;,master_password=&#x27;123456&#x27;,master_log_file=&#x27;mysql-bin.000001&#x27;,master_log_pos=439;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">start slave;</span><br></pre></td></tr></table></figure>
+
+<p><strong>&#x3D;&#x3D;注意&#x3D;&#x3D;</strong></p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905110339727.png" alt="image-20240905110339727"></p>
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905110403499.png" alt="image-20240905110403499" style="zoom:80%;" />
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">show slave status\G</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="（4）注意事项"><a href="#（4）注意事项" class="headerlink" title="（4）注意事项"></a>（4）注意事项</h4><h5 id="①在从库中使用-show-slave-status-时报错"><a href="#①在从库中使用-show-slave-status-时报错" class="headerlink" title="①在从库中使用 show slave status; 时报错"></a>①在从库中使用 show slave status; 时报错</h5><p><strong>主从复制报错Fatal error:The slave I&#x2F;O thread stops because master and slave have equal MySQL server &#x3D;&#x3D;UUIDs&#x3D;&#x3D;；</strong></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/cnds123321/article/details/117925881">主从复制报错Fatal error:The slave I&#x2F;O thread stops because master and slave have equal MySQL server UUIDs；_fatal error: master and slave have equal mysql ser-CSDN博客</a></p>
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905121523722.png" alt="image-20240905121523722" style="zoom:67%;" />
+
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905121542643.png" alt="image-20240905121542643" style="zoom: 67%;" />
+
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905121615376.png" alt="image-20240905121615376" style="zoom:67%;" />
+
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240905121627663.png" alt="image-20240905121627663" style="zoom:67%;" />
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">小鹏</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/09/09/Linux-Learning/Linux-Learning/">http://example.com/2024/09/09/Linux-Learning/Linux-Learning/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">小鹏的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux-Learning/">Linux-Learning</a></div><div class="post_share"><div class="social-share" data-image="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/09/09/JavaWeb-Learing/Web-Learning/" title="JavaWeb-Learing"><img class="cover" src="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">JavaWeb-Learing</div></div></a></div><div class="next-post pull-right"><a href="/2021/11/12/hello-world/" title="Super Man"><img class="cover" src="https://jsd.012700.xyz/gh/jerryc127/CDN@latest/cover/default_bg.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Super Man</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux-Learning"><span class="toc-text">Linux-Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%E5%92%8C%E7%AE%80%E4%BB%8B"><span class="toc-text">一、使用场景和简介</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%881%EF%BC%89Linux%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC"><span class="toc-text">（1）Linux系统版本</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A0%E5%8F%91%E8%A1%8C%E7%89%88"><span class="toc-text">①发行版</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Linux%E5%AE%89%E8%A3%85"><span class="toc-text">二、Linux安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%881%EF%BC%89VMware%E5%AE%89%E8%A3%85"><span class="toc-text">（1）VMware安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%882%EF%BC%89Centos%E9%95%9C%E5%83%8F"><span class="toc-text">（2）Centos镜像</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%883%EF%BC%89Finalshell%E5%AE%89%E8%A3%85"><span class="toc-text">（3）Finalshell安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%884%EF%BC%89VMware-%E6%96%B0%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-text">（4）VMware-新建虚拟机</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A0%E6%96%B0%E5%BB%BA%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-text">①新建虚拟机</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A1Linux%E9%85%8D%E7%BD%AE"><span class="toc-text">②Linux配置</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%EF%BC%89%E7%BD%91%E7%BB%9C%E5%92%8C%E4%B8%BB%E6%9C%BA%E5%90%8D"><span class="toc-text">1）网络和主机名</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%EF%BC%89%E5%AE%89%E8%A3%85%E7%9B%AE%E7%9A%84%E5%9C%B0"><span class="toc-text">2）安装目的地</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3%EF%BC%89%E8%AE%BE%E7%BD%AERoot%E5%AF%86%E7%A0%81"><span class="toc-text">3）设置Root密码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4%EF%BC%89%E8%AE%BE%E7%BD%AE%E6%97%B6%E5%8C%BA"><span class="toc-text">4）设置时区</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5%EF%BC%89%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE"><span class="toc-text">5）安装配置</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A2%E7%99%BB%E5%BD%95Linux"><span class="toc-text">③登录Linux</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A3%E7%BD%91%E5%8D%A1%E9%85%8D%E7%BD%AE"><span class="toc-text">④网卡配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E2%91%A4%E9%85%8D%E7%BD%AE%E5%AE%8C%E6%88%90"><span class="toc-text">⑤配置完成</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81FinalShell%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5Linux%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">三、FinalShell远程连接Linux服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E5%AE%89%E8%A3%85"><span class="toc-text">（1）安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5Linux%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">（2）远程连接Linux服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E6%93%8D%E4%BD%9CLinux%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">（3）操作Linux服务器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81Linux%E7%9B%AE%E5%BD%95"><span class="toc-text">四、Linux目录</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%881%EF%BC%89Linux%E5%92%8CWindows%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%E5%AF%B9%E6%AF%94"><span class="toc-text">（1）Linux和Windows目录结构对比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E7%9B%AE%E5%BD%95%E4%BB%8B%E7%BB%8D"><span class="toc-text">（2）目录介绍</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81Linux-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-text">五、Linux&#x3D;&#x3D;常用命令&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81Linux%E5%91%BD%E4%BB%A4%E5%88%9D%E4%BD%93%E9%AA%8C"><span class="toc-text">1、Linux命令初体验</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89-ls-%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-text">（1）&#x3D;&#x3D;ls&#x3D;&#x3D;-查看当前目录下的内容</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A0ls-l-%E6%88%96%E8%80%85-ll-%E4%B8%A4%E4%B8%AAL"><span class="toc-text">①ls -l 或者 ll(两个L)</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89-pwd-%E6%9F%A5%E7%9C%8B%E5%BD%93%E5%89%8D%E6%89%80%E5%9C%A8%E7%9B%AE%E5%BD%95"><span class="toc-text">（2）&#x3D;&#x3D;pwd&#x3D;&#x3D;-查看当前所在目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%883%EF%BC%89-cd-%E7%9B%AE%E5%BD%95%E5%90%8D-%E5%88%87%E6%8D%A2%E7%9B%AE%E5%BD%95"><span class="toc-text">（3）&#x3D;&#x3D;cd [目录名]&#x3D;&#x3D; -切换目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%884%EF%BC%89-touch-%E6%96%87%E4%BB%B6%E5%90%8D-%E5%A6%82%E6%9E%9C%E6%96%87%E4%BB%B6%E4%B8%8D%E5%AD%98%E5%9C%A8%EF%BC%8C%E6%96%B0%E5%BB%BA%E6%96%87%E4%BB%B6"><span class="toc-text">（4）&#x3D;&#x3D;touch [文件名]&#x3D;&#x3D; -如果文件不存在，新建文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%885%EF%BC%89-mkdir-%E7%9B%AE%E5%BD%95%E5%90%8D-%E5%88%9B%E5%BB%BA%E7%9B%AE%E5%BD%95"><span class="toc-text">（5）&#x3D;&#x3D;mkdir [目录名]&#x3D;&#x3D; -创建目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%886%EF%BC%89-rm-%E6%96%87%E4%BB%B6%E5%90%8D-%E7%9B%AE%E5%BD%95%E5%90%8D-%E5%88%A0%E9%99%A4%E6%8C%87%E5%AE%9A%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95"><span class="toc-text">（6）&#x3D;&#x3D;rm [文件名|目录名]&#x3D;&#x3D; -删除指定文件或目录</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A0rm-f-%E6%96%87%E4%BB%B6%E5%90%8D1-%E6%96%87%E4%BB%B6%E5%90%8D2"><span class="toc-text">①rm -f [文件名1] [文件名2]</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%885%EF%BC%89-echo-%E5%86%85%E5%AE%B9-filename-%E8%BF%BD%E5%8A%A0%E5%86%85%E5%AE%B9"><span class="toc-text">（5）&#x3D;&#x3D;echo 内容 &gt;&gt; filename&#x3D;&#x3D;-追加内容</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81Linux%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7"><span class="toc-text">2、Linux命令使用技巧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81Linux%E5%91%BD%E4%BB%A4%E6%A0%BC%E5%BC%8F"><span class="toc-text">3、Linux命令格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81-%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95-%E6%93%8D%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="toc-text">4、&#x3D;&#x3D;文件目录&#x3D;&#x3D;操作命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89-ls-%E6%98%BE%E7%A4%BA%E6%8C%87%E5%AE%9A%E7%9B%AE%E5%BD%95%E4%B8%8B%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-text">（1）&#x3D;&#x3D;ls&#x3D;&#x3D; -显示指定目录下的内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89-cd-%E7%94%A8%E4%BA%8E%E5%88%87%E6%8D%A2%E7%9B%AE%E5%BD%95"><span class="toc-text">（2）&#x3D;&#x3D;cd&#x3D;&#x3D; -用于切换目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%883%EF%BC%89-cat-%E7%94%A8%E4%BA%8E%E6%98%BE%E7%A4%BA%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9"><span class="toc-text">（3）&#x3D;&#x3D;cat&#x3D;&#x3D;-用于显示文件内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%884%EF%BC%89-more-%E5%B7%B2%E5%88%86%E9%A1%B5%E7%9A%84%E5%BD%A2%E5%BC%8F%E6%98%BE%E7%A4%BA%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9"><span class="toc-text">（4）&#x3D;&#x3D;more&#x3D;&#x3D;-已分页的形式显示文件内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%885%EF%BC%89-tail-%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E6%9C%AB%E5%B0%BE%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-text">（5）&#x3D;&#x3D;tail&#x3D;&#x3D;-查看文件末尾的内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%886%EF%BC%89-mkdir-%E5%88%9B%E5%BB%BA%E7%9B%AE%E5%BD%95"><span class="toc-text">（6）&#x3D;&#x3D;mkdir&#x3D;&#x3D;-创建目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%887%EF%BC%89-rmdir-%E5%88%A0%E9%99%A4%E7%A9%BA%E7%9B%AE%E5%BD%95"><span class="toc-text">（7）&#x3D;&#x3D;rmdir&#x3D;&#x3D;-删除空目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%888%EF%BC%89-rm-%E5%88%A0%E9%99%A4%E6%96%87%E4%BB%B6%E6%88%96%E8%80%85%E7%9B%AE%E5%BD%95"><span class="toc-text">（8）&#x3D;&#x3D;rm&#x3D;&#x3D;-删除文件或者目录</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81-%E6%8B%B7%E8%B4%9D%E7%A7%BB%E5%8A%A8-%E5%91%BD%E4%BB%A4"><span class="toc-text">5、&#x3D;&#x3D;拷贝移动&#x3D;&#x3D;命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89-cp-%E7%94%A8%E4%BA%8E%E5%A4%8D%E5%88%B6%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95"><span class="toc-text">（1）&#x3D;&#x3D;cp&#x3D;&#x3D;-用于复制文件或目录</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89-mv-%E4%B8%BA%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95%E6%94%B9%E5%90%8D%E3%80%81%E6%88%96%E5%B0%86%E6%96%87%E4%BB%B6%E6%88%96%E7%9B%AE%E5%BD%95%E7%A7%BB%E5%8A%A8%E5%88%B0%E5%85%B6%E4%BB%96%E4%BD%8D%E7%BD%AE"><span class="toc-text">（2）&#x3D;&#x3D;mv&#x3D;&#x3D;-为文件或目录改名、或将文件或目录移动到其他位置</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81-%E6%89%93%E5%8C%85%E5%8E%8B%E7%BC%A9-%E5%91%BD%E4%BB%A4-tar"><span class="toc-text">6、&#x3D;&#x3D;打包压缩&#x3D;&#x3D;命令 tar</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89tar%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4"><span class="toc-text">（1）tar基础命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E6%A1%88%E4%BE%8B"><span class="toc-text">（2）案例</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E8%A7%A3%E5%8E%8B%E7%BC%A9%E5%88%B0-%E6%8C%87%E5%AE%9A%E7%9B%AE%E5%BD%95"><span class="toc-text">（3）解压缩到&#x3D;&#x3D;指定目录&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A0%E6%B3%95%E4%B8%80%EF%BC%9A-C"><span class="toc-text">①法一：&#x3D;&#x3D;-C&#x3D;&#x3D;,</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A1%E6%B3%95%E4%BA%8C%EF%BC%9A-%E2%80%93directory"><span class="toc-text">②法二：&#x3D;&#x3D;–directory&#x3D;&#x3D;</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E3%80%81%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%91%BD%E4%BB%A4-vi-vim"><span class="toc-text">7、文本编辑命令 vi&#x2F;&#x3D;&#x3D;vim&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89Vim%E7%9A%84%E5%AE%89%E8%A3%85"><span class="toc-text">（1）Vim的安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89yum%E5%91%BD%E4%BB%A4%E9%94%99%E8%AF%AF"><span class="toc-text">（1）yum命令错误</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#CentOS7%E6%89%A7%E8%A1%8Cyum%E5%91%BD%E4%BB%A4%E9%81%87%E5%88%B0%E2%80%9CCould-not-resolve-host-mirrorlist-centos-org%EF%BC%9B-%E6%9C%AA%E7%9F%A5%E7%9A%84%E9%94%99%E8%AF%AF%E2%80%9D%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3"><span class="toc-text">CentOS7执行yum命令遇到“Could not resolve host: mirrorlist.centos.org； 未知的错误”如何解决</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89Vim%E7%9A%84%E7%BC%96%E8%BE%91%E6%A8%A1%E5%BC%8F"><span class="toc-text">（2）Vim的编辑模式</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A0%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F"><span class="toc-text">①命令模式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A1%E6%8F%92%E5%85%A5%E6%A8%A1%E5%BC%8F-%E4%BD%BF%E7%94%A8-i"><span class="toc-text">②插入模式-使用&#x3D;&#x3D;i&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A2%E5%BA%95%E8%A1%8C%E6%A8%A1%E5%BC%8F-%E4%BD%BF%E7%94%A8"><span class="toc-text">③底行模式-使用&#x3D;&#x3D;:&#x3D;&#x3D;</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8%E3%80%81-%E6%9F%A5%E6%89%BE-%E5%91%BD%E4%BB%A4-find%E3%80%81grep"><span class="toc-text">8、&#x3D;&#x3D;查找&#x3D;&#x3D;命令 find、grep</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89find-%E6%9F%A5%E6%89%BE%E6%96%87%E4%BB%B6"><span class="toc-text">（1）find-查找文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89grep-%E6%9F%A5%E6%89%BE%E6%8C%87%E5%AE%9A%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-text">（2）grep-查找指定文件中的内容</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9%E3%80%81Linux-%E8%BF%9B%E7%A8%8B"><span class="toc-text">9、Linux-&#x3D;&#x3D;进程&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89-%E6%9F%A5%E7%9C%8B%E8%BF%9B%E7%A8%8B-%E5%91%BD%E4%BB%A4-ps"><span class="toc-text">（1）&#x3D;&#x3D;查看进程&#x3D;&#x3D;命令-ps</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E5%81%9C%E6%AD%A2%E8%BF%9B%E7%A8%8B-kill"><span class="toc-text">（2）停止进程-kill</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%EF%BC%9A"><span class="toc-text">注意：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B-%E5%81%9C%E6%AD%A2Tomcat%E6%9C%8D%E5%8A%A1"><span class="toc-text">案例-停止Tomcat服务</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A0%E6%B3%95%E4%B8%80%EF%BC%9A"><span class="toc-text">①法一：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A1%E6%B3%95%E4%BA%8C%EF%BC%9A"><span class="toc-text">②法二：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%EF%BC%9A-1"><span class="toc-text">注意：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10%E3%80%81Linux-%E9%98%B2%E7%81%AB%E5%A2%99-%E6%93%8D%E4%BD%9C"><span class="toc-text">10、Linux&#x3D;&#x3D;防火墙&#x3D;&#x3D;操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11%E3%80%81Linux-%E6%9C%8D%E5%8A%A1"><span class="toc-text">11、Linux-&#x3D;&#x3D;服务&#x3D;&#x3D;</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E6%A1%88%E4%BE%8B-%E5%90%AF%E5%8A%A8mysql%E6%9C%8D%E5%8A%A1mysqld"><span class="toc-text">（1）案例-启动mysql服务mysqld</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12%E3%80%81Yum-%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8"><span class="toc-text">12、Yum-软件包管理器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13%E3%80%81-nohup-%E6%8C%82%E8%B5%B7%E8%BF%9B%E7%A8%8B"><span class="toc-text">13、&#x3D;&#x3D;nohup&#x3D;&#x3D;-挂起进程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85"><span class="toc-text">六、软件安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E6%96%B9%E5%BC%8F"><span class="toc-text">1、软件安装方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E4%BD%BF%E7%94%A8finalshell%E5%BF%AB%E6%8D%B7%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6"><span class="toc-text">2、使用finalshell快捷上传文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81JDK%E5%AE%89%E8%A3%85"><span class="toc-text">3、JDK安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81Tomcat%E5%AE%89%E8%A3%85"><span class="toc-text">4、Tomcat安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E5%AE%89%E8%A3%85Tomcat"><span class="toc-text">（1）安装Tomcat</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E9%AA%8C%E8%AF%81Tomcat%E6%98%AF%E5%90%A6%E5%90%AF%E5%8A%A8%E6%88%90%E5%8A%9F"><span class="toc-text">（2）验证Tomcat是否启动成功</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E9%98%B2%E7%81%AB%E5%A2%99%E6%93%8D%E4%BD%9C"><span class="toc-text">（3）防火墙操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%884%EF%BC%89%E5%81%9C%E6%AD%A2Tomcat%E6%9C%8D%E5%8A%A1"><span class="toc-text">（4）停止Tomcat服务</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A0%E6%B3%95%E4%B8%80-%E8%84%9A%E6%9C%AC%E6%96%87%E4%BB%B6"><span class="toc-text">①法一-脚本文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A1%E6%B3%95%E4%BA%8C%EF%BC%9A%E7%BB%93%E6%9D%9F%E8%BF%9B%E7%A8%8B"><span class="toc-text">②法二：结束进程</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81MySQL%E5%AE%89%E8%A3%85"><span class="toc-text">5、MySQL安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E5%AE%89%E8%A3%85MySQL"><span class="toc-text">（1）安装MySQL</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A0%E6%A3%80%E6%B5%8B%E5%BD%93%E5%89%8D%E7%B3%BB%E7%BB%9F%E4%B8%AD%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85MySQL%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-text">①检测当前系统中是否安装MySQL数据库</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A1%E5%8D%B8%E8%BD%BD%E5%B7%B2%E7%BB%8F%E5%AE%89%E8%A3%85%E7%9A%84%E5%86%B2%E7%AA%81%E8%BD%AF%E4%BB%B6"><span class="toc-text">②卸载已经安装的冲突软件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A2%E5%B0%86%E8%B5%84%E6%96%99%E4%B8%AD%E6%8F%90%E4%BE%9B%E7%9A%84MySQL%E5%AE%89%E8%A3%85%E5%8C%85%E4%B8%8A%E4%BC%A0%E5%88%B0Linux%E5%B9%B6%E8%A7%A3%E5%8E%8B"><span class="toc-text">③将资料中提供的MySQL安装包上传到Linux并解压</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A3%E6%8C%89%E7%85%A7%E9%A1%BA%E5%BA%8F%E5%AE%89%E8%A3%85rpm%E8%BD%AF%E4%BB%B6%E5%8C%85"><span class="toc-text">④按照顺序安装rpm软件包</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E5%90%AF%E5%8A%A8MySQL%E6%9C%8D%E5%8A%A1"><span class="toc-text">（2）启动MySQL服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E6%9F%A5%E9%98%85%E4%B8%B4%E6%97%B6%E5%AF%86%E7%A0%81"><span class="toc-text">（3）查阅临时密码</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%884%EF%BC%89%E4%BF%AE%E6%94%B9%E5%AF%86%E7%A0%81%EF%BC%8C%E5%BC%80%E6%94%BE%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90"><span class="toc-text">（4）修改密码，开放访问权限</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81%E5%AE%89%E8%A3%85Git"><span class="toc-text">6、安装Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E3%80%81%E5%AE%89%E8%A3%85Maven"><span class="toc-text">7、安装Maven</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8%E3%80%81%E5%AE%89%E8%A3%85Nginx"><span class="toc-text">8、安装Nginx</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E5%89%8D%E8%A8%80"><span class="toc-text">（1）前言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E9%A1%B9"><span class="toc-text">（2）安装依赖项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E4%B8%8B%E8%BD%BDNginx"><span class="toc-text">（3）下载Nginx</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%884%EF%BC%89-%E9%85%8D%E7%BD%AEnginx%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-text">（4） 配置nginx环境变量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%885%EF%BC%89%E9%87%8D%E6%96%B0%E5%8A%A0%E8%BD%BD%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">（5）重新加载配置文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%886%EF%BC%89-%E5%90%AF%E5%8A%A8Nginx"><span class="toc-text">（6） 启动Nginx</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9%E3%80%81lrzsz-%E5%9B%BE%E5%BD%A2%E5%8C%96%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6-%E5%B7%A5%E5%85%B7-finallshell%E5%B7%B2%E8%87%AA%E5%B8%A6"><span class="toc-text">9、lrzsz &#x3D;&#x3D;图形化上传文件&#x3D;&#x3D;工具(finallshell已自带)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E4%BD%BF%E7%94%A8-rz-%E5%91%BD%E4%BB%A4%E8%BF%9B%E8%A1%8C-%E5%9B%BE%E5%BD%A2%E5%8C%96-%E7%9A%84%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0"><span class="toc-text">（1）使用&#x3D;&#x3D;rz&#x3D;&#x3D;命令进行&#x3D;&#x3D;图形化&#x3D;&#x3D;的文件上传</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2"><span class="toc-text">七、项目部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E6%89%8B%E5%B7%A5%E9%83%A8%E7%BD%B2-%E5%90%8E%E7%AB%AF"><span class="toc-text">1、手工部署-后端</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E5%9C%A8IDEA%E4%B8%AD%E5%BC%80%E5%8F%91SpringBoot%E9%A1%B9%E7%9B%AE%E5%B9%B6%E6%89%93%E6%88%90jar%E5%8C%85"><span class="toc-text">（1）在IDEA中开发SpringBoot项目并打成jar包</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E5%B0%86jar%E5%8C%85%E4%B8%8A%E4%BC%A0%E5%88%B0Linux%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">（2）将jar包上传到Linux服务器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E5%90%AF%E5%8A%A8SpringBoot%E7%A8%8B%E5%BA%8F"><span class="toc-text">（3）启动SpringBoot程序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%884%EF%BC%89%E6%A3%80%E6%9F%A5%E9%98%B2%E7%81%AB%E5%A2%99%EF%BC%8C%E7%A1%AE%E4%BF%9D8080%E7%AB%AF%E5%8F%A3%E5%AF%B9%E5%A4%96%E5%BC%80%E6%94%BE%EF%BC%8C%E8%AE%BF%E9%97%AESpringBoot%E9%A1%B9%E7%9B%AE"><span class="toc-text">（4）检查防火墙，确保8080端口对外开放，访问SpringBoot项目</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%885%EF%BC%89%E6%94%B9%E4%B8%BA%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8CSpringBoot%E7%A8%8B%E5%BA%8F%EF%BC%8C%E5%B9%B6%E5%B0%86%E6%97%A5%E5%BF%97%E8%BE%93%E5%87%BA%E5%88%B0%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6"><span class="toc-text">（5）改为后台运行SpringBoot程序，并将日志输出到日志文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%886%EF%BC%89%E5%81%9C%E6%AD%A2SpringBoot%E7%A8%8B%E5%BA%8F"><span class="toc-text">（6）停止SpringBoot程序</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81Shell%E8%84%9A%E6%9C%AC%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2-%E5%90%8E%E7%AB%AF"><span class="toc-text">2、Shell脚本自动部署-后端</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E5%AE%89%E8%A3%85Git"><span class="toc-text">（1）安装Git</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E5%AE%89%E8%A3%85Maven"><span class="toc-text">（2）安装Maven</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E7%BC%96%E5%86%99Shell%E8%84%9A%E6%9C%AC-%E6%8B%89%E5%8F%96%E4%BB%A3%E7%A0%81%E3%80%81%E7%BC%96%E8%AF%91%E3%80%81%E6%89%93%E5%8C%85%E3%80%81%E5%90%AF%E5%8A%A8"><span class="toc-text">（3）编写Shell脚本(拉取代码、编译、打包、启动)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%884%EF%BC%89%E4%B8%BA%E7%94%A8%E6%88%B7%E6%8E%88%E4%BA%88%E6%89%A7%E8%A1%8CShell%E8%84%9A%E6%9C%AC%E7%9A%84%E6%9D%83%E9%99%90"><span class="toc-text">（4）为用户授予执行Shell脚本的权限</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A0%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90"><span class="toc-text">①文件权限</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A0%E4%B8%BA%E7%94%A8%E6%88%B7%E6%8E%88%E6%9D%83"><span class="toc-text">①为用户授权</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%885%EF%BC%89%E6%89%A7%E8%A1%8CShell%E8%84%9A%E6%9C%AC"><span class="toc-text">（5）执行Shell脚本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%886%EF%BC%89%E8%AE%BE%E7%BD%AE%E9%9D%99%E6%80%81ip"><span class="toc-text">（6）设置静态ip</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A0%E8%AE%BE%E7%BD%AE%E9%9D%99%E6%80%81ip"><span class="toc-text">①设置静态ip</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A1%E9%87%8D%E5%90%AF%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1"><span class="toc-text">②重启网络服务</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E9%83%A8%E7%BD%B2%E6%9E%B6%E6%9E%84-%E5%89%8D%E5%90%8E%E7%AB%AF%EF%BC%8C%E5%AE%A2%E6%88%B7%E7%AB%AF%E3%80%81%E4%B8%BB%E4%BB%8E%E6%95%B0%E6%8D%AE%E5%BA%93%E3%80%81Redis"><span class="toc-text">3、部署架构-前后端，客户端、主从数据库、Redis</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E5%AE%89%E8%A3%85-%E9%85%8D%E7%BD%AE-%E5%90%AF%E5%81%9C-Nginx"><span class="toc-text">（1）安装&#x2F;配置&#x2F;启停 Nginx</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A0-%E5%89%8D%E8%A8%80"><span class="toc-text">① 前言</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A1-%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E9%A1%B9"><span class="toc-text">② 安装依赖项</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A2%E4%B8%8B%E8%BD%BDNginx"><span class="toc-text">③下载Nginx</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A3-%E9%85%8D%E7%BD%AEnginx%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="toc-text">④ 配置nginx环境变量</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A4-%E9%87%8D%E6%96%B0%E5%8A%A0%E8%BD%BD%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">⑤ 重新加载配置文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A5-%E5%90%AF%E5%8A%A8Nginx"><span class="toc-text">⑥ 启动Nginx</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%85%8D%E7%BD%AEnginx-conf-%E6%89%93%E5%BC%80%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-text">&#x3D;&#x3D;配置nginx.conf&#x3D;&gt;打开配置文件&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A6-%E5%81%9C%E6%AD%A2Nginx"><span class="toc-text">⑦ 停止Nginx</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A7-%E9%98%B2%E7%81%AB%E5%A2%99%E8%AE%BE%E7%BD%AE"><span class="toc-text">⑧ 防火墙设置</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E5%89%8D%E7%AB%AF-Nginx%E9%83%A8%E7%BD%B2"><span class="toc-text">（2）前端-Nginx部署</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A0%E5%89%8D%E7%AB%AF%E6%89%93%E5%8C%85%E6%88%90dist"><span class="toc-text">①前端打包成dist</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8A%E4%BC%A0%E5%88%B0%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="toc-text">上传到服务端</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A1WebSocket%E8%AF%B7%E6%B1%82%E8%B7%AF%E5%BE%84%E9%94%99%E8%AF%AF"><span class="toc-text">②WebSocket请求路径错误</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81-MySQL%E7%9A%84-%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6-%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E8%AF%BB%E5%86%99%E5%88%86%E7%A6%BB"><span class="toc-text">八、(MySQL的&#x3D;&#x3D;主从复制&#x3D;&#x3D;)数据库的读写分离</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E4%BB%8B%E7%BB%8D"><span class="toc-text">1、介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E9%85%8D%E7%BD%AE"><span class="toc-text">2、配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6"><span class="toc-text">（1）前置条件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A0%E8%A7%A3%E5%86%B3-VMware-%E5%85%8B%E9%9A%86linux-%E7%BD%91%E5%8D%A1UUID%E9%87%8D%E5%A4%8D%E9%97%AE%E9%A2%98"><span class="toc-text">①解决 VMware 克隆linux 网卡UUID重复问题</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E4%B8%BB%E5%BA%93-Master"><span class="toc-text">（2）主库-Master</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E4%BB%8E%E5%BA%93-Slave"><span class="toc-text">（3）从库-Slave</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%EF%BC%884%EF%BC%89%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">（4）注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E2%91%A0%E5%9C%A8%E4%BB%8E%E5%BA%93%E4%B8%AD%E4%BD%BF%E7%94%A8-show-slave-status-%E6%97%B6%E6%8A%A5%E9%94%99"><span class="toc-text">①在从库中使用 show slave status; 时报错</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 By 小鹏</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">博客主题链接文档 <a target="_blank" rel="noopener" href="https://butterfly.js.org/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="/js/tw_cn.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
