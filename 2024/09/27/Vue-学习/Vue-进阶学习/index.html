@@ -1,0 +1,2801 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Vue-进阶学习 | 小鹏的博客</title><meta name="author" content="小鹏"><meta name="copyright" content="小鹏"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="初步学习Vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vue-进阶学习">
+<meta property="og:url" content="http://example.com/2024/09/27/Vue-%E5%AD%A6%E4%B9%A0/Vue-%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="小鹏的博客">
+<meta property="og:description" content="初步学习Vue">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://ts1.cn.mm.bing.net/th/id/R-C.f2ceca4c412263f73c4a7afe17a27249?rik=5FzsAnW2xsuoQQ&riu=http%3a%2f%2fwww.info110.com%2fwp-content%2fuploads%2f2020%2f12%2f20201203_5fc890d068ede.jpg&ehk=Nzj%2bY8GmhFJyV8My58gxsDVgxDiUpNBHijGcotdgXcQ%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1">
+<meta property="article:published_time" content="2024-09-26T16:03:07.900Z">
+<meta property="article:modified_time" content="2024-09-26T16:05:34.224Z">
+<meta property="article:author" content="小鹏">
+<meta property="article:tag" content="Vue-进阶学习">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ts1.cn.mm.bing.net/th/id/R-C.f2ceca4c412263f73c4a7afe17a27249?rik=5FzsAnW2xsuoQQ&riu=http%3a%2f%2fwww.info110.com%2fwp-content%2fuploads%2f2020%2f12%2f20201203_5fc890d068ede.jpg&ehk=Nzj%2bY8GmhFJyV8My58gxsDVgxDiUpNBHijGcotdgXcQ%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1"><link rel="shortcut icon" href="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image%20(1).png"><link rel="canonical" href="http://example.com/2024/09/27/Vue-%E5%AD%A6%E4%B9%A0/Vue-%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: {"limitDay":90,"position":"top","messagePrev":"距离上次更新已有","messageNext":"文章可能某些部分也过时"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: true,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: true,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Vue-进阶学习',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-09-27 00:05:34'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 8 || hour >= 22
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image%20(1).png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://ts1.cn.mm.bing.net/th/id/R-C.f2ceca4c412263f73c4a7afe17a27249?rik=5FzsAnW2xsuoQQ&amp;riu=http%3a%2f%2fwww.info110.com%2fwp-content%2fuploads%2f2020%2f12%2f20201203_5fc890d068ede.jpg&amp;ehk=Nzj%2bY8GmhFJyV8My58gxsDVgxDiUpNBHijGcotdgXcQ%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0&amp;sres=1&amp;sresct=1')"><nav id="nav"><span id="blog-info"><a href="/" title="小鹏的博客"><img class="site-icon" src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image%20(1).png"/><span class="site-name">小鹏的博客</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Vue-进阶学习</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-09-26T16:03:07.900Z" title="发表于 2024-09-27 00:03:07">2024-09-27</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-09-26T16:05:34.224Z" title="更新于 2024-09-27 00:05:34">2024-09-27</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Vue%E5%AD%A6%E4%B9%A0/">Vue学习</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Vue%E5%AD%A6%E4%B9%A0/Vue-%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/">Vue-进阶学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Vue-进阶学习"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="一、vue基础回顾-进阶"><a href="#一、vue基础回顾-进阶" class="headerlink" title="一、vue基础回顾+进阶"></a>一、vue基础回顾+进阶</h1><h2 id="课程内容"><a href="#课程内容" class="headerlink" title="课程内容"></a>课程内容</h2><ul>
+<li>VUE 基础回顾</li>
+<li>路由 Vue-Router</li>
+<li>状态管理 vuex</li>
+<li>TypeScript</li>
+</ul>
+<h2 id="1-VUE-基础回顾"><a href="#1-VUE-基础回顾" class="headerlink" title="1. VUE 基础回顾"></a>1. VUE 基础回顾</h2><h3 id="1-1-基于脚手架创建前端工程"><a href="#1-1-基于脚手架创建前端工程" class="headerlink" title="1.1 基于脚手架创建前端工程"></a>1.1 基于脚手架创建前端工程</h3><h4 id="1-1-1-环境要求"><a href="#1-1-1-环境要求" class="headerlink" title="1.1.1 环境要求"></a>1.1.1 环境要求</h4><p>要想基于脚手架创建前端工程，需要具备如下环境要求：</p>
+<ul>
+<li>​	<strong>node.js</strong> 	前端项目的运行环境</li>
+<li>​	<strong>npm</strong>          JavaScript的包管理工具</li>
+<li>​	<strong>Vue CLI</strong>    基于Vue进行快速开发的完整系统，实现交互式的<strong>项目脚手架</strong></li>
+</ul>
+<p>安装完node.js后，可以通过命令行来查看版本号，如下：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230925094426687.png" alt="image-20230925094426687"></p>
+<p>安装 Vue CLI，命令如下：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230925094630147.png" alt="image-20230925094630147"></p>
+<h4 id="1-1-2-操作过程"><a href="#1-1-2-操作过程" class="headerlink" title="1.1.2 操作过程"></a>1.1.2 操作过程</h4><p>使用 Vue CLI 创建前端工程的方式：</p>
+<ul>
+<li>​	方式一：vue create 项目名称</li>
+<li>​	方式二：vue ui</li>
+</ul>
+<p>重点介绍使用 vue ui 命令创建前端工程的过程：</p>
+<p>第一步：在命令行输入命令 vue ui,在浏览器ui界面中选择前端工程存放的位置</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230925100950987.png" alt="image-20230925100950987"></p>
+<p>第二步：点击“在此创建新项目”按钮，跳转到创建新项目设置页面</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230925101106692.png" alt="image-20230925101106692"></p>
+<p>第三步：填写项目名称、选择包管理器为npm，点击“下一步”按钮</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230925101202363.png" alt="image-20230925101202363"></p>
+<p>第四步：选择 Default(Vue 2)，点击”创建项目”按钮，完成项目的创建</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230925101317873.png" alt="image-20230925101317873"></p>
+<h4 id="1-1-3-工程结构"><a href="#1-1-3-工程结构" class="headerlink" title="1.1.3 &#x3D;&#x3D;工程结构&#x3D;&#x3D;"></a>1.1.3 &#x3D;&#x3D;工程结构&#x3D;&#x3D;</h4><p>工程目录结构：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230925103418213.png" alt="image-20230925103418213"></p>
+<p>&#x3D;&#x3D;重点文件或目录介绍&#x3D;&#x3D;：</p>
+<ul>
+<li><strong>node_modules：当前项目依赖的js包</strong></li>
+<li><strong>assets：静态资源存放目录</strong></li>
+<li><strong>components：公共组件存放目录</strong></li>
+<li><strong>App.vue：项目的主组件，页面的入口文件</strong></li>
+<li><strong>main.js：整个项目的入口文件</strong></li>
+<li><strong>package.json：项目的配置信息、依赖包管理</strong></li>
+<li><strong>vue.config.js：vue-cli配置文件</strong></li>
+</ul>
+<h4 id="1-1-4-启动前端服务"><a href="#1-1-4-启动前端服务" class="headerlink" title="1.1.4 启动前端服务"></a>1.1.4 启动前端服务</h4><p>使用VS Code打开创建的前端工程，启动前端工程：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230925103813210.png" alt="image-20230925103813210"></p>
+<p>访问前端工程：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230925103913672.png" alt="image-20230925103913672"></p>
+<p>注：要停止前端服务，可以在命令行终端使用 ctrl + C </p>
+<p>前端项目启动后，服务端口默认为8080，很容易和后端tomcat端口号冲突。如何修改前端服务的端口号？</p>
+<p>可以在vue.config.js中配置前端服务端口号：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; defineConfig &#125; = <span class="built_in">require</span>(<span class="string">&#x27;@vue/cli-service&#x27;</span>)</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = <span class="title function_">defineConfig</span>(&#123;</span><br><span class="line">  <span class="attr">transpileDependencies</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">devServer</span>: &#123;</span><br><span class="line">    <span class="attr">port</span>: <span class="number">7070</span>  <span class="comment">//指定前端服务端口号</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-vue基本使用方式"><a href="#1-2-vue基本使用方式" class="headerlink" title="1.2 vue基本使用方式"></a>1.2 vue基本使用方式</h3><p>本章节从如下几个方面进行vue回顾：</p>
+<ul>
+<li>vue 组件</li>
+<li>文本插值</li>
+<li>属性绑定</li>
+<li>事件绑定</li>
+<li>双向绑定</li>
+<li>条件渲染</li>
+<li>axios</li>
+</ul>
+<h4 id="1-2-1-vue-组件"><a href="#1-2-1-vue-组件" class="headerlink" title="1.2.1 vue 组件"></a>1.2.1 vue 组件</h4><p>Vue 的组件文件以 .vue 结尾，每个组件由三部分组成：</p>
+<ul>
+<li>结构 <template></li>
+<li>样式 <style></li>
+<li>逻辑 <script></li>
+</ul>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230925111404674.png" alt="image-20230925111404674"></p>
+<h4 id="1-2-2-文本插值"><a href="#1-2-2-文本插值" class="headerlink" title="1.2.2 文本插值"></a>1.2.2 文本插值</h4><p>作用：用来绑定 data 方法返回的对象属性</p>
+<p>用法：</p>
+<p>示例：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230925111739838.png" alt="image-20230925111739838"></p>
+<h4 id="1-2-3-属性绑定"><a href="#1-2-3-属性绑定" class="headerlink" title="1.2.3 属性绑定"></a>1.2.3 属性绑定</h4><p>作用：<strong>为标签的属性绑定 data 方法中返回的属性</strong></p>
+<p>用法：v-bind:xxx，简写为 :xxx</p>
+<p>示例：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230925112435816.png" alt="image-20230925112435816"></p>
+<h4 id="1-2-4-事件绑定"><a href="#1-2-4-事件绑定" class="headerlink" title="1.2.4 事件绑定"></a>1.2.4 事件绑定</h4><p>作用：为元素绑定对应的事件</p>
+<p>用法：v-on:xxx，简写为 @xxx</p>
+<p>示例：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230925112514956.png" alt="image-20230925112514956"></p>
+<h4 id="1-2-5-双向绑定"><a href="#1-2-5-双向绑定" class="headerlink" title="1.2.5 双向绑定"></a>1.2.5 双向绑定</h4><p>作用：<strong>表单输入项和 data 方法中的属性进行绑定，任意一方改变都会同步给另一方</strong></p>
+<p>用法：v-model</p>
+<p>示例：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230925112600375.png" alt="image-20230925112600375"></p>
+<h4 id="1-2-6-条件渲染"><a href="#1-2-6-条件渲染" class="headerlink" title="1.2.6 条件渲染"></a>1.2.6 条件渲染</h4><p>作用：根据表达式的值来动态渲染页面元素</p>
+<p>用法：v-if、v-else、v-else-if</p>
+<p>示例：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230925112635467.png" alt="image-20230925112635467"></p>
+<h4 id="1-2-7-axios"><a href="#1-2-7-axios" class="headerlink" title="1.2.7 ==axios=="></a>1.2.7 ==axios==</h4><p><a target="_blank" rel="noopener" href="https://www.axios-http.cn/">Axios</a> 是一个基于 promise 的 网络请求库，作用于浏览器和 node.js 中。使用Axios可以在前端项目中发送各种方式的HTTP请求。</p>
+<p>==安装命令==：<strong>npm install axios</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install axios</span><br></pre></td></tr></table></figure>
+
+
+
+<p>导入：import axios from 'axios'</p>
+<p>axios 的 API 列表：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230925112806943.png" alt="image-20230925112806943"></p>
+<p>参数说明：</p>
+<ul>
+<li>url：请求路径</li>
+<li>data：请求体数据，最常见的是JSON格式数据</li>
+<li>config：配置对象，可以设置查询参数、请求头信息</li>
+</ul>
+<p>注：在使用axios时，经常会遇到<strong>跨域问题</strong>。为了解决跨域问题，可以在 <strong>vue.config.js 文件中配置代理</strong>：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; defineConfig &#125; = <span class="built_in">require</span>(<span class="string">&#x27;@vue/cli-service&#x27;</span>)</span><br><span class="line"><span class="variable language_">module</span>.<span class="property">exports</span> = <span class="title function_">defineConfig</span>(&#123;</span><br><span class="line">  <span class="attr">transpileDependencies</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">devServer</span>: &#123;</span><br><span class="line">    <span class="attr">port</span>: <span class="number">7070</span>,</span><br><span class="line">    <span class="attr">proxy</span>: &#123;</span><br><span class="line">      <span class="string">&#x27;/api&#x27;</span>: &#123;</span><br><span class="line">        <span class="attr">target</span>: <span class="string">&#x27;http://localhost:8080&#x27;</span>,</span><br><span class="line">        <span class="attr">pathRewrite</span>: &#123;</span><br><span class="line">          <span class="string">&#x27;^/api&#x27;</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>axios的post请求示例：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">axios.<span class="title function_">post</span>(<span class="string">&#x27;/api/admin/employee/login&#x27;</span>,&#123;</span><br><span class="line">      <span class="attr">username</span>:<span class="string">&#x27;admin&#x27;</span>,</span><br><span class="line">      <span class="attr">password</span>: <span class="string">&#x27;123456&#x27;</span></span><br><span class="line">    &#125;).<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(res.<span class="property">data</span>)</span><br><span class="line">    &#125;).<span class="title function_">catch</span>(<span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(error.<span class="property">response</span>)</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>axios的get请求示例：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">axios.<span class="title function_">get</span>(<span class="string">&#x27;/api/admin/shop/status&#x27;</span>,&#123;</span><br><span class="line">        <span class="attr">headers</span>: &#123;</span><br><span class="line">          <span class="attr">token</span>: ‘xxx.<span class="property">yyy</span>.<span class="property">zzz</span>’</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>axios提供的统一使用方式示例一（可以发送各种方式的请求）：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230925113501390.png" alt="image-20230925113501390"></p>
+<p>axios提供的统一使用方式示例二（可以发送各种方式的请求）：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="title function_">axios</span>(&#123;</span><br><span class="line">      <span class="attr">url</span>: <span class="string">&#x27;/api/admin/employee/login&#x27;</span>,</span><br><span class="line">      <span class="attr">method</span>:<span class="string">&#x27;post&#x27;</span>,</span><br><span class="line">      <span class="attr">data</span>: &#123;</span><br><span class="line">        <span class="attr">username</span>:<span class="string">&#x27;admin&#x27;</span>,</span><br><span class="line">        <span class="attr">password</span>: <span class="string">&#x27;123456&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;).<span class="title function_">then</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(res.<span class="property">data</span>.<span class="property">data</span>.<span class="property">token</span>)</span><br><span class="line">      <span class="title function_">axios</span>(&#123;</span><br><span class="line">        <span class="attr">url</span>: <span class="string">&#x27;/api/admin/shop/status&#x27;</span>,</span><br><span class="line">        <span class="attr">method</span>: <span class="string">&#x27;get&#x27;</span>,</span><br><span class="line">        <span class="attr">params</span>: &#123;<span class="attr">id</span>: <span class="number">100</span>&#125;,</span><br><span class="line">        <span class="attr">headers</span>: &#123;</span><br><span class="line">          <span class="attr">token</span>: res.<span class="property">data</span>.<span class="property">data</span>.<span class="property">token</span></span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;).<span class="title function_">catch</span>(<span class="function">(<span class="params">error</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(error)</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-路由-Vue-Router"><a href="#2-路由-Vue-Router" class="headerlink" title="2. ==路由 Vue-Router=="></a>2. ==路由 Vue-Router==</h2><h3 id="2-0-NPM安装Router路由"><a href="#2-0-NPM安装Router路由" class="headerlink" title="2.0 NPM安装Router路由"></a>2.0 NPM安装Router路由</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install vue-router</span><br></pre></td></tr></table></figure>
+
+<p>如果在一个模块化工程中使用它，必须要通过 <code>Vue.use()</code> 明确地安装路由功能：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">Vue</span> <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">VueRouter</span> <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Vue</span>.<span class="title function_">use</span>(<span class="title class_">VueRouter</span>)</span><br></pre></td></tr></table></figure>
+
+<p>如果使用全局的 script 标签，则无须如此 (手动安装)。</p>
+<h3 id="2-1-Vue-Router-介绍"><a href="#2-1-Vue-Router-介绍" class="headerlink" title="2.1 Vue-Router 介绍"></a>2.1 Vue-Router 介绍</h3><p>vue 属于单页面应用，所谓路由，就是根据浏览器路径不同，用不同的视图组件替换这个页面内容。</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230925142650279.png" alt="image-20230925142650279"></p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230925142705351.png" alt="image-20230925142705351"></p>
+<p>如上图所示：不同的访问路径，对应不同的页面展示。</p>
+<p>在vue应用中使用路由功能，需要安装Vue-Router：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230925142957238.png" alt="image-20230925142957238"></p>
+<p>注：创建完带有路由功能的前端项目后，在工程中会生成一个路由文件，如下所示：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230925144015768.png" alt="image-20230925144015768"></p>
+<p>关于路由的配置，主要就是在这个路由文件中完成的。</p>
+<p>为了能够使用路由功能，在前端项目的入口文件main.js中，创建Vue实例时需要指定路由对象：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230925144400285.png" alt="image-20230925144400285"></p>
+<h3 id="2-2-路由配置"><a href="#2-2-路由配置" class="headerlink" title="2.2 路由配置"></a>2.2 路由配置</h3><p>首先了解一下==路由组成==：</p>
+<ul>
+<li>VueRouter：路由器，根据路由请求在路由视图中动态渲染对应的视图组件</li>
+<li><router-link>：路由链接组件，浏览器会解析成<a></li>
+<li><router-view>：路由视图组件，用来展示与路由路径匹配的视图组件</li>
+</ul>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230925143537869.png" alt="image-20230925143537869"></p>
+<p>具体配置方式：</p>
+<ol>
+<li>在路由文件中配置路由路径和视图的对应关系：</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">Vue</span> <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">VueRouter</span> <span class="keyword">from</span> <span class="string">&#x27;vue-router&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">HomeView</span> <span class="keyword">from</span> <span class="string">&#x27;../views/HomeView.vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Vue</span>.<span class="title function_">use</span>(<span class="title class_">VueRouter</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//维护路由表，某个路由路径对应哪个视图组件</span></span><br><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;home&#x27;</span>,</span><br><span class="line">    <span class="attr">component</span>: <span class="title class_">HomeView</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/about&#x27;</span>,</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;about&#x27;</span>,</span><br><span class="line">    <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="keyword">import</span>(<span class="comment">/* webpackChunkName: &quot;about&quot; */</span> <span class="string">&#x27;../views/AboutView.vue&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  ,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;/404&#x27;</span>,</span><br><span class="line">    <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="keyword">import</span>(<span class="string">&#x27;../views/404View.vue&#x27;</span>)</span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>: <span class="string">&#x27;*&#x27;</span>,</span><br><span class="line">    <span class="attr">redirect</span>: <span class="string">&#x27;/404&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> router = <span class="keyword">new</span> <span class="title class_">VueRouter</span>(&#123;</span><br><span class="line">  routes</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> router</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>在视图组件中配置 router-link标签，用于生成超链接</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/&quot;</span>&gt;</span>Home<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span> |</span><br><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/about&quot;</span>&gt;</span>About<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span> |</span><br><span class="line"><span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/test&quot;</span>&gt;</span>Test<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span> |</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>在视图组件汇总配置router-view标签</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!--视图组件展示的位置--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">router-view</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>要实现路由跳转，可以通过标签式和编程式两种：</p>
+<ul>
+<li><strong>==标签式==：<router-link to="/about">About</router-link></strong></li>
+<li><strong>==编程式==：this.$router.push('/about')</strong> ，<ul>
+<li><strong>this.$router用来获取路由对象</strong></li>
+<li><strong>push方法是根据url进行跳转</strong></li>
+</ul>
+</li>
+</ul>
+<p><strong>问题思考：</strong>如果用户访问的路由地址不存在，该如何处理？</p>
+<p>可以通过配置一个404视图组件，当<strong>访问的路由地址不存在</strong>时，则<strong>重定向到此视图组件</strong>，具体配置如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">path</span>: <span class="string">&#x27;/404&#x27;</span>,</span><br><span class="line">  <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="keyword">import</span>(<span class="string">&#x27;../views/404View.vue&#x27;</span>)</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">path</span>: <span class="string">&#x27;*&#x27;</span>,</span><br><span class="line">  <span class="attr">redirect</span>: <span class="string">&#x27;/404&#x27;</span> <span class="comment">//重定向</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;nav&gt;</span><br><span class="line">      &lt;router-link to=&quot;/&quot;&gt;Home&lt;/router-link&gt; |</span><br><span class="line">      &lt;router-link to=&quot;/about&quot;&gt;About&lt;/router-link&gt; |</span><br><span class="line">      &lt;router-link to=&quot;/test&quot;&gt;Test&lt;/router-link&gt; |</span><br><span class="line">      &lt;input type=&quot;button&quot; value=&quot;编程式路由跳转&quot; @click=&quot;jump&quot;/&gt;</span><br><span class="line">    &lt;/nav&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!--视图组件展示的位置--&gt;</span><br><span class="line">    &lt;router-view/&gt;</span><br><span class="line"></span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  methods:&#123;</span><br><span class="line">    jump()&#123;</span><br><span class="line">      //使用编程式路由跳转</span><br><span class="line">      this.$router.push(&#x27;/about&#x27;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">#app &#123;</span><br><span class="line">  font-family: Avenir, Helvetica, Arial, sans-serif;</span><br><span class="line">  -webkit-font-smoothing: antialiased;</span><br><span class="line">  -moz-osx-font-smoothing: grayscale;</span><br><span class="line">  text-align: center;</span><br><span class="line">  color: #2c3e50;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">nav &#123;</span><br><span class="line">  padding: 30px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">nav a &#123;</span><br><span class="line">  font-weight: bold;</span><br><span class="line">  color: #2c3e50;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">nav a.router-link-exact-active &#123;</span><br><span class="line">  color: #42b983;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="2-3-嵌套路由"><a href="#2-3-嵌套路由" class="headerlink" title="2.3 嵌套路由"></a>2.3 嵌套路由</h3><p>嵌套路由：组件内要切换内容，就需要用到嵌套路由（子路由），效果如下：</p>
+<p>在App.vue视图组件中有<router-view>标签，其他视图组件可以展示在此</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230925153930006.png" alt="image-20230925153930006"></p>
+<p><strong>ContainerView.vue组件</strong>可以展示在App.vue视图组件的<router-view>位置</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230925153854881.png" alt="image-20230925153854881"></p>
+<p>ContainerView.vue组件进行了区域划分（分为上、左、右），在右边编写了<router-view>标签，点击左侧菜单时，可以将对应的子视图组件展示在此</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230925154346635.png" alt="image-20230925154346635"></p>
+<p>实现步骤：</p>
+<p>第一步：安装并导入 <a target="_blank" rel="noopener" href="https://element.eleme.io/">elementui</a>，实现页面布局（Container 布局容器）---ContainerView.vue</p>
+<p><strong>mian.js文件中导入ElementUI</strong></p>
+<img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20240827224336176.png" alt="image-20240827224336176" style="zoom: 50%;" />
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm i element-ui -s</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">Vue</span> <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">&#x27;./router&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">ElementUI</span> <span class="keyword">from</span> <span class="string">&#x27;element-ui&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;element-ui/lib/theme-chalk/index.css&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Vue</span>.<span class="property">config</span>.<span class="property">productionTip</span> = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//全局使用ElementUI</span></span><br><span class="line"><span class="title class_">Vue</span>.<span class="title function_">use</span>(<span class="title class_">ElementUI</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span><br><span class="line">  router,</span><br><span class="line">  <span class="attr">render</span>: <span class="function"><span class="params">h</span> =&gt;</span> <span class="title function_">h</span>(<span class="title class_">App</span>)</span><br><span class="line">&#125;).$mount(<span class="string">&#x27;#app&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">el-container</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-header</span>&gt;</span>Header<span class="tag">&lt;/<span class="name">el-header</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-container</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-aside</span> <span class="attr">width</span>=<span class="string">&quot;200px&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">el-aside</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">el-main</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">el-main</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">el-container</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">el-container</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.el-header</span>, <span class="selector-class">.el-footer</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">background-color</span>: <span class="number">#B3C0D1</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">color</span>: <span class="number">#333</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">line-height</span>: <span class="number">60px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  </span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.el-aside</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">background-color</span>: <span class="number">#D3DCE6</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">color</span>: <span class="number">#333</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">line-height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  </span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.el-main</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">background-color</span>: <span class="number">#E9EEF3</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">color</span>: <span class="number">#333</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">line-height</span>: <span class="number">160px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  </span></span><br><span class="line"><span class="language-css">  <span class="selector-tag">body</span> &gt; <span class="selector-class">.el-container</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">margin-bottom</span>: <span class="number">40px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  </span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.el-container</span><span class="selector-pseudo">:nth-child</span>(<span class="number">5</span>) <span class="selector-class">.el-aside</span>,</span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.el-container</span><span class="selector-pseudo">:nth-child</span>(<span class="number">6</span>) <span class="selector-class">.el-aside</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">line-height</span>: <span class="number">260px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  </span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.el-container</span><span class="selector-pseudo">:nth-child</span>(<span class="number">7</span>) <span class="selector-class">.el-aside</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">line-height</span>: <span class="number">320px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>第二步：提供子视图组件，用于效果展示  ---P1View.vue、P2View.vue、P3View.vue</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    这是P1 View</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span><br><span class="line"><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">&#125;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="language-css"></span></span><br><span class="line"><span class="language-css"><span class="selector-class">.el-header</span>, <span class="selector-class">.el-footer</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">background-color</span>: <span class="number">#B3C0D1</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">color</span>: <span class="number">#333</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">line-height</span>: <span class="number">60px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  </span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.el-aside</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">background-color</span>: <span class="number">#D3DCE6</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">color</span>: <span class="number">#333</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">line-height</span>: <span class="number">200px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  </span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.el-main</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">background-color</span>: <span class="number">#E9EEF3</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">color</span>: <span class="number">#333</span>;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">text-align</span>: center;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">line-height</span>: <span class="number">160px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  </span></span><br><span class="line"><span class="language-css">  <span class="selector-tag">body</span> &gt; <span class="selector-class">.el-container</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">margin-bottom</span>: <span class="number">40px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  </span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.el-container</span><span class="selector-pseudo">:nth-child</span>(<span class="number">5</span>) <span class="selector-class">.el-aside</span>,</span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.el-container</span><span class="selector-pseudo">:nth-child</span>(<span class="number">6</span>) <span class="selector-class">.el-aside</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">line-height</span>: <span class="number">260px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css">  </span></span><br><span class="line"><span class="language-css">  <span class="selector-class">.el-container</span><span class="selector-pseudo">:nth-child</span>(<span class="number">7</span>) <span class="selector-class">.el-aside</span> &#123;</span></span><br><span class="line"><span class="language-css">    <span class="attribute">line-height</span>: <span class="number">320px</span>;</span></span><br><span class="line"><span class="language-css">  &#125;</span></span><br><span class="line"><span class="language-css"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>第三步：在 src/router/index.js 中<strong>配置路由映射规则</strong>（嵌套路由配置）</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"> &#123;</span><br><span class="line">  <span class="attr">path</span>: <span class="string">&#x27;/c&#x27;</span>,</span><br><span class="line">  <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="keyword">import</span>(<span class="string">&#x27;../views/container/ContainerView.vue&#x27;</span>),</span><br><span class="line">  <span class="comment">//嵌套路由（子路由），对应的组件会展示在当前组件内部</span></span><br><span class="line">  <span class="attr">children</span>: [<span class="comment">//通过children属性指定子路由相关信息（path、component）</span></span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;/c/p1&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="keyword">import</span>(<span class="string">&#x27;../views/container/P1View.vue&#x27;</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;/c/p2&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="keyword">import</span>(<span class="string">&#x27;../views/container/P2View.vue&#x27;</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="attr">path</span>: <span class="string">&#x27;/c/p3&#x27;</span>,</span><br><span class="line">      <span class="attr">component</span>: <span class="function">() =&gt;</span> <span class="keyword">import</span>(<span class="string">&#x27;../views/container/P3View.vue&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>第四步：在ContainerView.vue 布局容器视图中添加<router-view>，实现子视图组件展示</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-main</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-view</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-main</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>第五步：在ContainerView.vue 布局容器视图中添加<router-link>，实现路由请求</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">el-aside</span> <span class="attr">width</span>=<span class="string">&quot;200px&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/c/p1&quot;</span>&gt;</span>P1<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/c/p2&quot;</span>&gt;</span>P2<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">router-link</span> <span class="attr">to</span>=<span class="string">&quot;/c/p3&quot;</span>&gt;</span>P3<span class="tag">&lt;/<span class="name">router-link</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">el-aside</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注意：子路由变化，切换的是【ContainerView 组件】中 <code>&lt;router-view&gt;&lt;/router-view&gt;</code> 部分的内容</p>
+<p>问题思考：</p>
+<p>1.对于前面的案例，如果用户访问的路由是 /c，会有什么效果呢？</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230925160657497.png" alt="image-20230925160657497"></p>
+<p>2.如何实现在访问 /c 时，<strong>默认就展示某个子视图组件</strong>呢？</p>
+<p>配置重定向，当访问/c时，直接<strong>重定向到/c/p1</strong>即可，如下配置：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230925160730746.png" alt="image-20230925160730746"></p>
+<h2 id="3-状态管理-vuex"><a href="#3-状态管理-vuex" class="headerlink" title="3. 状态管理 vuex"></a>3. 状态管理 vuex</h2><h3 id="3-1-vuex-介绍"><a href="#3-1-vuex-介绍" class="headerlink" title="3.1 vuex 介绍"></a>3.1 vuex 介绍</h3><ul>
+<li><p><strong>vuex 是一个专为 Vue.js 应用程序开发的状态管理库</strong></p>
+</li>
+<li><p><strong>vuex 可以在多个组件之间==共享数据==，并且共享的数据是==响应式==的，即数据的变更能及时渲染到模板</strong></p>
+</li>
+<li><p><strong>vuex 采用==集中式存储管理==所有组件的状态</strong></p>
+</li>
+</ul>
+<p>每一个 Vuex 应用的核心就是 store（仓库）。“store”基本上就是一个容器，它包含着你的应用中大部分的**状态 (state)**。Vuex 和单纯的全局对象有以下两点不同：</p>
+<ol>
+<li>Vuex 的状态存储是<strong>响应式</strong>的。当 Vue 组件从 store 中读取状态的时候，若 store 中的状态发生变化，那么相应的组件也会相应地得到<strong>高效更新</strong>。</li>
+<li>你不能直接改变 store 中的状态。改变 store 中的状态的<strong>唯一途径</strong>就是显式地**==提交 (commit) mutation==**。这样使得我们可以方便地跟踪每一个状态的变化，从而让我们能够实现一些工具帮助我们更好地了解我们的应用。</li>
+</ol>
+<p><strong>安装vuex</strong>：<strong>npm install vuex@next --save</strong></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install vuex@next --save</span><br></pre></td></tr></table></figure>
+
+<p>vuex中的几个核心概念：</p>
+<ul>
+<li><p><strong>state：状态对象，==集中定义各个组件共享==的数据</strong></p>
+</li>
+<li><p><strong>mutations：类似于一个事件，用于==修改共享数据==，要求必须是==同步函数==</strong></p>
+</li>
+<li><p><strong>actions：类似于mutation，可以包含==异步操作==(axios异步请求)，通过调用mutation来改变共享数据</strong></p>
+</li>
+</ul>
+<h3 id="3-2-使用方式"><a href="#3-2-使用方式" class="headerlink" title="3.2 使用方式"></a>3.2 使用方式</h3><p>本章节通过一个案例来学习vuex的使用方式，具体操作步骤如下：</p>
+<p>第一步：创建带有vuex功能的前端项目</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230926094537147.png" alt="image-20230926094537147"></p>
+<p>注：在创建的前端工程中，可以发现自动创建了vuex相关的文件(src/store/index.js)，并且在main.js中创建Vue实例时，需要将store对象传入，代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">Vue</span> <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">App</span> <span class="keyword">from</span> <span class="string">&#x27;./App.vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">&#x27;./store&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Vue</span>.<span class="property">config</span>.<span class="property">productionTip</span> = <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> <span class="title class_">Vue</span>(&#123;</span><br><span class="line">  store,<span class="comment">//使用vuex功能</span></span><br><span class="line">  <span class="attr">render</span>: <span class="function"><span class="params">h</span> =&gt;</span> <span class="title function_">h</span>(<span class="title class_">App</span>)</span><br><span class="line">&#125;).$mount(<span class="string">&#x27;#app&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>第二步：在src/store/index.js文件中集中定义和管理共享数据</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">Vue</span> <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Vuex</span> <span class="keyword">from</span> <span class="string">&#x27;vuex&#x27;</span></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="title class_">Vue</span>.<span class="title function_">use</span>(<span class="title class_">Vuex</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">//集中管理多个组件共享的数据</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> <span class="title class_">Vuex</span>.<span class="title class_">Store</span>(&#123;</span><br><span class="line">  <span class="comment">//集中定义共享数据</span></span><br><span class="line">  <span class="attr">state</span>: &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;未登录游客&#x27;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">getters</span>: &#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">//通过当前属性中定义的函数修改共享数据，必须都是同步操作</span></span><br><span class="line">  <span class="attr">mutations</span>: &#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="comment">//通过actions调用mutation，在actions中可以进行异步操作</span></span><br><span class="line">  <span class="attr">actions</span>: &#123;</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">modules</span>: &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>第三步：在视图组件中展示共享数据</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;hello&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>欢迎你，&#123;&#123;$store.state.name&#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>注：**==$store.state==为固定写法，用于访问共享数据**</p>
+<p>第四步：在mutations中定义函数，用于修改共享数据</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//通过当前属性中定义的函数修改共享数据，必须都是同步操作</span></span><br><span class="line"><span class="attr">mutations</span>: &#123;</span><br><span class="line">  <span class="title function_">setName</span>(<span class="params">state,newName</span>) &#123;</span><br><span class="line">    state.<span class="property">name</span> = newName</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>第五步：在视图组件中调用 mutations 中定义的函数</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230926102311897.png" alt="image-20230926102311897"></p>
+<p>注：<strong>mutations</strong>中定义的函数<strong>不能直接调用</strong>，必须通过<strong>状态对象的 commit 方法来调用</strong></p>
+<p>第六步：如果在修改共享数据的过程中有异步操作，则需要将<strong>异步操作</strong>的代码编写在<strong>actions的函数</strong>中</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//通过actions调用mutation，在actions中可以进行异步操作</span></span><br><span class="line"><span class="attr">actions</span>: &#123;</span><br><span class="line">  <span class="title function_">setNameByAxios</span>(<span class="params">context</span>)&#123;</span><br><span class="line">    <span class="title function_">axios</span>(&#123; <span class="comment">//异步请求</span></span><br><span class="line">      <span class="attr">url</span>: <span class="string">&#x27;/api/admin/employee/login&#x27;</span>,</span><br><span class="line">      <span class="attr">method</span>: <span class="string">&#x27;post&#x27;</span>,</span><br><span class="line">      <span class="attr">data</span>: &#123;</span><br><span class="line">        <span class="attr">username</span>: <span class="string">&#x27;admin&#x27;</span>,</span><br><span class="line">        <span class="attr">password</span>: <span class="string">&#x27;123456&#x27;</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;).<span class="title function_">then</span>(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">if</span>(res.<span class="property">data</span>.<span class="property">code</span> == <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="comment">//异步请求后，需要修改共享数据</span></span><br><span class="line">        <span class="comment">//在actions中调用mutation中定义的setName函数</span></span><br><span class="line">        context.<span class="title function_">commit</span>(<span class="string">&#x27;setName&#x27;</span>,res.<span class="property">data</span>.<span class="property">data</span>.<span class="property">name</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<p>注：在actions中定义的函数可以声明context参数，通过此参数可以调用mutations中定义的函数</p>
+<p>第七步：在视图组件中调用actions中定义的函数</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line"></span><br><span class="line">    &lt;h1&gt;欢迎你，&#123;&#123; $store.state.name &#125;&#125; -- App.vue&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">    &lt;input type=&quot;button&quot; value=&quot;通过mutations修改共享数据&quot; @click=&quot;handleUpdate&quot; /&gt;</span><br><span class="line">    &lt;input type=&quot;button&quot; value=&quot;调用actions中的函数修改共享数据&quot; @click=&quot;handleCallAction&quot; /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;HelloWorld msg=&quot;Welcome to Your Vue.js App&quot; /&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import HelloWorld from &#x27;./components/HelloWorld.vue&#x27;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  name: &#x27;App&#x27;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    HelloWorld</span><br><span class="line">  &#125;,</span><br><span class="line">  methods: &#123;</span><br><span class="line">    //mutations中定义的函数不能直接调用，必须通过commit这种方式间接调用</span><br><span class="line">    //setName为mutations中定义的函数名称，joker为传递的参数</span><br><span class="line">    handleUpdate() &#123;</span><br><span class="line">      this.$store.commit(&#x27;setName&#x27;, &#x27;joker&#x27;)</span><br><span class="line">    &#125;,</span><br><span class="line">    handleCallAction() &#123;</span><br><span class="line">      //调用actions中定义的函数，setNameByAxios为函数名称</span><br><span class="line">      this.$store.dispatch(&#x27;setNameByAxios&#x27;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230926103114922.png" alt="image-20230926103114922"></p>
+<p>注：在actions中定义的函数不能直接调用，必须通过 <strong>this.$store.dispatch('函数名称')</strong> 这种方式调用</p>
+<h2 id="4-TypeScript"><a href="#4-TypeScript" class="headerlink" title="4. TypeScript"></a>4. TypeScript</h2><h3 id="4-1-TypeScript-介绍"><a href="#4-1-TypeScript-介绍" class="headerlink" title="4.1 TypeScript 介绍"></a>4.1 TypeScript 介绍</h3><ul>
+<li>TypeScript（简称：TS） 是微软推出的开源语言</li>
+<li>TypeScript 是 JavaScript 的超集（JS 有的 TS 都有）</li>
+</ul>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230926112525531.png" alt="image-20230926112525531"></p>
+<ul>
+<li>TypeScript = Type + JavaScript（在 JS 基础上增加了类型支持）</li>
+<li>TypeScript 文件扩展名为 ts</li>
+<li>TypeScript 可编译成标准的 JavaScript，并且在编译时进行类型检查</li>
+</ul>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230926112649750.png" alt="image-20230926112649750"></p>
+<p>在前端项目中使用TS，需要进行安装，命令为：npm install -g typescript</p>
+<p>查看TS版本：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230926112830756.png" alt="image-20230926112830756"></p>
+<p>TS初体验：</p>
+<ol>
+<li>创建 hello.ts 文件，内容如下：</li>
+</ol>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//定义一个函数 hello，并且指定参数类型为string</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">hello</span>(<span class="params"><span class="attr">msg</span>:<span class="built_in">string</span></span>) &#123;</span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(msg)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用上面的函数，传递非string类型的参数</span></span><br><span class="line"><span class="title function_">hello</span>(<span class="number">123</span>)</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>使用 tsc 命令编译 hello.ts 文件</li>
+</ol>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230926142314810.png" alt="image-20230926142314810"></p>
+<p>可以看到编译报错，提示参数类型不匹配。这说明在编译时TS会进行类型检查。需要注意的是<strong>在编译为JS文件后，类型会被擦除</strong>。</p>
+<p>思考：TS 为什么要增加类型支持 ？</p>
+<ul>
+<li><strong>TS 属于静态类型编程语言，JS 属于动态类型编程语言</strong></li>
+<li><strong>静态类型在编译期做类型检查，动态类型在执行期做类型检查</strong></li>
+<li><strong>对于 JS 来说，需要等到代码执行的时候才能发现错误（晚）</strong></li>
+<li><strong>对于 TS 来说，在代码编译的时候就可以发现错误（早）</strong></li>
+<li><strong>配合 VSCode 开发工具，TS 可以提前到在编写代码的同时就发现代码中的错误，减少找 Bug、改 Bug 的时间</strong></li>
+</ul>
+<p>在前端项目中使用TS，需要创建基于TS的前端工程：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230926145235469.png" alt="image-20230926145235469"></p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230926145349976.png" alt="image-20230926145349976"></p>
+<h3 id="4-2-TypeScript-常用类型"><a href="#4-2-TypeScript-常用类型" class="headerlink" title="4.2 TypeScript ==常用类型=="></a>4.2 TypeScript ==常用类型==</h3><p>TS中的常用类型如下：</p>
+<table>
+<thead>
+<tr>
+<th><strong>类型</strong></th>
+<th><strong>例</strong></th>
+<th><strong>备注</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>字符串类型</td>
+<td>string</td>
+<td></td>
+</tr>
+<tr>
+<td>数字类型</td>
+<td>number</td>
+<td></td>
+</tr>
+<tr>
+<td>布尔类型</td>
+<td>boolean</td>
+<td></td>
+</tr>
+<tr>
+<td>数组类型</td>
+<td>number[],string[],  boolean[] 依此类推</td>
+<td></td>
+</tr>
+<tr>
+<td>任意类型</td>
+<td>any</td>
+<td>相当于又回到了没有类型的时代</td>
+</tr>
+<tr>
+<td>复杂类型</td>
+<td>type 与 interface</td>
+<td></td>
+</tr>
+<tr>
+<td>函数类型</td>
+<td>() =>  void</td>
+<td>对函数的参数和返回值进行说明</td>
+</tr>
+<tr>
+<td>字面量类型</td>
+<td>"a"|"b"|"c"</td>
+<td>限制变量或参数的取值</td>
+</tr>
+<tr>
+<td>class 类</td>
+<td>class Animal</td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="4-2-1-类型标注的位置"><a href="#4-2-1-类型标注的位置" class="headerlink" title="4.2.1 类型标注的位置"></a>4.2.1 类型标注的位置</h4><p>基于TS进行前端开发时，类型标注的位置有如下3个：</p>
+<ul>
+<li>标注变量</li>
+<li>标注参数</li>
+<li>标注返回值</li>
+</ul>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230926145517782.png" alt="image-20230926145517782"></p>
+<h4 id="4-2-2-字符串、数字、布尔类型"><a href="#4-2-2-字符串、数字、布尔类型" class="headerlink" title="4.2.2 字符串、数字、布尔类型"></a>4.2.2 字符串、数字、布尔类型</h4><p>字符串、数字、布尔类型是前端开发中常用的类型</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230926145634149.png" alt="image-20230926145634149"></p>
+<h4 id="4-2-3-字面量类型"><a href="#4-2-3-字面量类型" class="headerlink" title="4.2.3 字面量类型"></a>4.2.3 字面量类型</h4><p><strong>字面量类型用于限定数据的取值范围</strong>，类似于java中的<strong>枚举</strong></p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230926145813932.png" alt="image-20230926145813932"></p>
+<h4 id="4-2-4-interface-类型"><a href="#4-2-4-interface-类型" class="headerlink" title="4.2.4 interface 类型"></a>4.2.4 interface 类型</h4><p>interface 类型是TS中的复杂类型，它让 TypeScript 具备了 JavaScript 所缺少的、描述较为复杂数据结构的能力。</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230926150816090.png" alt="image-20230926150816090"></p>
+<p>可以通过在属性名后面加上？，表示当前属性为可选，如下：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230926150946103.png" alt="image-20230926150946103"></p>
+<h4 id="4-2-5-class-类型"><a href="#4-2-5-class-类型" class="headerlink" title="4.2.5 class 类型"></a>4.2.5 class 类型</h4><p>使用 class 关键字来定义类，类中可以包含属性、构造方法、普通方法等</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230926151839881.png" alt="image-20230926151839881"></p>
+<p>在定义类时，可以使用 implments 关键字实现接口，如下：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230926152034526.png" alt="image-20230926152034526"></p>
+<p>在定义类时，可以使用 extends 关键字 继承其他类，如下：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20230926152222634.png" alt="image-20230926152222634"></p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//定义一个函数 print，打印到控制台，并且指定参数类型为string</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">sout</span>(<span class="params"><span class="attr">msg</span>: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(msg)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//调用上面的函数，传递非string类型的参数</span></span><br><span class="line"><span class="title function_">sout</span>(<span class="string">&quot;123&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 1111111111111111111111111111111111111 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//标注变量，指定变量 msg 的类型为string</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">msg</span>: <span class="built_in">string</span> = <span class="string">&#x27;hello ts!&#x27;</span></span><br><span class="line"><span class="comment">//标注参数和返回值，指定 m2 函数的参数类型 为string，并且返回值也为 string</span></span><br><span class="line"><span class="keyword">const</span> m2 = (<span class="attr">name</span>: <span class="built_in">string</span>): <span class="function"><span class="params">string</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> name.<span class="title function_">toLowerCase</span>() + msg</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">sout</span>(<span class="title function_">m2</span>(<span class="string">&#x27;Abc &#x27;</span>))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 1111111111111111111111111111111111111 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//定义字符串类型的变量</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">username</span>: <span class="built_in">string</span> = <span class="string">&#x27;itcast&#x27;</span></span><br><span class="line"><span class="comment">//定义布尔类型的变量</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">isTrue</span>: <span class="built_in">boolean</span> = <span class="literal">false</span></span><br><span class="line"><span class="comment">//定义数字类型的变量</span></span><br><span class="line"><span class="keyword">let</span> <span class="attr">age</span>: <span class="built_in">number</span> = <span class="number">20</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(username)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(isTrue)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(age)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 1111111111111111111111111111111111111 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//字面量类型，指定参数 alignment 的取值只能是 left、right、center</span></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">printText</span>(<span class="params"><span class="attr">s</span>: <span class="built_in">string</span>, <span class="attr">alignment</span>: <span class="string">&quot;left&quot;</span> | <span class="string">&quot;right&quot;</span> | <span class="string">&quot;center&quot;</span></span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(s, alignment)</span><br><span class="line">&#125;</span><br><span class="line"><span class="title function_">printText</span>(<span class="string">&#x27;hello&#x27;</span>, <span class="string">&#x27;left&#x27;</span>)</span><br><span class="line"><span class="comment">// printText(&#x27;hello&#x27;) //错误：取值只能是left丨right丨center</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 1111111111111111111111111111111111111 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//定义一个接口，名字为cat</span></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">Cat</span> &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="built_in">string</span>,</span><br><span class="line">    age?: <span class="built_in">number</span> <span class="comment">//加上? 表示当前属性是可选的</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//定义变量为cat类型</span></span><br><span class="line"><span class="keyword">const</span> <span class="attr">c1</span>: <span class="title class_">Cat</span> = &#123; <span class="attr">name</span>: <span class="string">&#x27;xiaobai&#x27;</span>, <span class="attr">age</span>: <span class="number">1</span> &#125;</span><br><span class="line"><span class="keyword">const</span> <span class="attr">c2</span>: <span class="title class_">Cat</span> = &#123; <span class="attr">name</span>: <span class="string">&#x27;xiaobai&#x27;</span> &#125; <span class="comment">//错误：缺少 age 属性</span></span><br><span class="line"><span class="comment">//const c3: Cat = &#123; name: &#x27;xiaobai&#x27;, age: 1, sex: &#x27;公&#x27; &#125; //错误：多出 sex 属性</span></span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(c1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 1111111111111111111111111111111111111 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//定义一个类，名称为User</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">User</span> &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="built_in">string</span> <span class="comment">//属性</span></span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params"><span class="attr">name</span>: <span class="built_in">string</span></span>) &#123;<span class="comment">//构造方法</span></span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//方法</span></span><br><span class="line">    <span class="title function_">study</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span> + <span class="string">&#x27;正在学习...&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> u = <span class="keyword">new</span> <span class="title class_">User</span>(<span class="string">&#x27;张三&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(u.<span class="property">name</span>)</span><br><span class="line">u.<span class="title function_">study</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 1111111111111111111111111111111111111 */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="built_in">string</span></span><br><span class="line">    <span class="title function_">eat</span>(): <span class="built_in">void</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//定义一个类Bird，实现上面的Animal接口</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Bird</span> <span class="keyword">implements</span> <span class="title class_">Animal</span> &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="built_in">string</span></span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params"><span class="attr">name</span>: <span class="built_in">string</span></span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">name</span> = name</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">eat</span>(): <span class="built_in">void</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span> + <span class="string">&#x27; eat&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//创建类型为Bird的对象</span></span><br><span class="line"><span class="keyword">const</span> b1 = <span class="keyword">new</span> <span class="title class_">Bird</span>(<span class="string">&#x27;杜鹃&#x27;</span>)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(b1.<span class="property">name</span>)</span><br><span class="line">b1.<span class="title function_">eat</span>()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 1111111111111111111111111111111111111 */</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//定义Parrot类，并且继承 Bird类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Parrot</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Bird</span> &#123;</span><br><span class="line">    <span class="attr">parrotName</span>:<span class="built_in">string</span></span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params"><span class="attr">parrotName</span>:<span class="built_in">string</span></span>)&#123;</span><br><span class="line">        <span class="variable language_">super</span>(parrotName+<span class="string">&#x27;super&#x27;</span>)</span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">parrotName</span> = parrotName</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">sayName</span>(): <span class="built_in">void</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">name</span> + <span class="string">&#x27; say hello&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title function_">sayParrotName</span>(): <span class="built_in">void</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="variable language_">this</span>.<span class="property">parrotName</span> + <span class="string">&#x27; say hello&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> myParrot = <span class="keyword">new</span> <span class="title class_">Parrot</span>(<span class="string">&#x27;Polly&#x27;</span>)</span><br><span class="line">myParrot.<span class="title function_">sayName</span>()</span><br><span class="line">myParrot.<span class="title function_">sayParrotName</span>()</span><br><span class="line">myParrot.<span class="title function_">eat</span>()</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="二、Vue知识点和工具类总结"><a href="#二、Vue知识点和工具类总结" class="headerlink" title="二、Vue知识点和工具类总结"></a>二、Vue知识点和工具类总结</h1><h2 id="1、vue-config-js代理配置-跨域"><a href="#1、vue-config-js代理配置-跨域" class="headerlink" title="1、vue.config.js代理配置-==跨域=="></a>1、vue.config.js代理配置-==跨域==</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="attr">proxy</span>: &#123; <span class="comment">//配置跨域,通常发生在前端应用和后端API服务器不在同一个域（域名、协议或端口不同）的情况下。</span></span><br><span class="line">  <span class="string">&#x27;/api&#x27;</span>: &#123; <span class="comment">///api是一个前缀，所有以/api开头的请求都会被代理到target指定的服务器。</span></span><br><span class="line">    <span class="attr">target</span>: process.<span class="property">env</span>.<span class="property">VUE_APP_URL</span>,</span><br><span class="line">    <span class="attr">ws</span>: <span class="literal">false</span>, <span class="comment">// 是否启用WebSockets代理</span></span><br><span class="line">    <span class="attr">secure</span>: <span class="literal">false</span>, <span class="comment">//指定是否验证SSL证书,如果是https接口，需要配置这个参数</span></span><br><span class="line">    <span class="attr">changeOrigin</span>: <span class="literal">true</span>, <span class="comment">//是否改变源地址,用于指定是否更改请求的来源。默认为false</span></span><br><span class="line">    <span class="attr">pathRewrite</span>:&#123; <span class="comment">//重写路径,用于重写请求的路径</span></span><br><span class="line">      <span class="string">&#x27;^/api&#x27;</span>:<span class="string">&#x27;&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2、箭头函数"><a href="#2、箭头函数" class="headerlink" title="2、箭头函数"></a>2、箭头函数</h2><p>箭头函数和普通函数在语法和行为上有一些重要的区别：</p>
+<ol>
+<li><p>语法：箭头函数的语法更简洁，它使用<code>=&gt;</code>符号来定义函数。例如，下面是一个箭头函数：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">add</span> = (<span class="params">a, b</span>) =&gt; a + b;</span><br></pre></td></tr></table></figure>
+
+<p>相比之下，这是一个普通的函数：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">add</span>(<span class="params">a, b</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>this绑定：箭头函数不绑定自己的<code>this</code>值，它会捕获其所在上下文的<code>this</code>值。</strong>这意味着**==箭头函数的<code>this</code>值在定义时就已经确定，不会在调用时改变。==**例如：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  <span class="attr">value</span>: <span class="number">42</span>,</span><br><span class="line">  <span class="attr">getValue</span>: <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function">() =&gt;</span> <span class="variable language_">this</span>.<span class="property">value</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> value = obj.<span class="title function_">getValue</span>()();</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(value); <span class="comment">// 42</span></span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，箭头函数<code>getValue</code>返回了一个箭头函数，这个箭头函数的<code>this</code>值是<code>getValue</code>函数的<code>this</code>值，也就是<code>obj</code>对象。所以，当箭头函数被调用时，它返回<code>obj</code>对象的<code>value</code>属性。</p>
+<p>相比之下，如果<code>getValue</code>是一个普通的函数，那么箭头函数的<code>this</code>值会是<code>getValue</code>函数被调用的上下文的<code>this</code>值，可能不是<code>obj</code>对象。</p>
+</li>
+<li><p><strong>构造函数：箭头函数不能用作构造函数，</strong>也就是说，你不能使用<code>new</code>关键字来创建箭头函数的实例。例如：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title function_">Animal</span> = (<span class="params"></span>) =&gt; &#123;&#125;;</span><br><span class="line"><span class="keyword">const</span> animal = <span class="keyword">new</span> <span class="title class_">Animal</span>(); <span class="comment">// TypeError: Animal is not a constructor</span></span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，当你尝试使用<code>new</code>关键字来创建<code>Animal</code>函数的实例时，JavaScript会抛出一个错误，因为<code>Animal</code>是一个箭头函数，不能用作构造函数。</p>
+</li>
+</ol>
+<p>总的来说，箭头函数在语法上更简洁，<strong>并且有特殊的<code>this</code>绑定行为，这使得它们在某些情况下比普通函数更合适。然而，箭头函数也有一些限制，比如不能用作构造函数，</strong>所以在使用箭头函数时需要考虑这些</p>
+<h2 id="3、form表单案例-新增"><a href="#3、form表单案例-新增" class="headerlink" title="3、form表单案例-新增"></a>3、form表单案例-新增</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class=&quot;addBrand-container&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;container&quot;&gt;</span><br><span class="line">      &lt;el-form :model=&quot;ruleForm&quot; :rules=&quot;rules&quot; ref=&quot;ruleForm&quot; label-width=&quot;180px&quot;&gt;</span><br><span class="line">        &lt;!-- ref 是一个特殊的属性，用于给 DOM 元素或组件实例设置引用,this.$refs.ruleForm--&gt;</span><br><span class="line">        &lt;el-form-item label=&quot;账号&quot; prop=&quot;username&quot;&gt;</span><br><span class="line">          &lt;el-input v-model=&quot;ruleForm.username&quot;&gt;&lt;/el-input&gt;</span><br><span class="line">        &lt;/el-form-item&gt;</span><br><span class="line">        &lt;el-form-item label=&quot;员工姓名&quot; prop=&quot;name&quot;&gt;</span><br><span class="line">          &lt;el-input v-model=&quot;ruleForm.name&quot;&gt;&lt;/el-input&gt;</span><br><span class="line">        &lt;/el-form-item&gt;</span><br><span class="line">        &lt;el-form-item label=&quot;手机号&quot; prop=&quot;phone&quot;&gt;</span><br><span class="line">          &lt;el-input v-model=&quot;ruleForm.phone&quot;&gt;&lt;/el-input&gt;</span><br><span class="line">        &lt;/el-form-item&gt;</span><br><span class="line">        &lt;el-form-item label=&quot;性别&quot; prop=&quot;sex&quot;&gt;</span><br><span class="line">          &lt;el-radio v-model=&quot;ruleForm.sex&quot; label=&quot;1&quot;&gt;男&lt;/el-radio&gt; &lt;!-- label 属性指定了单选框的值。 --&gt;</span><br><span class="line">          &lt;el-radio v-model=&quot;ruleForm.sex&quot; label=&quot;2&quot;&gt;女&lt;/el-radio&gt;</span><br><span class="line">        &lt;/el-form-item&gt;</span><br><span class="line">        &lt;el-form-item label=&quot;身份证号&quot; prop=&quot;idNumber&quot;&gt;</span><br><span class="line">          &lt;el-input v-model=&quot;ruleForm.idNumber&quot;&gt;&lt;/el-input&gt;</span><br><span class="line">        &lt;/el-form-item&gt;</span><br><span class="line"></span><br><span class="line">        &lt;!-- 保存 --&gt;</span><br><span class="line">        &lt;div class=&quot;subBox&quot;&gt;</span><br><span class="line">          &lt;el-button type=&quot;primary&quot; @click=&quot;submitForm(&#x27;ruleForm&#x27;, false)&quot;&gt;保存&lt;/el-button&gt;</span><br><span class="line">          &lt;!-- type=&quot;primary&quot;: 这是 Element UI 的按钮组件属性，表示按钮的样式类型为“主要”按钮，通常用来突出显示。 --&gt;</span><br><span class="line">          &lt;el-button v-if=&quot;this.optType === &#x27;add&#x27;&quot; type=&quot;primary&quot; @click=&quot;submitForm(&#x27;ruleForm&#x27;, true)&quot;&gt;保存并继续添加员工</span><br><span class="line">          &lt;/el-button&gt;</span><br><span class="line">          &lt;el-button @click=&quot;() =&gt; this.$router.push(&#x27;/employee&#x27;)&quot;&gt;返回&lt;/el-button&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line"></span><br><span class="line">      &lt;/el-form&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script lang=&quot;ts&quot;&gt;</span><br><span class="line">import &#123; validate &#125; from &#x27;schema-utils&#x27;;</span><br><span class="line">import &#123; addEmployee &#125; from &#x27;@/api/employee&#x27;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      optType: &#x27;add&#x27;, //操作类型，add表示新增，edit表示编辑</span><br><span class="line"></span><br><span class="line">      ruleForm: &#123;</span><br><span class="line">        username: &#x27;&#x27;,</span><br><span class="line">        name: &#x27;&#x27;,</span><br><span class="line">        phone: &#x27;&#x27;,</span><br><span class="line">        sex: &#x27;1&#x27;,</span><br><span class="line">        idNumber: &#x27;&#x27;,</span><br><span class="line">      &#125;,</span><br><span class="line">      rules: &#123; //表单校验规则</span><br><span class="line">        name: [</span><br><span class="line">          &#123; required: true, message: &#x27;请输入员工姓名&#x27;, trigger: &#x27;blur&#x27; &#125;, /* trigger: &#x27;blur&#x27; 表示失去焦点触发 */</span><br><span class="line">          &#123; min: 2, max: 10, message: &#x27;长度在 2 到 10 个字符&#x27;, trigger: &#x27;blur&#x27; &#125;</span><br><span class="line">        ],</span><br><span class="line">        username: [</span><br><span class="line">          &#123; required: true, message: &#x27;请输入账号&#x27;, trigger: &#x27;blur&#x27; &#125;,</span><br><span class="line">          &#123; min: 2, max: 10, message: &#x27;长度在 2 到 10 个字符&#x27;, trigger: &#x27;blur&#x27; &#125;</span><br><span class="line">        ],</span><br><span class="line">        phone: [</span><br><span class="line">          &#123; min: 11, max: 11, message: &#x27;手机号码必须是11位！&#x27;, trigger: &#x27;blur&#x27; &#125;,</span><br><span class="line"></span><br><span class="line">          &#123;</span><br><span class="line">            required: true, trigger: &#x27;blur&#x27;, validator: (rule, value, callback) =&gt; &#123; /* validator验证器 */</span><br><span class="line">              if (value === &#x27;&#x27; || (/^1(3|4|5|6|7|8|9)\d&#123;9&#125;$/.test(value) === false)) &#123; //利用正则表达式判断手机号格式</span><br><span class="line">                callback(new Error(&#x27;请输入正确的手机号&#x27;));</span><br><span class="line">              &#125; else &#123;</span><br><span class="line">                callback();</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">        ],</span><br><span class="line">        idNumber: [</span><br><span class="line">          &#123; min: 15, max: 18, message: &#x27;身份证号码位数不正确！&#x27;, trigger: &#x27;blur&#x27; &#125;,</span><br><span class="line">          &#123;</span><br><span class="line">            required: true, trigger: &#x27;blur&#x27;, validator: (rule, value, callback) =&gt; &#123; /* validator验证器 */</span><br><span class="line">              if (value === &#x27;&#x27; || (/^\d&#123;17&#125;(X|x)$|(^\d&#123;15&#125;$)|(^\d&#123;18&#125;$)/.test(value) === false)) &#123; //利用正则表达式判断身份证号格式</span><br><span class="line">                callback(new Error(&#x27;请输入正确的身份证号&#x27;));</span><br><span class="line">              &#125; else &#123;</span><br><span class="line">                callback();</span><br><span class="line">              &#125;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  methods: &#123;</span><br><span class="line">    //提交表单数据</span><br><span class="line">    submitForm(formName, isContinue) &#123;</span><br><span class="line">      //表单数据校验</span><br><span class="line">      this.$refs[formName].validate((valid) =&gt; &#123;</span><br><span class="line">        if (valid) &#123; //校验通过</span><br><span class="line">          //添加员工</span><br><span class="line">          addEmployee(this.ruleForm).then((res) =&gt; &#123;</span><br><span class="line">            if (res.data.code === 1) &#123;</span><br><span class="line">              this.$message.success(&#x27;添加成功！&#x27;)</span><br><span class="line"></span><br><span class="line">              if (isContinue) &#123; //如果isContinue为true，则继续添加</span><br><span class="line">                this.$refs[formName].resetFields(); //重置表单</span><br><span class="line">              &#125; else &#123; //如果isContinue为false，则返回员工列表</span><br><span class="line">                this.$router.push(&#x27;/employee&#x27;)</span><br><span class="line">              &#125;</span><br><span class="line"></span><br><span class="line">            &#125; else &#123; //添加失败，返回错误信息</span><br><span class="line">              this.$message.error(res.data.msg)</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style lang=&quot;scss&quot; scoped&gt;</span><br><span class="line">.addBrand &#123;</span><br><span class="line">  &amp;-container &#123;</span><br><span class="line">    margin: 30px;</span><br><span class="line">    margin-top: 30px;</span><br><span class="line"></span><br><span class="line">    .HeadLable &#123;</span><br><span class="line">      background-color: transparent;</span><br><span class="line">      margin-bottom: 0px;</span><br><span class="line">      padding-left: 0px;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .container &#123;</span><br><span class="line">      position: relative;</span><br><span class="line">      z-index: 1;</span><br><span class="line">      background: #fff;</span><br><span class="line">      padding: 30px;</span><br><span class="line">      border-radius: 4px;</span><br><span class="line"></span><br><span class="line">      // min-height: 500px;</span><br><span class="line">      .subBox &#123;</span><br><span class="line">        padding-top: 30px;</span><br><span class="line">        text-align: center;</span><br><span class="line">        border-top: solid 1px $gray-5;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .idNumber &#123;</span><br><span class="line">      margin-bottom: 39px;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .el-form-item &#123;</span><br><span class="line">      margin-bottom: 29px;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    .el-input &#123;</span><br><span class="line">      width: 293px;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="4、JavaScript的动态属性和Vue的响应式系统"><a href="#4、JavaScript的动态属性和Vue的响应式系统" class="headerlink" title="4、JavaScript的动态属性和Vue的响应式系统"></a>4、JavaScript的动态属性和Vue的响应式系统</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;script lang=&quot;ts&quot;&gt;</span><br><span class="line">import &#123; validate &#125; from &#x27;schema-utils&#x27;;</span><br><span class="line">import &#123; addEmployee, getEmployeeById ,updateEmployee&#125; from &#x27;@/api/employee&#x27;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      optType: &#x27;add&#x27;, //操作类型，add表示新增，edit表示修改</span><br><span class="line"></span><br><span class="line">      //表单数据结构</span><br><span class="line">      ruleForm: &#123;</span><br><span class="line">        username: &#x27;&#x27;,</span><br><span class="line">        name: &#x27;&#x27;,</span><br><span class="line">        phone: &#x27;&#x27;,</span><br><span class="line">        sex: &#x27;1&#x27;,</span><br><span class="line">        idNumber: &#x27;&#x27;,</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  created() &#123; //在组件创建时，根据路由参数判断操作类型 add 或者 update</span><br><span class="line">    this.optType = this.$route.query.id ? &#x27;update&#x27; : &#x27;add&#x27; //路径参数id存在，则为update，否则为add</span><br><span class="line">    if (this.optType === &#x27;update&#x27;) &#123; //如果是update，则根据id获取员工信息</span><br><span class="line">      getEmployeeById(this.$route.query.id).then((res) =&gt; &#123;</span><br><span class="line">        if (res.data.code === 1) &#123; //修改操作，需要根据id查询原始数据，用于回显</span><br><span class="line">          this.ruleForm = res.data.data</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br></pre></td></tr></table></figure>
+
+<p>在 Vue.js 中，当你在 <code>created</code> 钩子中通过 API 调用来赋值 <code>this.ruleForm</code> 时，你可能会发现 **<code>this.ruleForm</code> 可以访问到从服务器返回的数据中的字段，即使这些字段在组件的==初始数据定义中没有列出==**。这种情况的原因可以归结为以下几点：</p>
+<h3 id="1-动态属性"><a href="#1-动态属性" class="headerlink" title="1. 动态属性"></a>1. <strong>动态属性</strong></h3><p><strong>JavaScript 对象是动态的，你可以随时向对象添加新的属性</strong>。这意味着，**当你从服务器返回的数据中包含新的字段时，它们会被添加到 <code>this.ruleForm</code> 对象上，==即使这些字段没有在初始数据定义中声明==**。</p>
+<p>例如，初始时 <code>ruleForm</code> 可能定义为：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="attr">ruleForm</span>: &#123;</span><br><span class="line">  <span class="attr">username</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  <span class="attr">phone</span>: <span class="string">&#x27;&#x27;</span>,</span><br><span class="line">  <span class="attr">sex</span>: <span class="string">&#x27;1&#x27;</span>,</span><br><span class="line">  <span class="attr">idNumber</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当你从 API 返回的数据中获取到 <code>id</code> 并赋值给 <code>this.ruleForm</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">ruleForm</span> = res.<span class="property">data</span>.<span class="property">data</span></span><br></pre></td></tr></table></figure>
+
+<p>如果 <code>res.data.data</code> 中包含 <code>id</code> 字段，<code>this.ruleForm</code> 将会包含这个 <code>id</code> 字段，因为对象的属性是可以动态添加的。</p>
+<h3 id="2-Vue-的响应式系统"><a href="#2-Vue-的响应式系统" class="headerlink" title="2.==Vue 的响应式系统=="></a>2.<strong>==Vue 的响应式系统==</strong></h3><p><strong>Vue 的响应式系统会自动跟踪对象的变化</strong>。当你将新的对象赋值给 <code>this.ruleForm</code> 时，<strong>Vue 会将这个新对象添加到响应式系统中。原本定义在 <code>data</code> 中的 <code>ruleForm</code> 只是初始的结构定义，它不限制对象的实际使用情况</strong>。</p>
+<h3 id="3-数据结构和原型"><a href="#3-数据结构和原型" class="headerlink" title="3. 数据结构和原型"></a>3. <strong>数据结构和原型</strong></h3><p>即使你在 <code>data</code> 中定义了一个初始结构，实际运行时 <code>ruleForm</code> 可能会包含来自 API 的额外字段。由于 JavaScript 对象的动态特性，这些字段会被添加到 <code>ruleForm</code> 对象上，而不影响对象的原型或定义的结构。你可以随时访问和使用这些字段。</p>
+<h3 id="4-具体例子"><a href="#4-具体例子" class="headerlink" title="4. 具体例子"></a>4. <strong>具体例子</strong></h3><p>假设 API 返回的数据如下：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">data</span>: &#123;</span><br><span class="line">    <span class="attr">code</span>: <span class="number">1</span>,</span><br><span class="line">    <span class="attr">data</span>: &#123;</span><br><span class="line">      <span class="attr">username</span>: <span class="string">&#x27;john_doe&#x27;</span>,</span><br><span class="line">      <span class="attr">name</span>: <span class="string">&#x27;John Doe&#x27;</span>,</span><br><span class="line">      <span class="attr">phone</span>: <span class="string">&#x27;1234567890&#x27;</span>,</span><br><span class="line">      <span class="attr">sex</span>: <span class="string">&#x27;1&#x27;</span>,</span><br><span class="line">      <span class="attr">idNumber</span>: <span class="string">&#x27;123456789012345678&#x27;</span>,</span><br><span class="line">      <span class="attr">id</span>: <span class="string">&#x27;abc123&#x27;</span> <span class="comment">// 新字段</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当你执行：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">ruleForm</span> = res.<span class="property">data</span>.<span class="property">data</span></span><br></pre></td></tr></table></figure>
+
+<p><code>this.ruleForm</code> 将变成：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">username</span>: <span class="string">&#x27;john_doe&#x27;</span>,</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;John Doe&#x27;</span>,</span><br><span class="line">  <span class="attr">phone</span>: <span class="string">&#x27;1234567890&#x27;</span>,</span><br><span class="line">  <span class="attr">sex</span>: <span class="string">&#x27;1&#x27;</span>,</span><br><span class="line">  <span class="attr">idNumber</span>: <span class="string">&#x27;123456789012345678&#x27;</span>,</span><br><span class="line">  <span class="attr">id</span>: <span class="string">&#x27;abc123&#x27;</span> <span class="comment">// 额外的字段</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>因此，即使在初始定义中没有 <code>id</code> 字段，赋值后 <code>this.ruleForm.id</code> 依然是可访问的。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>JavaScript 对象是动态的，你可以随时添加和访问新的属性。</li>
+<li>Vue 的响应式系统会处理所有对象的变化，包括动态添加的属性。</li>
+<li><code>data</code> 中的初始结构仅用于定义初始状态，实际数据可以包含更多字段。</li>
+</ul>
+<p>通过理解这些原理，你可以更好地管理和使用你的数据对象，确保你的应用在处理动态数据时能正确响应和显示信息。</p>
+<h1 id="三、苍穹外卖-前端环境搭建、员工管理"><a href="#三、苍穹外卖-前端环境搭建、员工管理" class="headerlink" title="三、苍穹外卖-前端环境搭建、员工管理"></a>三、苍穹外卖-前端环境搭建、员工管理</h1><h2 id="课程内容-1"><a href="#课程内容-1" class="headerlink" title="课程内容"></a>课程内容</h2><ul>
+<li><p>前端环境搭建</p>
+</li>
+<li><p>员工分页查询</p>
+</li>
+<li><p>启用禁用员工账号</p>
+</li>
+<li><p>新增员工</p>
+</li>
+<li><p>修改员工</p>
+</li>
+</ul>
+<h2 id="1-前端环境搭建"><a href="#1-前端环境搭建" class="headerlink" title="1. 前端环境搭建"></a>1. 前端环境搭建</h2><h3 id="1-1-技术选型"><a href="#1-1-技术选型" class="headerlink" title="1.1 技术选型"></a>1.1 技术选型</h3><p>本项目使用到的前端技术如下：</p>
+<ul>
+<li>node.js</li>
+<li>vue</li>
+<li>ElementUI</li>
+<li>axios</li>
+<li>vuex</li>
+<li>vue-router</li>
+<li>typescript</li>
+</ul>
+<h3 id="1-2-熟悉前端代码结构"><a href="#1-2-熟悉前端代码结构" class="headerlink" title="1.2 熟悉前端代码结构"></a>1.2 熟悉前端代码结构</h3><p>直接导入课程资料中提供的苍穹外卖项目前端初始工程，此工程中已经开发了部分功能，后续我们在此基础上开发新功能即可。</p>
+<p>导入后的效果如下：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231009112322302.png" alt="image-20231009112322302"></p>
+<p>主要代码在src目录中，src目录结构如下：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231009112436925.png" alt="image-20231009112436925"></p>
+<p>下面重点介绍一下src中的重点文件和目录：</p>
+<ul>
+<li>api：存放封装了Ajax请求文件的目录</li>
+<li>components：公共组件存放目录</li>
+<li>views：存放视图组件的目录</li>
+<li>App.vue：项目的主组件，页面的入口文件</li>
+<li>main.ts：整个项目的入口文件</li>
+<li>router.ts：路由文件</li>
+</ul>
+<p>注意：我们上面导入的初始工程中并没有前端项目运行所依赖的JS包，需要在终端通过 npm install 命令进行安装。安装完成后，可以看到生成了node_modules目录，目录中就是安装的JS包，效果如下：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231009154944721.png" alt="image-20231009154944721"></p>
+<p>接下来，我们通过初始工程中已经完成的登录功能来跟踪程序的执行过程，熟悉前端项目的代码结构。</p>
+<p>首先需要启动前端项目，命令为：npm run serve，然后访问前端项目，效果如下：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231010103544159.png" alt="image-20231010103544159"></p>
+<p>注意：需要同时启动后端 java 服务，才能进行前后端交互。</p>
+<p>具体操作的步骤如下：</p>
+<p>① 获得登录页面路由地址</p>
+<p>​	登录页面完整的访问地址为 <a target="_blank" rel="noopener" href="http://localhost:8888/#/login%EF%BC%8C%E5%85%B6%E4%B8%AD%E7%99%BB%E5%BD%95%E9%A1%B5%E9%9D%A2%E7%9A%84%E8%B7%AF%E7%94%B1%E5%9C%B0%E5%9D%80%E4%B8%BA">http://localhost:8888/#/login，其中登录页面的路由地址为</a> /login，我们需要通过此路由地址找到对应的登录视图组件</p>
+<p>② 从main.ts中找到路由文件</p>
+<p>​	main.ts是整个前端项目的入口文件，在此文件中会创建Vue实例，在创建Vue实例时需要传入路由对象，所以从此文件中可以找到对应的路由文件位置。如下所示：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231011101828271.png" alt="image-20231011101828271"></p>
+<p>③ 从路由文件中找到登录视图组件</p>
+<p>​	在路由文件中会配置整个项目所有的路由映射规则，我们只需要找到 /login 这个路径对应的实体组件即可。如下所示：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231011102024084.png" alt="image-20231011102024084"></p>
+<p>④ 从登录视图组件中找到登录方法</p>
+<p>​	从上面的路由文件可以确定登录视图组件就是src/views/login/index.vue，此时就可以打开这个文件，然后仔细阅读代码，找到登录方法，如下所示：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231011102341145.png" alt="image-20231011102341145"></p>
+<p>⑤ 跟踪登录方法的执行过程</p>
+<p>​	找到登录方法后，就需要跟踪代码的执行过程，主要就是观察前后端的交互过程。例如前端如何发送的Ajax请求，后端返回的数据格式等等</p>
+<h2 id="2-员工分页查询"><a href="#2-员工分页查询" class="headerlink" title="2. 员工分页查询"></a>2. 员工分页查询</h2><h3 id="2-1-需求分析和接口设计"><a href="#2-1-需求分析和接口设计" class="headerlink" title="2.1 需求分析和接口设计"></a>2.1 需求分析和接口设计</h3><p>根据产品原型来了解需求，员工分页查询的产品原型如下：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231011104301458.png" alt="image-20231011104301458"></p>
+<p>业务规则：</p>
+<ul>
+<li>根据页码展示员工信息(员工姓名、账号、手机号、账号状态、最后操作时间等)</li>
+<li>每页展示10条数据</li>
+<li>分页查询时可以根据需要，输入员工姓名进行查询</li>
+</ul>
+<p>要展示员工分页数据，就需要前后端进行数据交互，对应的接口如下：</p>
+<p><strong>基本信息</strong></p>
+<p><strong>Path：</strong> /admin/employee/page</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>请求参数</strong></p>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>name</td>
+<td>否</td>
+<td>张三</td>
+<td>员工姓名</td>
+</tr>
+<tr>
+<td>page</td>
+<td>是</td>
+<td>1</td>
+<td>页码</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>是</td>
+<td>10</td>
+<td>每页记录数</td>
+</tr>
+</tbody></table>
+<p><strong>返回数据</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>默认值</th>
+<th>备注</th>
+<th>其他信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td>number</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>msg</td>
+<td>null</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>data</td>
+<td>object</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ total</td>
+<td>number</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ records</td>
+<td>object []</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td>item 类型: object</td>
+</tr>
+<tr>
+<td>├─ id</td>
+<td>number</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ username</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ name</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ password</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ phone</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ sex</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ idNumber</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ status</td>
+<td>number</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ createTime</td>
+<td>string,null</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ updateTime</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ createUser</td>
+<td>number,null</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ updateUser</td>
+<td>number</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="2-2-代码开发"><a href="#2-2-代码开发" class="headerlink" title="2.2 代码开发"></a>2.2 代码开发</h3><p>要开发前端代码，首先需要找到对应的组件。从路由文件 router.ts 中找到员工管理页面（组件）。</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231012100658784.png" alt="image-20231012100658784"></p>
+<p>可以看到，员工管理页面（组件）的位置为：src/views/employee/index.vue。我们只需要在此文件中开发员工分页查询相关的前端代码即可，整个开发过程大概可以分为以下几个关键步骤：</p>
+<ol>
+<li>根据产品原型，制作页面头部效果（输入框、查询按钮等）</li>
+<li>为查询按钮绑定单击事件，发送Ajax请求，查询员工分页数据，实现前后端交互</li>
+<li>提供 vue 的初始化方法，在页面加载后就查询分页数据</li>
+<li>使用ElementUI提供的表格组件展示分页数据</li>
+<li>使用ElementUI提供的分页条组件实现翻页效果</li>
+</ol>
+<p>注意：开发过程中，并不是所有的代码都实现了再测试，而是开发一部分，就需要测试一下，看效果，如果有问题再调整。没有问题，再继续开发、测试。所以，这是一个逐渐完善的过程。下面我们就按照上面的几个关键步骤来开发，每开发完一个关键步骤，就需要测试一下，来验证我们的代码是否正确。</p>
+<h4 id="2-2-1-制作页面头部效果"><a href="#2-2-1-制作页面头部效果" class="headerlink" title="2.2.1 制作页面头部效果"></a>2.2.1 制作页面头部效果</h4><p>根据产品原型，制作页面头部效果（输入框、查询按钮等）。产品原型中的头部效果如下：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231012104130496.png" alt="image-20231012104130496"></p>
+<p>注意：输入框和按钮都是使用 ElementUI 提供的组件，对于前端的组件只需要参考 ElementUI 提供的文档，进行修改即可。实现代码如下：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;tableBar&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">style</span>=<span class="string">&quot;margin-right: 5px&quot;</span>&gt;</span></span><br><span class="line">        员工姓名: </span><br><span class="line">    <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-input</span> <span class="attr">placeholder</span>=<span class="string">&quot;请输入员工姓名&quot;</span> <span class="attr">style</span>=<span class="string">&quot;width: 15%&quot;</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span> <span class="attr">style</span>=<span class="string">&quot;margin-left: 20px&quot;</span>&gt;</span>查询<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span> <span class="attr">style</span>=<span class="string">&quot;float: right&quot;</span>&gt;</span>+添加员工<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>开发完上面代码后，就可以测试一下，页面效果如下：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231012114155894.png" alt="image-20231012114155894"></p>
+<h4 id="2-2-2-实现前后端数据交互"><a href="#2-2-2-实现前后端数据交互" class="headerlink" title="2.2.2 实现前后端数据交互"></a>2.2.2 实现前后端数据交互</h4><p>前面我们已经完成了页面头部效果开发，接下来就需要开发前后端数据交互的动态效果。</p>
+<p>第一步：为查询按钮绑定单击事件</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231016094210211.png" alt="image-20231016094210211"></p>
+<p>第二步：在methods中定义 pageQuery 方法，先验证当前方法能否正常执行</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231016094354605.png" alt="image-20231016094354605"></p>
+<p>注意：按照开发规范，真正发送Ajax请求的代码需要封装到 api目录下的ts文件中（src/api/employee.ts）</p>
+<p>第三步：在src/api/employee.ts 中定义 getEmployeeList 方法，实现发送Ajax请求获取分页数据</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231016094612536.png" alt="image-20231016094612536"></p>
+<p>注意：发送 Ajax 请求的URL地址需要和前面我们设计的分页查询接口对应</p>
+<p>第四步：在员工管理组件中导入 employee.ts 中定义的方法，并在data() 方法中定义分页相关的模型数据</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231016094930398.png" alt="image-20231016094930398"></p>
+<p>注意：需要将name属性和上面的员工姓名输入框进行双向绑定，如下：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231016095018274.png" alt="image-20231016095018274"></p>
+<p>第五步：在pageQuery 方法中调用 getEmployeeList 方法</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231016095152184.png" alt="image-20231016095152184"></p>
+<h4 id="2-2-3-自动发送Ajax请求"><a href="#2-2-3-自动发送Ajax请求" class="headerlink" title="2.2.3 自动发送Ajax请求"></a>2.2.3 自动发送Ajax请求</h4><p>前面的代码我们已经实现了前后端数据交互，但是有一个问题，就是只有在点击查询按钮时才会发生Ajax请求，实现分页数据查询。我们通常需要的是在当前页面（组件）加载后，就需要发送Ajax请求，查询第一页的数据。要实现这个效果，我们可以通过vue的生命周期方法，即created方法来做到，代码如下：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231016095540340.png" alt="image-20231016095540340"></p>
+<h4 id="2-2-4-使用表格展示分页数据"><a href="#2-2-4-使用表格展示分页数据" class="headerlink" title="2.2.4 使用表格展示分页数据"></a>2.2.4 使用表格展示分页数据</h4><p>前面我们已经实现了前后端数据交互，现在就需要将后端返回的数据通过表格展示出来，我们可以使用ElementUI提供的表格组件，具体使用方法可以参照官方提供的示例 <a target="_blank" rel="noopener" href="https://element.eleme.io/#/zh-CN/component/table">https://element.eleme.io/#/zh-CN/component/table</a></p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231016100031134.png" alt="image-20231016100031134"></p>
+<h4 id="2-2-5-使用分页条实现翻页效果"><a href="#2-2-5-使用分页条实现翻页效果" class="headerlink" title="2.2.5 使用分页条实现翻页效果"></a>2.2.5 使用分页条实现翻页效果</h4><p>使用 ElementUI 提供的分页条组件，并绑定事件处理函数，具体使用方法可以参照官方提供的示例 <a target="_blank" rel="noopener" href="https://element.eleme.io/#/zh-CN/component/pagination">https://element.eleme.io/#/zh-CN/component/pagination</a></p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231016100300675.png" alt="image-20231016100300675"></p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231016100327628.png" alt="image-20231016100327628"></p>
+<h3 id="2-3-功能测试"><a href="#2-3-功能测试" class="headerlink" title="2.3 功能测试"></a>2.3 功能测试</h3><p>可以通过下面两种方式来测试：</p>
+<ul>
+<li>直接进行前后端联调，查看页面效果</li>
+<li>通过浏览器F12查看数据交互过程</li>
+</ul>
+<h2 id="3-启用禁用员工账号"><a href="#3-启用禁用员工账号" class="headerlink" title="3. 启用禁用员工账号"></a>3. 启用禁用员工账号</h2><h3 id="3-1-需求分析和接口设计"><a href="#3-1-需求分析和接口设计" class="headerlink" title="3.1 需求分析和接口设计"></a>3.1 需求分析和接口设计</h3><p>根据产品原型来进行需求分析：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231016103554407.png" alt="image-20231016103554407"></p>
+<p>可以对状态为“启用” 的员工账号进行“禁用”操作</p>
+<p>可以对状态为“禁用”的员工账号进行“启用”操作</p>
+<p>状态为“禁用”的员工账号不能登录系统</p>
+<p>接口设计如下：</p>
+<p> <strong>基本信息</strong></p>
+<p><strong>Path：</strong> /admin/employee/status/{status}</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>请求参数</strong></p>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Content-Type</td>
+<td>application/json</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>路径参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>status</td>
+<td>1</td>
+<td>状态，1为启用 0为禁用</td>
+</tr>
+</tbody></table>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>是</td>
+<td></td>
+<td>员工id</td>
+</tr>
+</tbody></table>
+<p><strong>返回数据</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>默认值</th>
+<th>备注</th>
+<th>其他信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td>integer</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td>format: int32</td>
+</tr>
+<tr>
+<td>data</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="3-2-代码开发"><a href="#3-2-代码开发" class="headerlink" title="3.2 代码开发"></a>3.2 代码开发</h3><p>第一步：为启用、禁用按钮绑定单击事件</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231016154949134.png" alt="image-20231016154949134"></p>
+<p>第二步：编写对应的处理函数handleStartOrStop</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231016155041179.png" alt="image-20231016155041179"></p>
+<p>到此可以先测试一下，检查当前方法能否成功执行，页面效果如下：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231016155124396.png" alt="image-20231016155124396"></p>
+<p>第三步：在 employee.ts 中封装启用禁用员工账号方法，发送Ajax请求</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231016155246041.png" alt="image-20231016155246041"></p>
+<p>注意：发送请求的方式和相关参数，必须和前面的接口设计保持一致</p>
+<p>第四步：在员工管理组件中引入上面定义的enableOrDisableEmployee方法，并完善 handleStartOrStop 方法</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231016155426898.png" alt="image-20231016155426898"></p>
+<p>第五步：代码优化，如果是管理员账号则不允许更改账号状态</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231016155558430.png" alt="image-20231016155558430"></p>
+<h3 id="3-3-功能测试"><a href="#3-3-功能测试" class="headerlink" title="3.3 功能测试"></a>3.3 功能测试</h3><p>直接进行前后端联调，查看页面效果</p>
+<p>通过浏览器F12查看数据交互过程</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231016152210849.png" alt="image-20231016152210849"></p>
+<h2 id="4-新增员工"><a href="#4-新增员工" class="headerlink" title="4. 新增员工"></a>4. 新增员工</h2><h3 id="4-1-需求分析和接口设计"><a href="#4-1-需求分析和接口设计" class="headerlink" title="4.1 需求分析和接口设计"></a>4.1 需求分析和接口设计</h3><p>根据产品原型来进行需求分析，产品原型如下：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231017105355195.png" alt="image-20231017105355195"></p>
+<p>新增员工时需要录入 账号、员工姓名、手机号、性别、身份证号等信息。其中账号因为是登录凭证，所以必须是唯一的。手机号要求必须是合法的11位手机号码，身份证号为合法的18位身份证号码。</p>
+<p>当新员工入职后，可以通过当前的新增员工功能来为新员工开通账号，新员工通过开通的账号来登录商家管理端系统。</p>
+<p>接口设计如下：</p>
+<p> <strong>基本信息</strong></p>
+<p><strong>Path：</strong> /admin/employee</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>请求参数</strong></p>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Content-Type</td>
+<td>application/json</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>Body</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>默认值</th>
+<th>备注</th>
+<th>其他信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td>员工id</td>
+<td>format: int64</td>
+</tr>
+<tr>
+<td>idNumber</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td>身份证</td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td>姓名</td>
+<td></td>
+</tr>
+<tr>
+<td>phone</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td>手机号</td>
+<td></td>
+</tr>
+<tr>
+<td>sex</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td>性别</td>
+<td></td>
+</tr>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td>用户名</td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>返回数据</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>默认值</th>
+<th>备注</th>
+<th>其他信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td>integer</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td>format: int32</td>
+</tr>
+<tr>
+<td>data</td>
+<td>object</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="4-2-代码开发"><a href="#4-2-代码开发" class="headerlink" title="4.2 代码开发"></a>4.2 代码开发</h3><p>要开发新增员工前端代码，首先需要了解添加员工业务功能的操作步骤：</p>
+<ol>
+<li>在员工管理列表页面，点击 “添加员工”按钮，跳转到新增页面</li>
+<li>在新增员工页面录入员工相关信息</li>
+<li>点击“保存”按钮完成新增操作</li>
+</ol>
+<p>接下来我们就可以按照上面的操作步骤来具体开发前端的代码。</p>
+<p>第一步：为“添加员工”按钮绑定单击事件</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231017162453327.png" alt="image-20231017162453327"></p>
+<p>第二步：编写 handleAddEmp 方法，进行路由跳转</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231017162515941.png" alt="image-20231017162515941"></p>
+<p>注意：在路由文件中已经配置了如下路由规则</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231017162553386.png" alt="image-20231017162553386"></p>
+<p>第三步：根据产品原型，开发页面元素</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231017162651760.png" alt="image-20231017162651760"></p>
+<p>第四步：定义模型数据和表单校验规则</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231017162927506.png" alt="image-20231017162927506"></p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231017162808963.png" alt="image-20231017162808963"></p>
+<p>第五步：在 employee.ts 中封装新增员工方法，发送Ajax请求，实现前后端交互</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231017163005227.png" alt="image-20231017163005227"></p>
+<p>注意：</p>
+<ul>
+<li>发送请求的方式和相关参数，必须和前面的接口设计保持一致</li>
+<li>使用此方法时，别忘了在组件中通过import导入</li>
+</ul>
+<p>第六步：在 methods 中定义提交表单的方法 submitForm</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231017163116948.png" alt="image-20231017163116948"></p>
+<h3 id="4-3-功能测试"><a href="#4-3-功能测试" class="headerlink" title="4.3 功能测试"></a>4.3 功能测试</h3><p>直接进行前后端联调，查看页面效果</p>
+<p>通过浏览器F12查看数据交互过程</p>
+<h2 id="5-修改员工"><a href="#5-修改员工" class="headerlink" title="5. 修改员工"></a>5. 修改员工</h2><h3 id="5-1-需求分析和接口设计"><a href="#5-1-需求分析和接口设计" class="headerlink" title="5.1 需求分析和接口设计"></a>5.1 需求分析和接口设计</h3><p>根据产品原型来进行需求分析，产品原型如下：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231017105355195.png" alt="image-20231017105355195"></p>
+<p>修改员工时需要回显 账号、员工姓名、手机号、性别、身份证号等信息。其中账号因为是登录凭证，所以必须是唯一的。手机号要求必须是合法的11位手机号码，身份证号为合法的18位身份证号码。根据需要对数据进行修改即可。</p>
+<p>修改员工功能涉及到2个接口，分别是根据id查询员工信息和根据id修改员工信息。具体接口设计如下：</p>
+<p>（1）根据id查询员工 接口</p>
+<p><strong>基本信息</strong></p>
+<p><strong>Path：</strong> /admin/employee/{id}</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>请求参数</strong></p>
+<p><strong>路径参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>100</td>
+<td>员工id</td>
+</tr>
+</tbody></table>
+<p><strong>返回数据</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>默认值</th>
+<th>备注</th>
+<th>其他信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td>integer</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td>format: int32</td>
+</tr>
+<tr>
+<td>data</td>
+<td>object</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ createTime</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: date-time</td>
+</tr>
+<tr>
+<td>├─ createUser</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: int64</td>
+</tr>
+<tr>
+<td>├─ id</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: int64</td>
+</tr>
+<tr>
+<td>├─ idNumber</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ name</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ password</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ phone</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ sex</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ status</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: int32</td>
+</tr>
+<tr>
+<td>├─ updateTime</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: date-time</td>
+</tr>
+<tr>
+<td>├─ updateUser</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: int64</td>
+</tr>
+<tr>
+<td>├─ username</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>（2）根据id修改员工信息 接口</p>
+<p><strong>基本信息</strong></p>
+<p><strong>Path：</strong> /admin/employee</p>
+<p><strong>Method：</strong> PUT</p>
+<p><strong>请求参数</strong></p>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Content-Type</td>
+<td>application/json</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>Body</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>默认值</th>
+<th>备注</th>
+<th>其他信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>integer</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td>format: int64</td>
+</tr>
+<tr>
+<td>idNumber</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>phone</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>sex</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>返回数据</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>默认值</th>
+<th>备注</th>
+<th>其他信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td>integer</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td>format: int32</td>
+</tr>
+<tr>
+<td>data</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="5-2-代码开发"><a href="#5-2-代码开发" class="headerlink" title="5.2 代码开发"></a>5.2 代码开发</h3><p>要开发修改员工前端代码，首先需要了解修改员工业务功能的操作步骤：</p>
+<ol>
+<li>在员工管理列表页面点击 “修改”按钮，跳转到修改页面</li>
+<li>在修改员工页面录入员工相关信息</li>
+<li>点击“保存”按钮完成修改操作</li>
+</ol>
+<p>注意：</p>
+<ul>
+<li>由于添加员工和修改员工的表单项非常类似，所以添加和修改操作可以共用同一个页面（addEmployee.vue）</li>
+<li>修改员工涉及到原始数据回显，所以页面跳转时需要传递员工id作为参数</li>
+</ul>
+<p>接下来我们就可以按照上面的操作步骤来具体开发前端的代码。</p>
+<p>第一步：在员工管理页面中，为“修改”按钮绑定单击事件，用于跳转到修改页面</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231018153123546.png" alt="image-20231018153123546"></p>
+<p>第二步：在methods中编写 handleUpdateEmp 方法，实现路由跳转</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231018153201351.png" alt="image-20231018153201351"></p>
+<p>注意：使用路由对象的push方法在进行路由跳转时，可以通过地址栏传递参数，具体语法为：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">$router</span>.<span class="title function_">push</span>(&#123;<span class="attr">path</span>: 路由路径, <span class="attr">query</span>:&#123;参数名:参数值&#125;&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>第三步：在 addEmployee.vue 组件中定义模型数据optType，用于区分本次操作是新增还是修改</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231018153639687.png" alt="image-20231018153639687"></p>
+<p>注意：区分当前操作是新增员工还是修改员工，只需要尝试获取路由参数id。如果能获取到则当前操作为修改，否则为新增。具体获取路由参数的语法为：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="variable language_">this</span>.<span class="property">$router</span>.<span class="property">query</span>.参数名</span><br></pre></td></tr></table></figure>
+
+<p>第四步：如果是修改操作，需要根据id查询员工原始信息用于页面回显，需要在 employee.ts 中创建queryEmployeeById方法</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231018154041788.png" alt="image-20231018154041788"></p>
+<p>注意：</p>
+<ul>
+<li>发送请求的方式和相关参数，必须和前面的接口设计保持一致</li>
+<li>使用此方法时，别忘了在组件中通过import导入</li>
+</ul>
+<p>第五步：在 addEmployee.vue 组件的 created 方法中查询员工原始信息用于页面数据回显 </p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231018154225861.png" alt="image-20231018154225861"></p>
+<p>到目前位置已经实现了员工信息的回显，可以进行简单的测试，如果回显没有问题再继续开发后面的代码</p>
+<p>第六步：如果是修改操作，“保存并继续添加员工” 按钮则不需要显示，通过 v-if 指令进行判断</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231018154415419.png" alt="image-20231018154415419"></p>
+<p>第七步：在 employee.ts 中创建方法，用于修改员工，发送Ajax请求</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231018154443989.png" alt="image-20231018154443989"></p>
+<p>注意：</p>
+<ul>
+<li>发送请求的方式和相关参数，必须和前面的接口设计保持一致</li>
+<li>使用此方法时，别忘了在组件中通过import导入</li>
+</ul>
+<p>第八步：修改 addEmployee.vue 组件中的 submitForm 方法，需要根据当前操作类型执行新增或者修改操作</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231018154601719.png" alt="image-20231018154601719"></p>
+<h3 id="5-3-功能测试"><a href="#5-3-功能测试" class="headerlink" title="5.3 功能测试"></a>5.3 功能测试</h3><p>直接进行前后端联调，查看页面效果</p>
+<p>通过浏览器F12查看数据交互过程</p>
+<h1 id="四、苍穹外卖-套餐管理"><a href="#四、苍穹外卖-套餐管理" class="headerlink" title="四、苍穹外卖-套餐管理"></a>四、苍穹外卖-套餐管理</h1><h2 id="课程内容-2"><a href="#课程内容-2" class="headerlink" title="课程内容"></a>课程内容</h2><ul>
+<li>套餐分页查询</li>
+<li>启售停售套餐</li>
+<li>删除套餐</li>
+<li>新增套餐</li>
+</ul>
+<h2 id="1-套餐分页查询"><a href="#1-套餐分页查询" class="headerlink" title="1. 套餐分页查询"></a>1. 套餐分页查询</h2><h3 id="1-1-需求分析和接口设计"><a href="#1-1-需求分析和接口设计" class="headerlink" title="1.1 需求分析和接口设计"></a>1.1 需求分析和接口设计</h3><p>根据产品原型来了解需求，套餐分页查询的产品原型如下：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231019100236805.png" alt="image-20231019100236805"></p>
+<p>业务规则：</p>
+<ul>
+<li>根据页码展示套餐信息(套餐名称、套餐图片、套餐分类、价格、售卖状态、最后操作时间等)</li>
+<li>每页展示10条数据</li>
+<li>分页查询时可以根据需要，输入套餐名、套餐分类、售卖状态 进行查询</li>
+</ul>
+<p>要展示套餐分页数据，就需要前后端进行数据交互，对应的接口有两个：</p>
+<ul>
+<li>分类查询接口（用于套餐分类下拉框中分类数据展示）</li>
+<li>套餐分页查询接口</li>
+</ul>
+<p>（1）分类查询接口</p>
+<p> <strong>基本信息</strong></p>
+<p><strong>Path：</strong> /admin/category/list</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>请求参数</strong></p>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>type</td>
+<td>否</td>
+<td>2</td>
+<td>分类类型：1为菜品分类，2为套餐分类</td>
+</tr>
+</tbody></table>
+<p><strong>返回数据</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>默认值</th>
+<th>备注</th>
+<th>其他信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td>integer</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td>format: int32</td>
+</tr>
+<tr>
+<td>data</td>
+<td>object []</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>item 类型: object</td>
+</tr>
+<tr>
+<td>├─ createTime</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: date-time</td>
+</tr>
+<tr>
+<td>├─ createUser</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: int64</td>
+</tr>
+<tr>
+<td>├─ id</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: int64</td>
+</tr>
+<tr>
+<td>├─ name</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ sort</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: int32</td>
+</tr>
+<tr>
+<td>├─ status</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: int32</td>
+</tr>
+<tr>
+<td>├─ type</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: int32</td>
+</tr>
+<tr>
+<td>├─ updateTime</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: date-time</td>
+</tr>
+<tr>
+<td>├─ updateUser</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: int64</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>（2）套餐分页查询接口</p>
+<p> <strong>基本信息</strong></p>
+<p><strong>Path：</strong> /admin/setmeal/page</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>请求参数</strong></p>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>categoryId</td>
+<td>否</td>
+<td></td>
+<td>分类id</td>
+</tr>
+<tr>
+<td>name</td>
+<td>否</td>
+<td></td>
+<td>套餐名称</td>
+</tr>
+<tr>
+<td>page</td>
+<td>是</td>
+<td></td>
+<td>页码</td>
+</tr>
+<tr>
+<td>pageSize</td>
+<td>是</td>
+<td></td>
+<td>每页记录数</td>
+</tr>
+<tr>
+<td>status</td>
+<td>否</td>
+<td></td>
+<td>套餐起售状态</td>
+</tr>
+</tbody></table>
+<p><strong>返回数据</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>默认值</th>
+<th>备注</th>
+<th>其他信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td>number</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>msg</td>
+<td>null</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>data</td>
+<td>object</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ total</td>
+<td>number</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ records</td>
+<td>object []</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>item 类型: object</td>
+</tr>
+<tr>
+<td>├─ id</td>
+<td>number</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ categoryId</td>
+<td>number</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ name</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ price</td>
+<td>number</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ status</td>
+<td>number</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ description</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ image</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ updateTime</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ categoryName</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="1-2-代码开发"><a href="#1-2-代码开发" class="headerlink" title="1.2 代码开发"></a>1.2 代码开发</h3><p>要开发前端代码，首先需要找到对应的组件。从路由文件 router.ts 中找到套餐管理页面（组件）。</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231020143129575.png" alt="image-20231020143129575"></p>
+<p>可以看到，套餐管理页面（组件）的位置为：src/views/setmeal/index.vue。我们只需要在此文件中开发套餐分页查询相关的前端代码即可，整个开发过程大概可以分为以下几个关键步骤：</p>
+<ol>
+<li>根据产品原型，制作页面头部效果（输入框、下拉框、查询按钮等）</li>
+<li>动态填充套餐分类下拉框中的分类数据</li>
+<li>为查询按钮绑定单击事件，发送Ajax请求，查询套餐分页数据，实现前后端交互</li>
+<li>提供 vue 的初始化方法，在页面加载后就查询分页数据</li>
+<li>使用ElementUI提供的表格组件展示分页数据</li>
+<li>使用ElementUI提供的分页条组件实现翻页效果</li>
+</ol>
+<p>注意：开发过程中，并不是所有的代码都实现了再测试，而是开发一部分，就需要测试一下，看效果，如果有问题再调整。没有问题，再继续开发、测试。所以，这是一个逐渐完善的过程。下面我们就按照上面的几个关键步骤来开发，每开发完一个关键步骤，就需要测试一下，来验证我们的代码是否正确。</p>
+<h4 id="2-2-1-制作页面头部效果-1"><a href="#2-2-1-制作页面头部效果-1" class="headerlink" title="2.2.1 制作页面头部效果"></a>2.2.1 制作页面头部效果</h4><p>根据产品原型，制作页面头部效果（输入框、查询按钮等）。产品原型中的头部效果如下：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231020153003427.png" alt="image-20231020153003427"></p>
+<p>注意：输入框和按钮都是使用 ElementUI 提供的组件，对于前端的组件只需要参考 ElementUI 提供的文档，进行修改即可。实现代码如下：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231020153413719.png" alt="image-20231020153413719"></p>
+<p>注意：当前套餐分类下拉框中的数据是直接在页面固定写死的，后续需要改为从后端动态获取。</p>
+<h4 id="2-2-2-动态填充套餐分类下拉框数据"><a href="#2-2-2-动态填充套餐分类下拉框数据" class="headerlink" title="2.2.2 动态填充套餐分类下拉框数据"></a>2.2.2 动态填充套餐分类下拉框数据</h4><p>现在需要将套餐分类下拉框中的数据改为动态获取，即前端需要发送Ajax请求，调用后端的分类查询接口，然后将后端返回的套餐分类数据动态展示在下拉框中。因为本次前后端交互是需要查询分类数据，所以按照项目规范，发送Ajax请求的代码需要定义到 src/api/category.ts 文件中。其实在此文件中已经定义了此方法，如下：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231020153956869.png" alt="image-20231020153956869"></p>
+<p>所以，此处只需要将此方法(getCategoryByType)导入当前组件，然后在 created 方法中调用此方法，获取套餐分类数据，动态填充套餐分类下拉框即可。具体代码如下：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231020154449782.png" alt="image-20231020154449782"></p>
+<p>注意：因为此处我们要查询的是套餐分类，所以传递的参数type值为2。</p>
+<p>前面我们已经初步实现了页面头部制作，并且可以填充下拉框中的数据了。但是命名上并不是特别规范，所以我们需要进行一个调整，具体修改后端的代码如下：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231020154747092.png" alt="image-20231020154747092"></p>
+<p>两个下拉框的测试效果如下：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231020154909513.png" alt="image-20231020154909513"></p>
+<h4 id="2-2-3-动态获取套餐分页数据"><a href="#2-2-3-动态获取套餐分页数据" class="headerlink" title="2.2.3 动态获取套餐分页数据"></a>2.2.3 动态获取套餐分页数据</h4><p>前面我们已经完成了页面头部效果开发，接下来就需要开发前后端数据交互的动态效果。</p>
+<p>第一步：为查询按钮绑定单击事件</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231020155054149.png" alt="image-20231020155054149"></p>
+<p>第二步：在methods中定义 pageQuery 方法，先验证当前方法能否正常执行</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231020155113565.png" alt="image-20231020155113565"></p>
+<p>注意：按照开发规范，真正发送Ajax请求的代码需要封装到 api目录下的ts文件中（src/api/setMeal.ts）</p>
+<p>第三步：在src/api/setMeal.ts 中定义 getSetmealPage 方法，实现发送Ajax请求获取分页数据</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231020155235487.png" alt="image-20231020155235487"></p>
+<p>注意：发送 Ajax 请求的URL地址需要和前面我们设计的分页查询接口对应</p>
+<p>第四步：在套餐管理组件中导入 setMeal.ts 中定义的方法，并在data() 方法中定义分页相关的模型数据</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231020155347403.png" alt="image-20231020155347403"></p>
+<p>注意：需要将属性和上面的输入框、下拉框进行双向绑定。</p>
+<p>第五步：在pageQuery 方法中调用 getSetmealPage方法，实现前后端数据交互</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231020155526957.png" alt="image-20231020155526957"></p>
+<h4 id="2-2-4-自动发送Ajax请求"><a href="#2-2-4-自动发送Ajax请求" class="headerlink" title="2.2.4 自动发送Ajax请求"></a>2.2.4 自动发送Ajax请求</h4><p>前面的代码我们已经实现了前后端数据交互，但是有一个问题，就是只有在点击查询按钮时才会发生Ajax请求，实现分页数据查询。我们通常需要的是在当前页面（组件）加载后，就需要发送Ajax请求，查询第一页的数据。要实现这个效果，我们可以通过vue的生命周期方法，即created方法来做到，代码如下：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231020155637956.png" alt="image-20231020155637956"></p>
+<h4 id="2-2-5-使用表格展示分页数据"><a href="#2-2-5-使用表格展示分页数据" class="headerlink" title="2.2.5 使用表格展示分页数据"></a>2.2.5 使用表格展示分页数据</h4><p>前面我们已经实现了前后端数据交互，现在就需要将后端返回的数据通过表格展示出来，我们可以使用ElementUI提供的表格组件，具体使用方法可以参照官方提供的示例 <a target="_blank" rel="noopener" href="https://element.eleme.io/#/zh-CN/component/table">https://element.eleme.io/#/zh-CN/component/table</a></p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231020155734122.png" alt="image-20231020155734122"></p>
+<h4 id="2-2-6-使用分页条实现翻页效果"><a href="#2-2-6-使用分页条实现翻页效果" class="headerlink" title="2.2.6 使用分页条实现翻页效果"></a>2.2.6 使用分页条实现翻页效果</h4><p>使用 ElementUI 提供的分页条组件，并绑定事件处理函数，具体使用方法可以参照官方提供的示例 <a target="_blank" rel="noopener" href="https://element.eleme.io/#/zh-CN/component/pagination">https://element.eleme.io/#/zh-CN/component/pagination</a></p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231020155812305.png" alt="image-20231020155812305"></p>
+<h3 id="1-3-功能测试"><a href="#1-3-功能测试" class="headerlink" title="1.3 功能测试"></a>1.3 功能测试</h3><p>可以通过下面两种方式来测试：</p>
+<ul>
+<li>直接进行前后端联调，查看页面效果</li>
+<li>通过浏览器F12查看数据交互过程</li>
+</ul>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231020155938508.png" alt="image-20231020155938508"></p>
+<h2 id="2-启售停售套餐"><a href="#2-启售停售套餐" class="headerlink" title="2. 启售停售套餐"></a>2. 启售停售套餐</h2><h3 id="2-1-需求分析和接口设计-1"><a href="#2-1-需求分析和接口设计-1" class="headerlink" title="2.1 需求分析和接口设计"></a>2.1 需求分析和接口设计</h3><p>根据产品原型来进行需求分析：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231023094228836.png" alt="image-20231023094228836"></p>
+<p>可以对状态为“启售” 的套餐进行“停售”操作</p>
+<p>可以对状态为“停售”的套餐进行“启售”操作</p>
+<p>状态为“停售”的套餐不展示在用户端小程序中，所以用户不能购买停售的套餐</p>
+<p>接口设计如下：</p>
+<p><strong>基本信息</strong></p>
+<p><strong>Path：</strong> /admin/setmeal/status/{status}</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>请求参数</strong></p>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Content-Type</td>
+<td>application/json</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>路径参数</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>status</td>
+<td>1</td>
+<td>套餐状态，1表示起售，0表示停售</td>
+</tr>
+</tbody></table>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>id</td>
+<td>是</td>
+<td>101</td>
+<td>套餐id</td>
+</tr>
+</tbody></table>
+<p><strong>返回数据</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>默认值</th>
+<th>备注</th>
+<th>其他信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td>integer</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td>format: int32</td>
+</tr>
+<tr>
+<td>data</td>
+<td>object</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="2-2-代码开发-1"><a href="#2-2-代码开发-1" class="headerlink" title="2.2 代码开发"></a>2.2 代码开发</h3><p>第一步：为启售停售按钮绑定单击事件</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231023095123819.png" alt="image-20231023095123819"></p>
+<p>第二步：编写对应的处理函数handleStartOrStop</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231023095249208.png" alt="image-20231023095249208"></p>
+<p>到此可以先测试一下，检查当前方法能否成功执行，页面效果如下：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231023095322300.png" alt="image-20231023095322300"></p>
+<p>第三步：在 setMeal.ts 中封装套餐起售停售方法，发送Ajax请求</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231023095630819.png" alt="image-20231023095630819"></p>
+<p>注意：发送请求的方式和相关参数，必须和前面的接口设计保持一致</p>
+<p>第四步：在套餐管理组件中引入上面定义的enableOrDisableSetmeal方法，并完善 handleStartOrStop 方法</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231023095730185.png" alt="image-20231023095730185"></p>
+<p>注意：</p>
+<ul>
+<li>在进行套餐启售停售操作时，建议先弹出确认框，用户点击确定按钮后再进行前后端交互</li>
+<li>在传递套餐状态参数status时，需要进行简单的处理，即：如果当前套餐状态值为1，则传递过去的参数为0；如果当前套餐状态值为0，则传递过去的参数为1</li>
+</ul>
+<h3 id="2-3-功能测试-1"><a href="#2-3-功能测试-1" class="headerlink" title="2.3 功能测试"></a>2.3 功能测试</h3><p>直接进行前后端联调，查看页面效果</p>
+<p>通过浏览器F12查看数据交互过程</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231023100008708.png" alt="image-20231023100008708"></p>
+<h2 id="3-删除套餐"><a href="#3-删除套餐" class="headerlink" title="3. 删除套餐"></a>3. 删除套餐</h2><h3 id="3-1-需求分析和接口设计-1"><a href="#3-1-需求分析和接口设计-1" class="headerlink" title="3.1 需求分析和接口设计"></a>3.1 需求分析和接口设计</h3><p>根据产品原型来进行需求分析，产品原型如下：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231023142125944.png" alt="image-20231023142125944"></p>
+<ul>
+<li>点击 删除 按钮，删除指定的一个套餐</li>
+<li>勾选需要删除的套餐，点击 批量删除 按钮，删除选中的一个或多个套餐</li>
+<li>状态为 “启售” 的套餐不能删除，需要给出操作提示</li>
+</ul>
+<p>可以看到，删除套餐功能在操作时有两种方式。一种是点击【删除】按钮，可以删除对应的一个套餐；一种是勾选需要删除的套餐，然后点击【批量删除】按钮，可以删除勾选的多个套餐。我们在设计接口时可以兼容这两种不同的操作方式，也就是只需要一个接口即可。</p>
+<p>接口设计如下：</p>
+<p><strong>基本信息</strong></p>
+<p><strong>Path：</strong> /admin/setmeal</p>
+<p><strong>Method：</strong> DELETE</p>
+<p><strong>请求参数</strong></p>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ids</td>
+<td>是</td>
+<td>1,2,3</td>
+<td>ids</td>
+</tr>
+</tbody></table>
+<p><strong>返回数据</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>默认值</th>
+<th>备注</th>
+<th>其他信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: int32</td>
+</tr>
+<tr>
+<td>data</td>
+<td>object</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="3-2-代码开发-1"><a href="#3-2-代码开发-1" class="headerlink" title="3.2 代码开发"></a>3.2 代码开发</h3><p>要开发删除套餐前端代码，首先需要了解删除套餐业务功能的操作步骤：</p>
+<ol>
+<li>在套餐管理列表页面，点击 【删除】按钮，或者勾选套餐然后点击【批量删除】按钮，弹出确认对话框</li>
+<li>点击确认对话框中的【确定】按钮，则执行删除操作。如果套餐状态为“启售”，则不能删除，弹出信息提示</li>
+<li>点击确认对话框中的【取消】按钮，则关闭对话框，不执行删除操作</li>
+</ol>
+<p>接下来我们就可以按照上面的操作步骤来具体开发前端的代码。</p>
+<p>第一步：在 setMeal.ts 中封装删除套餐方法，发送Ajax请求，用于实现前后端交互</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231023163921668.png" alt="image-20231023163921668"></p>
+<p>注意：</p>
+<ul>
+<li>发送请求的方式和相关参数，必须和前面的接口设计保持一致</li>
+<li>使用此方法时，别忘了在组件中通过import导入</li>
+</ul>
+<p>第二步：为【批量删除】按钮绑定单击事件，并在methods中编写对应的处理函数</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231023164110268.png" alt="image-20231023164110268"></p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231023164255891.png" alt="image-20231023164255891"></p>
+<p>到目前为止我们点击【批量删除】按钮，是可以执行handleDelete方法的。接下来我们需要解决一个问题，就是当前选中了哪些套餐呢？我们需要能够动态获取到，因为我们需要将这些套餐的id作为参数传递到后端。</p>
+<p>第三步：参考 ElementUI 的官方文档，为表格组件添加 <strong>selection-change</strong> 事件和对应的处理函数，通过此事件我们就可以动态获取到当前勾选的套餐有哪些</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231023165937804.png" alt="image-20231023165937804"></p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231023170202159.png" alt="image-20231023170202159"></p>
+<p>注： <strong>selection-change</strong> 事件为 当选择项发生变化时触发的事件</p>
+<p>第四步：完善 handleDelete 方法，获取当前被选中的行，并进行参数准备</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231023170312864.png" alt="image-20231023170312864"></p>
+<p>注意：单个删除 和 批量删除，都是调用 handleDelete 方法，所以此方法还需要进一步调整</p>
+<p>第五步：为【删除】按钮绑定单击事件，处理函数还是 handleDelete</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231023170440585.png" alt="image-20231023170440585"></p>
+<p>注意：</p>
+<ul>
+<li>在 handleDelete 方法中通过第一个参数来区分是单个删除还是批量删除</li>
+<li>S表示单个删除，B表示批量删除</li>
+</ul>
+<p>第六步：调整 handleDelete 方法，使其兼容单个删除和批量删除</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231023170612705.png" alt="image-20231023170612705"></p>
+<p>第七步：完善 handleDelete 方法，进行相应提示</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231023170710212.png" alt="image-20231023170710212"></p>
+<p>注：</p>
+<ul>
+<li>批量删除时，如果没有选中套餐，给出提示</li>
+<li>删除之前需要弹出确认框，让用户确认</li>
+</ul>
+<h3 id="3-3-功能测试-1"><a href="#3-3-功能测试-1" class="headerlink" title="3.3 功能测试"></a>3.3 功能测试</h3><p>直接进行前后端联调，查看页面效果</p>
+<p>通过浏览器F12查看数据交互过程</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231023170832442.png" alt="image-20231023170832442"></p>
+<h2 id="4-新增套餐"><a href="#4-新增套餐" class="headerlink" title="4. 新增套餐"></a>4. 新增套餐</h2><h3 id="4-1-需求分析和接口设计-1"><a href="#4-1-需求分析和接口设计-1" class="headerlink" title="4.1 需求分析和接口设计"></a>4.1 需求分析和接口设计</h3><p>根据产品原型来进行需求分析，产品原型如下：</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231025113638867.png" alt="image-20231025113638867"></p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231025113707572.png" alt="image-20231025113707572"></p>
+<p>新增套餐时需要录入套餐名称、所属分类、套餐价格、套餐包含的菜品、套餐图片、描述等信息。其中套餐包含的菜品需要在弹出的添加菜品窗口中勾选。在弹出的添加菜品窗口中需要按照分类来展示菜品。</p>
+<p>新增套餐功能涉及到4个接口，分别是：</p>
+<ul>
+<li>根据类型查询分类 接口</li>
+<li>根据分类查询菜品 接口</li>
+<li>文件上传 接口</li>
+<li>新增套餐 接口</li>
+</ul>
+<p>(1) 根据类型查询分类 接口</p>
+<p> <strong>基本信息</strong></p>
+<p><strong>Path：</strong> /admin/category/list</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>请求参数</strong></p>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>type</td>
+<td>否</td>
+<td>2</td>
+<td>分类类型：1为菜品分类，2为套餐分类</td>
+</tr>
+</tbody></table>
+<p><strong>返回数据</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>默认值</th>
+<th>备注</th>
+<th>其他信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td>integer</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td>format: int32</td>
+</tr>
+<tr>
+<td>data</td>
+<td>object []</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>item 类型: object</td>
+</tr>
+<tr>
+<td>├─ createTime</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: date-time</td>
+</tr>
+<tr>
+<td>├─ createUser</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: int64</td>
+</tr>
+<tr>
+<td>├─ id</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: int64</td>
+</tr>
+<tr>
+<td>├─ name</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ sort</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: int32</td>
+</tr>
+<tr>
+<td>├─ status</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: int32</td>
+</tr>
+<tr>
+<td>├─ type</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: int32</td>
+</tr>
+<tr>
+<td>├─ updateTime</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: date-time</td>
+</tr>
+<tr>
+<td>├─ updateUser</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: int64</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>(2) 根据分类查询菜品 接口</p>
+<p> <strong>基本信息</strong></p>
+<p><strong>Path：</strong> /admin/dish/list</p>
+<p><strong>Method：</strong> GET</p>
+<p><strong>请求参数</strong></p>
+<p><strong>Query</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>categoryId</td>
+<td>是</td>
+<td>101</td>
+<td>分类id</td>
+</tr>
+</tbody></table>
+<p><strong>返回数据</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>默认值</th>
+<th>备注</th>
+<th>其他信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td>integer</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td>format: int32</td>
+</tr>
+<tr>
+<td>data</td>
+<td>object []</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>item 类型: object</td>
+</tr>
+<tr>
+<td>├─ categoryId</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: int64</td>
+</tr>
+<tr>
+<td>├─ createTime</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: date-time</td>
+</tr>
+<tr>
+<td>├─ createUser</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: int64</td>
+</tr>
+<tr>
+<td>├─ description</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ id</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: int64</td>
+</tr>
+<tr>
+<td>├─ image</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ name</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ price</td>
+<td>number</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>├─ status</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: int32</td>
+</tr>
+<tr>
+<td>├─ updateTime</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: date-time</td>
+</tr>
+<tr>
+<td>├─ updateUser</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td>format: int64</td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>(3) 文件上传 接口</p>
+<p><strong>基本信息</strong></p>
+<p><strong>Path：</strong> /admin/common/upload</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>请求参数</strong></p>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Content-Type</td>
+<td>multipart/form-data</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>Body</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数类型</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>file</td>
+<td>file</td>
+<td>是</td>
+<td></td>
+<td>文件</td>
+</tr>
+</tbody></table>
+<p><strong>返回数据</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>默认值</th>
+<th>备注</th>
+<th>其他信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td>integer</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td>format: int32</td>
+</tr>
+<tr>
+<td>data</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td>文件上传路径</td>
+<td></td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>(4) 新增套餐 接口</p>
+<p><strong>基本信息</strong></p>
+<p><strong>Path：</strong> /admin/setmeal</p>
+<p><strong>Method：</strong> POST</p>
+<p><strong>接口描述：</strong></p>
+<p><strong>请求参数</strong></p>
+<p><strong>Headers</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数值</th>
+<th>是否必须</th>
+<th>示例</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Content-Type</td>
+<td>application/json</td>
+<td>是</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><strong>Body</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>默认值</th>
+<th>备注</th>
+<th>其他信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>categoryId</td>
+<td>integer</td>
+<td>必须</td>
+<td></td>
+<td>分类id</td>
+<td>format: int64</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td>套餐描述</td>
+<td></td>
+</tr>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td>套餐id</td>
+<td>format: int64</td>
+</tr>
+<tr>
+<td>image</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td>套餐图片</td>
+<td></td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td>套餐名称</td>
+<td></td>
+</tr>
+<tr>
+<td>price</td>
+<td>number</td>
+<td>必须</td>
+<td></td>
+<td>套餐价格</td>
+<td></td>
+</tr>
+<tr>
+<td>setmealDishes</td>
+<td>object []</td>
+<td>必须</td>
+<td></td>
+<td>套餐包含的菜品</td>
+<td>item 类型: object</td>
+</tr>
+<tr>
+<td>├─ copies</td>
+<td>integer</td>
+<td>必须</td>
+<td></td>
+<td>份数</td>
+<td>format: int32</td>
+</tr>
+<tr>
+<td>├─ dishId</td>
+<td>integer</td>
+<td>必须</td>
+<td></td>
+<td>菜品id</td>
+<td>format: int64</td>
+</tr>
+<tr>
+<td>├─ id</td>
+<td>integer</td>
+<td>非必须</td>
+<td></td>
+<td>套餐和菜品关系id</td>
+<td>format: int64</td>
+</tr>
+<tr>
+<td>├─ name</td>
+<td>string</td>
+<td>必须</td>
+<td></td>
+<td>菜品名称</td>
+<td></td>
+</tr>
+<tr>
+<td>├─ price</td>
+<td>number</td>
+<td>必须</td>
+<td></td>
+<td>菜品价格</td>
+<td></td>
+</tr>
+<tr>
+<td>├─ setmealId</td>
+<td>integer</td>
+<td>必须</td>
+<td></td>
+<td>套餐id</td>
+<td>format: int64</td>
+</tr>
+<tr>
+<td>status</td>
+<td>integer</td>
+<td>必须</td>
+<td></td>
+<td>套餐状态：1位起售 0为停售</td>
+<td>format: int32</td>
+</tr>
+</tbody></table>
+<p><strong>返回数据</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>是否必须</th>
+<th>默认值</th>
+<th>备注</th>
+<th>其他信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>code</td>
+<td>integer</td>
+<td>必须</td>
+<td></td>
+<td></td>
+<td>format: int32</td>
+</tr>
+<tr>
+<td>data</td>
+<td>object</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>非必须</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="4-2-代码解读"><a href="#4-2-代码解读" class="headerlink" title="4.2 代码解读"></a>4.2 代码解读</h3><p>新增套餐操作步骤：</p>
+<p>①点击 “新建套餐”按钮，跳转到新增页面</p>
+<p>②在新增套餐页面录入套餐相关信息</p>
+<p>③点击“保存”按钮完成新增操作</p>
+<p>首先需要找到新增套餐页面，可以通过操作过程来找：</p>
+<p>第一步：在套餐管理列表页面中找到【新建套餐】按钮，查看按钮绑定的事件和对应的处理函数</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231026101005983.png" alt="image-20231026101005983"></p>
+<p>第二步：在methods中找到handleAdd函数，查看跳转的路由路径</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231026101037315.png" alt="image-20231026101037315"></p>
+<p>第三步：在路由文件中找到此路径对应的视图组件，可以看到是src/views/setmeal/addSetmeal.vue</p>
+<p><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/image-20231026101135442.png" alt="image-20231026101135442"></p>
+<p>第四步：解读src/views/setmeal/addSetmeal.vue这个文件即可</p>
+<h3 id="4-3-功能测试-1"><a href="#4-3-功能测试-1" class="headerlink" title="4.3 功能测试"></a>4.3 功能测试</h3><p>直接进行前后端联调，查看页面效果</p>
+<p>通过浏览器F12查看数据交互过程</p>
+<h1 id="五、【nvm】适合小白的-nvm-安装配置教程（Windows版）"><a href="#五、【nvm】适合小白的-nvm-安装配置教程（Windows版）" class="headerlink" title="五、【nvm】适合小白的 nvm 安装配置教程（Windows版）"></a>五、【nvm】适合小白的 nvm 安装配置教程（Windows版）</h1><h2 id="nvm-简介"><a href="#nvm-简介" class="headerlink" title="nvm 简介"></a>nvm 简介</h2><p><code>nvm</code> 全称为 <code>node.js version management</code>，顾名思义是用于管理多个 nodejs 的版本控制工具。通过 nvm 可以安装和切换不同版本的 nodejs。nvm 主要是为了解决 node.js 各种版本存在不兼容现象。</p>
+<h2 id="一、nvm-的安装与配置"><a href="#一、nvm-的安装与配置" class="headerlink" title="一、nvm 的安装与配置"></a>一、nvm 的安装与配置</h2><h3 id="1、install-nvm"><a href="#1、install-nvm" class="headerlink" title="1、install nvm"></a>1、install nvm</h3><p>🔎 <a target="_blank" rel="noopener" href="https://github.com/coreybutler/nvm-windows/releases">nvm 官方下载地址</a>.</p>
+<p>🔎 <a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1JDkl82Y44QQvchSn1q2A-Q?pwd=rnny">nvm1.1.12 百度网盘地址</a>【不保证最新版本哈】.</p>
+<p><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/2883139/202402/2883139-20240202224517457-1449501949.png"><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/2883139-20240202224517457-1449501949.png" alt="image-20231117165521095"></a>.</p>
+<p><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/2883139/202402/2883139-20240202224518015-1696008038.png"><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/2883139-20240202224518015-1696008038.png" alt="image-20231117105855047"></a>.</p>
+<p><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/2883139/202402/2883139-20240202224518442-811187715.png"><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/2883139-20240202224518442-811187715.png" alt="image-20231117110141183"></a>.</p>
+<h3 id="2、-base-command【主要验证-nvm-是否安装成功】"><a href="#2、-base-command【主要验证-nvm-是否安装成功】" class="headerlink" title="2、==base command【主要验证 nvm 是否安装成功】=="></a>2、==base command【主要验证 nvm 是否安装成功】==</h3><blockquote>
+<p>architecture：架构</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看 nvm 版本，version 可简写成 小v</span></span><br><span class="line">nvm version</span><br><span class="line">nvm v</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">显示 node 是运行在 32 位还是 64 位</span></span><br><span class="line">nvm arch</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/2883139/202402/2883139-20240202224519111-1315815885.png"><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/2883139-20240202224519111-1315815885.png" alt="image-20231116104021164"></a>.</p>
+<blockquote>
+<p>==重头戏来啦==</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">显示已经安装的列表，list 可简化为 <span class="built_in">ls</span></span></span><br><span class="line">nvm list</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">显示远程可安装的列表，list 也可简化为 <span class="built_in">ls</span></span></span><br><span class="line">nvm list available</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">卸载指定版本 node</span></span><br><span class="line">nvm uninstall [version]</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">使用指定版本 node</span></span><br><span class="line">nvm use [version]</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/2883139/202402/2883139-20240202224519481-1123754033.png"><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/2883139-20240202224519481-1123754033.png" alt="image-20231116105530304"></a>.</p>
+<p><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/2883139/202402/2883139-20240202224519932-639034536.png"><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/2883139-20240202224519932-639034536.png" alt="image-20231116105919918"></a>.</p>
+<blockquote>
+<p>玩玩就好了，基本不会用到</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">开启 node.js 版本管理</span></span><br><span class="line">nvm on</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">关闭 node.js 版本管理</span></span><br><span class="line">nvm off</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/2883139/202402/2883139-20240202224520489-2101089879.png"><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/2883139-20240202224520489-2101089879.png" alt="image-20231116104926531"></a>.</p>
+<h3 id="3、configure-taobao-mirror【配置下载镜像】"><a href="#3、configure-taobao-mirror【配置下载镜像】" class="headerlink" title="3、configure taobao mirror【配置下载镜像】"></a>3、configure taobao mirror【配置下载镜像】</h3><p>在 <code>nvm</code> 的安装路径下，找到 <code>settings.txt</code>，在后面加上这两行，设置国内淘宝镜像源：</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">node<span class="built_in">_</span>mirror: https://npmmirror.com/mirrors/node/</span><br><span class="line">npm<span class="built_in">_</span>mirror: https://npmmirror.com/mirrors/npm/</span><br></pre></td></tr></table></figure>
+
+<p><strong>提醒</strong>：<br><a target="_blank" rel="noopener" href="https://developer.aliyun.com/mirror/">阿里云开源镜像站</a>：<br><a target="_blank" rel="noopener" href="https://npm.taobao.org/%E3%80%90%E8%AF%A5%E5%9F%9F%E5%90%8D%E5%9C%A8">https://npm.taobao.org/【该域名在</a> 2022.06.30 号正式下线和停止 DNS 解析，新域名<a target="_blank" rel="noopener" href="https://developer.aliyun.com/mirror/NPM">npmmirror.com</a>】</p>
+<p><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/2883139/202402/2883139-20240202224520880-657070733.png"><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/2883139-20240202224520880-657070733.png" alt="image-20231116110240298"></a>.</p>
+<p><a target="_blank" rel="noopener" href="https://img2024.cnblogs.com/blog/2883139/202403/2883139-20240326110949684-1417340981.png"><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/2883139-20240326110949684-1417340981.png" alt="image-20240202205301489"></a>.</p>
+<blockquote>
+<p>问题：为什么要配置镜像？</p>
+<p>答：配置完国内的镜像后，npm install xxx 的下载速度会很快！</p>
+</blockquote>
+<h2 id="二、node-的安装与配置"><a href="#二、node-的安装与配置" class="headerlink" title="二、node 的安装与配置"></a>二、node 的安装与配置</h2><h3 id="1、install-node"><a href="#1、install-node" class="headerlink" title="1、install node"></a>1、install node</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">nvm list available</span><br><span class="line">nvm install 16</span><br><span class="line">nvm list</span><br><span class="line">nvm use 16</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>小提示：不要安装 node 的奇数版本！LTS 一般就是偶数版本。</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/2883139/202402/2883139-20240202224521734-2133276040.png"><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/2883139-20240202224521734-2133276040.png" alt="image-20231116111322142"></a>.</p>
+<p><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/2883139/202402/2883139-20240202224522142-98357226.png"><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/2883139-20240202224522142-98357226.png" alt="image-20231117090853114"></a>.</p>
+<h3 id="2、修改-npm-默认镜像源【新增内容】"><a href="#2、修改-npm-默认镜像源【新增内容】" class="headerlink" title="2、修改 npm 默认镜像源【新增内容】"></a>2、修改 npm 默认镜像源【新增内容】</h3><h4 id="方式一：手动修改"><a href="#方式一：手动修改" class="headerlink" title="方式一：手动修改"></a>方式一：手动修改</h4><ol>
+<li>修改 <code>npm</code> 镜像源为淘宝镜像源</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm config <span class="built_in">set</span> registry http://registry.npmmirror.com</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>检查是否成功</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">npm config get registry</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/2883139/202402/2883139-20240202224521266-1240624336.png"><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/2883139-20240202224521266-1240624336.png" alt="image-20240202212343592"></a>.</p>
+<h4 id="方式二：安装-nrm"><a href="#方式二：安装-nrm" class="headerlink" title="方式二：安装 nrm"></a>方式二：安装 nrm</h4><p><strong>前提</strong>：需要先安装 <code>node</code>。<br>请参考下 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/rnny/p/18004162">nrm 安装使用教程</a> 这篇文章.</p>
+<h3 id="3、配置-node-的-prefix（全局路径）和-cache（缓存路径）"><a href="#3、配置-node-的-prefix（全局路径）和-cache（缓存路径）" class="headerlink" title="3、配置 node 的 prefix（全局路径）和 cache（缓存路径）"></a>3、配置 node 的 prefix（全局路径）和 cache（缓存路径）</h3><h4 id="3-1、【非必须，可直接跳过】选择需要使用的-node-版本，新建两个文件夹"><a href="#3-1、【非必须，可直接跳过】选择需要使用的-node-版本，新建两个文件夹" class="headerlink" title="3.1、【非必须，可直接跳过】选择需要使用的 node 版本，新建两个文件夹"></a>3.1、【非必须，可直接跳过】选择需要使用的 node 版本，新建两个文件夹</h4><p><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/2883139/202402/2883139-20240202224522486-1074673816.png"><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/2883139-20240202224522486-1074673816.png" alt="image-20231116132013883"></a>.</p>
+<p><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/2883139/202402/2883139-20240202224522803-240960905.png"><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/2883139-20240202224522803-240960905.png" alt="image-20231116132131610"></a>.</p>
+<blockquote>
+<p>每次使用 nvm 安装 node 都需要手动创建这两个文件夹吗？</p>
+<p>答：并不是每次都需要自己手动创建，但是第一次推荐你手动创建，以后当你设置 prefix 和 cache 后，系统会自动创建。</p>
+</blockquote>
+<p><code>node_global</code>：npm install 下载的全局插件</p>
+<p><code>node_cache</code>：node 的缓存</p>
+<h4 id="3-2、【关键】设置全局模板（prefix）和缓存文件（cache）的存放路径："><a href="#3-2、【关键】设置全局模板（prefix）和缓存文件（cache）的存放路径：" class="headerlink" title="3.2、【关键】设置全局模板（prefix）和缓存文件（cache）的存放路径："></a>3.2、【关键】设置全局模板（prefix）和缓存文件（cache）的存放路径：</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">npm config <span class="built_in">set</span> cache <span class="string">&quot;%NVM_SYMLINK%\node_cache&quot;</span></span></span><br><span class="line">npm config set cache &quot;D:\nvm\nodejs\node_cache&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">npm config <span class="built_in">set</span> prefix <span class="string">&quot;%NVM_SYMLINK%\node_global&quot;</span></span></span><br><span class="line">npm config set prefix &quot;D:\nvm\nodejs\node_global&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">可编辑 .npmrc 配置文件</span></span><br><span class="line">npm config edit</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看部分 .npmrc 配置信息</span></span><br><span class="line">npm config ls</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/2883139/202402/2883139-20240202224523131-155785595.png"><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/2883139-20240202224523131-155785595.png" alt="image-20231116133715188"></a>.</p>
+<p><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/2883139/202402/2883139-20240202224523480-819844066.png"><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/2883139-20240202224523480-819844066.png" alt="image-20231116133858389"></a>.</p>
+<blockquote>
+<p>注意：</p>
+</blockquote>
+<ol>
+<li>引号里面换自己的路径</li>
+<li>引号里面的路径是软链接（<code>nodejs</code>）的路径</li>
+</ol>
+<blockquote>
+<p>每次使用 nvm 安装 node 都需要配置 prefix 和 cache 吗？</p>
+<p>答：并不需要每次都设置。配置的 prefix 和 cache 的信息都在 <code>C:\Users\zhuang\.npmrc</code> 文件里</p>
+</blockquote>
+<h3 id="4、配置-node-环境变量（通用配置，仅需一次配置）"><a href="#4、配置-node-环境变量（通用配置，仅需一次配置）" class="headerlink" title="4、配置 node 环境变量（通用配置，仅需一次配置）"></a>4、配置 node 环境变量（通用配置，仅需一次配置）</h3><h4 id="版本一：【推荐】简单"><a href="#版本一：【推荐】简单" class="headerlink" title="版本一：【推荐】简单"></a>版本一：【推荐】简单</h4><p><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/2883139/202402/2883139-20240202224523823-251045790.png"><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/2883139-20240202224523823-251045790.png" alt="image-20231117125538903"></a>.</p>
+<h4 id="版本二：【跳过就行】复杂"><a href="#版本二：【跳过就行】复杂" class="headerlink" title="版本二：【跳过就行】复杂"></a>版本二：【跳过就行】复杂</h4><blockquote>
+<p>问题：每次使用 nvm 安装 node 都需要配置环境变量吗？</p>
+<p>答：配置时多注意注意 NODE_PATH 值的配置就可以避免多次配置环境变量。不然每次更换 node 都需要配置环境变量。</p>
+</blockquote>
+<p><code>NVM_HOME</code>：nvm 地址目录</p>
+<p><code>NVM_SYMLINK</code>：nvm 配置 nodejs 的软链接，<code>nvm use 版本号</code> 时会自动创建</p>
+<blockquote>
+<p>安装 nvm 时 <code>NVM_HOME</code> 和 <code>NVM_SYMLINK</code> 一般会自动配置上，不需要我们手动配置，非常舒心！</p>
+</blockquote>
+<p><code>NODE_PATH</code>：需要万分注意！！！，格式是：<code>NVM_SYMLINK</code> 路径 + <code>\node_global</code>。</p>
+<p>这样配置的话你就只需要配置一次，以后切换其他版本的 node 时也不需要重新配置 <code>NODE_PATH</code> 环境变量，方便使用。</p>
+<blockquote>
+<p>注意：下图中 NODE_PATH 的值需要手动配置，其中 %NVM_SYMLINK% 需要换上具体的值，然后加上 <code>\node_global</code></p>
+</blockquote>
+<p>eg. 我的 <code>NODE_PATH</code> 配置为</p>
+<figure class="highlight tex"><table><tr><td class="code"><pre><span class="line">D:<span class="keyword">\nvm</span><span class="keyword">\nodejs</span><span class="keyword">\node</span><span class="built_in">_</span>global</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/2883139/202402/2883139-20240202224524190-743366549.png"><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/2883139-20240202224524190-743366549.png" alt="image-20231117102641335"></a>.</p>
+<p><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/2883139/202402/2883139-20240202224524559-856280039.png"><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/2883139-20240202224524559-856280039.png" alt="image-20231117125804868"></a>.</p>
+<h3 id="5、配置完成后，输入以下命令进行验证"><a href="#5、配置完成后，输入以下命令进行验证" class="headerlink" title="5、配置完成后，输入以下命令进行验证"></a>5、配置完成后，输入以下命令进行验证</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看 node 版本，若返回版本号，node 可用</span></span><br><span class="line">node -v</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看 npm 版本，若返回版本号，npm 可用</span></span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+
+<p>如果返回了相应的版本号，则证明成功。</p>
+<p><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/2883139/202402/2883139-20240202224524993-67991871.png"><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/2883139-20240202224524993-67991871.png" alt="image-20231116131617422"></a>.</p>
+<h2 id="三、【选学】扩展：nvm-如何实现-node-任意切换"><a href="#三、【选学】扩展：nvm-如何实现-node-任意切换" class="headerlink" title="三、【选学】扩展：nvm 如何实现 node 任意切换"></a>三、【选学】扩展：nvm 如何实现 node 任意切换</h2><p><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/2883139/202402/2883139-20240202224525845-165962797.png"><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/2883139-20240202224525845-165962797.png" alt="image-20231117104701081"></a>.</p>
+<p><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/2883139/202402/2883139-20240202224526247-1334937302.png"><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/2883139-20240202224526247-1334937302.png" alt="image-20231117105022521"></a>.</p>
+<p><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/2883139/202402/2883139-20240202224526680-1616470130.png"><img src="https://typroamarkdown.oss-cn-chengdu.aliyuncs.com/2883139-20240202224526680-1616470130.png" alt="image-20231117105328963"></a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">小鹏</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/09/27/Vue-%E5%AD%A6%E4%B9%A0/Vue-%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/">http://example.com/2024/09/27/Vue-%E5%AD%A6%E4%B9%A0/Vue-%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">小鹏的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Vue-%E8%BF%9B%E9%98%B6%E5%AD%A6%E4%B9%A0/">Vue-进阶学习</a></div><div class="post_share"><div class="social-share" data-image="https://ts1.cn.mm.bing.net/th/id/R-C.f2ceca4c412263f73c4a7afe17a27249?rik=5FzsAnW2xsuoQQ&amp;riu=http%3a%2f%2fwww.info110.com%2fwp-content%2fuploads%2f2020%2f12%2f20201203_5fc890d068ede.jpg&amp;ehk=Nzj%2bY8GmhFJyV8My58gxsDVgxDiUpNBHijGcotdgXcQ%3d&amp;risl=&amp;pid=ImgRaw&amp;r=0&amp;sres=1&amp;sresct=1" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button"><i class="fas fa-qrcode"></i>赞助</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/09/18/HTML-CSS-%E7%A7%BB%E5%8A%A8Web-Learning/HTML+CSS+%E7%A7%BB%E5%8A%A8%E7%AB%AFweb-Learning/" title="HTML-CSS-移动端Web-Learning"><img class="cover" src="https://b.53326.com/ui/bigpic/20221021/asewjsflfiw.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">HTML-CSS-移动端Web-Learning</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81vue%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE-%E8%BF%9B%E9%98%B6"><span class="toc-text">一、vue基础回顾+进阶</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%BE%E7%A8%8B%E5%86%85%E5%AE%B9"><span class="toc-text">课程内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-VUE-%E5%9F%BA%E7%A1%80%E5%9B%9E%E9%A1%BE"><span class="toc-text">1. VUE 基础回顾</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E5%9F%BA%E4%BA%8E%E8%84%9A%E6%89%8B%E6%9E%B6%E5%88%9B%E5%BB%BA%E5%89%8D%E7%AB%AF%E5%B7%A5%E7%A8%8B"><span class="toc-text">1.1 基于脚手架创建前端工程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-1-%E7%8E%AF%E5%A2%83%E8%A6%81%E6%B1%82"><span class="toc-text">1.1.1 环境要求</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-2-%E6%93%8D%E4%BD%9C%E8%BF%87%E7%A8%8B"><span class="toc-text">1.1.2 操作过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-3-%E5%B7%A5%E7%A8%8B%E7%BB%93%E6%9E%84"><span class="toc-text">1.1.3 &#x3D;&#x3D;工程结构&#x3D;&#x3D;</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-4-%E5%90%AF%E5%8A%A8%E5%89%8D%E7%AB%AF%E6%9C%8D%E5%8A%A1"><span class="toc-text">1.1.4 启动前端服务</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-vue%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F"><span class="toc-text">1.2 vue基本使用方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-1-vue-%E7%BB%84%E4%BB%B6"><span class="toc-text">1.2.1 vue 组件</span></a></li></ol></li></ol></li></ol></li></ol></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2024 By 小鹏</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">博客主题链接文档 <a target="_blank" rel="noopener" href="https://butterfly.js.org/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="/js/tw_cn.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
